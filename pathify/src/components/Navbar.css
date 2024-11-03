@@ -1,8 +1,43 @@
-.navbar{
+.navbar {
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #fff;
-    padding: 15px;
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-links .icon {
+    width: 36px; /* Set the desired width */
+    height: 36px; /* Set the desired height */
+    color: #fff; /* Set the icon color if needed */
+}
+
+.nav-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.search-box {
+    flex-grow: 0.5; /* This allows the search box to take up the available space */
+    display: flex; /* Ensures the input stays centered */
+    justify-content: center; /* Center the search box horizontally */
+}
+
+.search-box input {
+    width: 100%;
+    padding: 5px;
+    padding-left: 15px;
+    font-size: 16px;
+    border-radius: 15px;
 }

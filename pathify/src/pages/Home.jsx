@@ -6,7 +6,7 @@ function Home() {
 
     return(
         <div>
-            <button className="button-text" onClick={() => navigate('/profile')}>Home</button>
+            Home Page
         </div>
     )
 }
