@@ -8,7 +8,10 @@ function Home() {
         <div>
             Homepage
             <button onClick={() => navigate('/profile')}>click me</button>
+            <button onClick={() => navigate('/auth')}>authenticate</button>
         </div>
+
+        
     )
 }
 
