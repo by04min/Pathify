@@ -9,7 +9,6 @@ import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import Settings from './pages/Settings.jsx'
-import Authentication from './pages/Authentication.jsx'
 import Connection from './pages/Connection.jsx'
 import Login from './pages/LogIn.jsx'
 
@@ -63,6 +62,7 @@ function App() {
         <Navbar navColor={navColor}/>
         <Routes>
           <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
         </Routes>
