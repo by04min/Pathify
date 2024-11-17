@@ -9,7 +9,7 @@ import './App.css'
 import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import Connection from './pages/Connection.jsx'
-import Login from './pages/Login.jsx'
+import Login from './pages/LogIn.jsx'
 
 function App() {
 
