@@ -6,7 +6,8 @@ const Connection = () => {
     return(
         <div>
             Connection page
-            {isSignedIn ? <p>Welcome to your Connections</p> : <button onClick={() => navigate('/')}>Sign In to View Connections</button>}
+            <button onClick={() => navigate('/')}>Return to Home Page</button>
+            <button onClick={() => navigate('/login')}>{isSignedIn ? 'Manage Account' : 'Sign In to View Connections'}</button>
             
         </div>
     );
