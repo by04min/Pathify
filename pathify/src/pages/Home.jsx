@@ -14,7 +14,7 @@ function Home() {
     return(
         <div>
             <div className='title'>
-                "Insert Name" Career Tracker
+                Career Tracker
             </div>
             <div className='table-container'>
                 <table>
