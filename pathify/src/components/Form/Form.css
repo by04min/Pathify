@@ -9,7 +9,7 @@
   
 .form-container {
     width: 400px;
-    height: 500px;
+    height: 560px;
     background-color: white;
     border-radius: 8px;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
@@ -21,6 +21,7 @@
     flex: 20%;
     display: grid;
     place-items: center;
+    margin-top: 10px;
 }
   
 .form-container .body {
@@ -28,23 +29,40 @@
 }
   
 .form-container .footer {
-    flex: 20%;
+    flex: 10%;
     display: flex;
     justify-content: center;
-    margin-top: 24px;
+    margin-top: 12px;
+}
+
+.submit-section {
+    flex: 10%;
+    text-align: center;
+    margin-bottom: 10px;
 }
   
 .form-container .footer button {
     width: 40px;
     height: 40px;
-    background-color: rgb(123, 149, 255);
     font-weight: bold;
-    color: white;
     border-radius: 100px;
     cursor: pointer;
     padding: 10px 5px;
     margin: 10px 5px;
     margin: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-container .footer button.completed {
+    background-color: rgb(123, 149, 255);
+    color: white;
+    border: none;
+}
+
+.form-container .footer button.incomplete {
+    background-color: white;
+    color: rgb(123, 149, 255);
+    border: 2px solid rgb(123, 149, 255);
 }
   
 .role-info-container {
@@ -109,4 +127,28 @@
 
 .role-description-container gap {
     margin-top: 5px;
+}
+
+.submit-section button.submit-active {
+    background-color: rgb(123, 149, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 44px;
+    padding: 0px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.submit-section button.submit-inactive {
+    background-color: white;
+    color: rgb(123, 149, 255);
+    border: 2px solid rgb(123, 149, 255);
+    cursor: not-allowed;
+    height: 44px;
+    padding: 0px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
 }
