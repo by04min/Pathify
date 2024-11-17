@@ -1,19 +1,53 @@
 .title{
-    /* margin-top: 10px; */
+    margin-top: -40px;
+    font-family: sans-serif;
+    font-weight: bold;
+    justify-content:left;
     position: relative;
-    color: black;
+    padding: 30px;
 }
-
+/* 
 .buttonDisplay{
     display: flex;
     flex-direction: column;
     border-radius: 15px ;
     gap: 15px;
     justify-content: center;
-    width: auto;
+    width: 50%;
 }
 
 .Button{
     background-color: rgb(40, 147, 218);    
     color:white
+} */
+
+/* Enables scrolling as more jobs are being added*/
+.table-container{ 
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
 }
+
+table{
+    font-family: sans-serif;
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: antiquewhite;
+}
+
+th{
+    background-color:rgba(187, 214, 250, 0.811);
+}
+
+tr{
+    background-color: white;
+}
+
+th , tr, td{
+    border: 1.5px solid black;
+    text-align: center;
+    padding: 20px; 
+}
+
+
+
+
