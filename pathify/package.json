@@ -13,13 +13,15 @@
     "@uiw/react-color-hue": "^2.3.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
+    "esbuild": "^0.24.0",
     "express": "^4.21.1",
     "gapi-script": "^1.2.0",
     "googleapis": "^144.0.0",
     "react": "^18.3.1",
     "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.27.0"
+    "react-router-dom": "^6.27.0",
+    "rollup": "^4.27.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
