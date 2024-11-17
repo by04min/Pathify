@@ -67,6 +67,7 @@ function Home() {
                 <button className ="Button" onClick={() => navigate('/profile')}> Back to Home Page</button>
                 <button className ="Button" onClick={() => navigate('/auth')}> Sign out </button>
             </div> */}
+        </div>
     )
 }
 
