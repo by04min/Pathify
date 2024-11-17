@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import {AuthProvider} from './pages/AuthContext.jsx'
 import React from 'react'
 import { gapi } from 'gapi-script'
 import './App.css'
@@ -9,6 +10,8 @@ import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import Settings from './pages/Settings.jsx'
 import Authentication from './pages/Authentication.jsx'
+import Connection from './pages/Connection.jsx'
+import Login from './pages/LogIn.jsx'
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -55,6 +58,7 @@ function App() {
 
   return (
     <div className='app'>
+    <AuthProvider>
       <BrowserRouter>
         <Navbar navColor={navColor}/>
         <Routes>
@@ -63,6 +67,7 @@ function App() {
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
         </Routes>
       </BrowserRouter>
+    </AuthProvider>
     </div>
   );
 }
