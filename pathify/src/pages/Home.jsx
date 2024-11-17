@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from './AuthContext.jsx';
 import './Home.css'
 
+
 function Home() {
 
     // const navigate = useNavigate();
@@ -66,8 +67,6 @@ function Home() {
                 <button className ="Button" onClick={() => navigate('/profile')}> Back to Home Page</button>
                 <button className ="Button" onClick={() => navigate('/auth')}> Sign out </button>
             </div> */}
- 
-        </div>
     )
 }
 
