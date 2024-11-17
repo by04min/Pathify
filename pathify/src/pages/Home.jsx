@@ -59,6 +59,7 @@ function Home() {
                             <td> Not Released </td>
                         </tr>
                         
+                        
                     </tbody>
                 </table>
             </div>
