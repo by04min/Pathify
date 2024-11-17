@@ -15,6 +15,7 @@ function App() {
 
   return (
     <div className='app'>
+<<<<<<< Updated upstream
       {/* <Navbar/> */}
       <AuthProvider>
         <BrowserRouter>
@@ -26,6 +27,21 @@ function App() {
           </Routes>
         </BrowserRouter>
       </AuthProvider>
+=======
+    <AuthProvider>
+      <BrowserRouter>
+        <Navbar navColor={navColor}/>
+        <Routes>
+          <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/profile" element={<Profile />}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/connection" element={<Connection/>}/>
+          <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
+>>>>>>> Stashed changes
     </div>
   )
 }
