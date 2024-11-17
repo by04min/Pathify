@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import React from 'react'
+import { gapi } from 'gapi-script'
 import './App.css'
 
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import Profile from './pages/Profile.jsx'
 import Settings from './pages/Settings.jsx'
+import Authentication from './pages/Authentication.jsx'
 
 function App() {
   const [theme, setTheme] = useState('light');
