@@ -1,0 +1,12 @@
+.profile-info-container button {
+    width: 50%;
+    height: 100%;
+    background-color: rgb(123, 149, 255);
+    font-weight: bold;
+    color: white;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    margin: 20px;
+}

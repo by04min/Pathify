@@ -1,10 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import "./Profile.css"
+
+import Form from '../components/Form/Form'
 
 const Profile = () => {
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const handleClick = () => {
+        if (!isFormVisible) {
+            setIsFormVisible(true); // Only show the form if it's not already visible
+        }
+    }
 
-    return(
-        <div>
-            Profile page
+    return (
+        <div className="profile-info-container">
+            <h1>TODO: PROFILE INFO</h1>
+            <button onClick={handleClick}>Add new experience</button>
+            
+            {isFormVisible && <Form />}
         </div>
     );
 }
