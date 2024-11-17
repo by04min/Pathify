@@ -12,6 +12,7 @@ function App() {
   const [theme, setTheme] = useState('light');
   const [navColor, setNavColor] = useState('#333');
 
+  // stores user display preferences for light/dark mode
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -27,11 +28,12 @@ function App() {
   };
 
   useEffect(() => {
-    // applies theme globally to highest level of DOM (i.e. all components of app conform to the relevant theme)
+    // applies theme globally to highest level of DOM (i.e. all components of app conform to the relevant light/dark theme)
     const rootTheme = document.documentElement;
     rootTheme.className = theme; // entire page is styled based on class of root element
   }, [theme]); // effect runs whenever theme state is changed
 
+  // store user display color preferences for naviation bar
   useEffect(() => {
     const savedNavColor = localStorage.getItem('navColor');
     if (savedNavColor) {
@@ -40,12 +42,13 @@ function App() {
   }, []);
 
   const updateNavColor = (navCol) => {
+    // dynamically updates navigation bar color based on user-determined color
     setNavColor(navCol.hex);
     localStorage.setItem('navColor', navCol.hex)
   };
 
   const resetNavColor = () => {
-    setNavColor("#333")
+    setNavColor("#333") // restores default navigation bar colors
   }
 
   return (

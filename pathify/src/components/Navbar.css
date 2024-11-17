@@ -1,36 +1,31 @@
 .navbar {
     width: 100%;
     display: flex;
-    align-items: center;
+    align-items: center; /* vertically center items on navigation bar */
     justify-content: space-between;
     padding: 10px 20px;
     color: #fff;
 }
 
 .nav-links {
+    position: relative;
     display: flex;
     align-items: center;
     gap: 15px;
-}
-
-.nav-links .icon {
-    width: 36px; /* Set the desired width */
-    height: 36px; /* Set the desired height */
-    color: #fff; /* Set the icon color if needed */
 }
 
 .nav-links a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
+    color: white;
     text-decoration: none;
 }
 
 .search-box {
-    flex-grow: 0.5; /* This allows the search box to take up the available space */
-    display: flex; /* Ensures the input stays centered */
-    justify-content: center; /* Center the search box horizontally */
+    flex-grow: 0.5; 
+    display: flex;
+    justify-content: center; 
 }
 
 .search-box input {
@@ -39,4 +34,47 @@
     padding-left: 15px;
     font-size: 16px;
     border-radius: 15px;
+}
+
+.dropdown-button {
+    background-color: white;
+    color: black;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: none;
+}
+
+.dropdown-button:hover {
+    background-color: green;
+}
+
+.dropdown-content {
+    display: flex;
+    flex-direction: column; /* items inside of dropdown are stacked vertically */
+    position: absolute;
+    top: 140%;
+    right: 0;
+    background-color: darkgrey;
+    z-index: 1;
+    min-width: 175px;
+    border-radius: 10px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: green;
+    border-radius: 10px;
 }

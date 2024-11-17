@@ -3,8 +3,8 @@ import { SketchPicker } from 'react-color';
 import "../components/Settings.css"
 
 const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
-    const [selectedSetting, setSelectedSetting] = useState("privacy");
-    const [toggled, setToggled] = useState(false);
+    const [selectedSetting, setSelectedSetting] = useState("display"); // tracks what page the user has clicked on; defaults to display page
+    const [toggled, setToggled] = useState(false); // tracks whether user has chosen light mode or dark mode
 
     const clickedToggle = () => {
         setToggled(!toggled);
@@ -38,7 +38,7 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                             className={`default-nav ${toggled ? 'toggled' : ''}`}
                             onClick={resetNavColor}
                         >
-                            Default Navigation Bar
+                            Default Color
                         </button>
                     </div>
                 );
@@ -46,8 +46,6 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                 return <div>Privacy Settings</div>
             case "sign-out":
                 return <div>Sign Out</div>
-            default:
-                return <div>Select a setting!</div>
         }
     };
 
