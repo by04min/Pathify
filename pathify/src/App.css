@@ -4,3 +4,13 @@
   /*padding: 2rem;*/
   text-align: center;
 }
+
+html.light {
+  background-color: white;
+  color: black;
+}
+
+html.dark {
+  background-color: black;
+  color: white;
+}
