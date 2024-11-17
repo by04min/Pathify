@@ -6,7 +6,6 @@ const Login = () => {
     const navigate = useNavigate();
     const {isSignedIn, handleSignIn, handleSignOut} = useContext(AuthContext);
 
-    
     return(
         <div>
             <p>You are currently {isSignedIn ? 'signed in' : 'signed out'}</p>
