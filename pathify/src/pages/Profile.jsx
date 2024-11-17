@@ -1,13 +1,25 @@
 import React, { useState, useContext } from 'react';
 import {AuthContext} from './AuthContext.jsx'
 
+import Form from '../components/Form/Form'
+import "./Profile.css"
+
 const Profile = () => {
     const {isSignedIn} = useContext(AuthContext);
-    return(
-        <div>
-            Profile page
-            <button onClick={() => navigate('/')}>Return to Home Page</button>
-            {isSignedIn ? <p>Welcome to your profile</p> : <button onClick={() => navigate('/login')}>Login to View Profile</button>}
+  
+    const [isFormVisible, setIsFormVisible] = useState(false);
+    const handleClick = () => {
+        if (!isFormVisible) {
+            setIsFormVisible(true); // Only show the form if it's not already visible
+        }
+    }
+    
+    return (
+        <div className="profile-info-container">
+            <h1>TODO: PROFILE INFO</h1>
+            <button onClick={handleClick}>Add new experience</button>
+            
+            {isFormVisible && <Form />}
         </div>
     );
 }
