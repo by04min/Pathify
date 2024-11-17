@@ -4,9 +4,9 @@ import './Navbar.css';
 
 import userIcon from '../assets/user.svg';
 
-const Navbar = () => {
+const Navbar = ({ navColor }) => {
     return (
-        <div className='navbar'>
+        <div style={{ background: navColor }}className='navbar'>
             <div className='nav-links'>
                 <Link to='/'>
                     <h1>Pathify</h1>

@@ -10,7 +10,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@uiw/react-color-hue": "^2.3.2",
     "react": "^18.3.1",
+    "react-color": "^2.19.3",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.27.0"
   },
