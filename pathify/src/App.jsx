@@ -62,6 +62,7 @@ function App() {
         <Navbar navColor={navColor}/>
         <Routes>
           <Route path="/" element={<Home />}/>
+          <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile />}/>
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
         </Routes>
