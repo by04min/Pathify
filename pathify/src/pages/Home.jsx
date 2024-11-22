@@ -1,7 +1,7 @@
 
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext.jsx';
+import { AuthContext } from '../components/AuthContext.jsx';
 import './Home.css'
 
 
@@ -9,7 +9,7 @@ function Home() {
 
     // const navigate = useNavigate();
     const navigate = useNavigate();
-    const {isSignedIn, handleSignIn, handleSignOut} = useContext(AuthContext);
+    const {user, login, logout} = useContext(AuthContext);
 
     return(
         <div>
