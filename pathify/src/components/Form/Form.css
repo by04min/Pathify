@@ -1,0 +1,154 @@
+.form {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.form-container {
+    width: 400px;
+    height: 560px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+}
+  
+.form-container .header {
+    flex: 20%;
+    display: grid;
+    place-items: center;
+    margin-top: 10px;
+}
+  
+.form-container .body {
+    flex: 60%;
+}
+  
+.form-container .footer {
+    flex: 10%;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+}
+
+.submit-section {
+    flex: 10%;
+    text-align: center;
+    margin-bottom: 10px;
+}
+  
+.form-container .footer button {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+    border-radius: 100px;
+    cursor: pointer;
+    padding: 10px 5px;
+    margin: 10px 5px;
+    margin: 20px;
+    transition: all 0.3s ease;
+}
+
+.form-container .footer button.completed {
+    background-color: rgb(123, 149, 255);
+    color: white;
+    border: none;
+}
+
+.form-container .footer button.incomplete {
+    background-color: white;
+    color: rgb(123, 149, 255);
+    border: 2px solid rgb(123, 149, 255);
+}
+  
+.role-info-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.role-info-container input {
+    margin: 5px;
+    width: 200px;
+    height: 40px;
+    padding-left: 5px;
+    font-size: 16px;
+}
+  
+.role-description-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+ 
+.role-description-container textarea {
+    margin: 5px;
+    width: 80%;
+    height: 40%;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+  
+.reflection-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+  
+.reflection-container textarea {
+    margin: 5px;
+    width: 80%;
+    height: 80%;
+    padding-top: 5px;
+    padding-left: 10px;
+    font-size: 16px;
+}
+
+.role-info-container label,
+.role-description-container label,
+.reflection-container label {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.role-description-container gap {
+    margin-top: 5px;
+}
+
+.submit-section button.submit-active {
+    background-color: rgb(123, 149, 255);
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 44px;
+    padding: 0px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.submit-section button.submit-inactive {
+    background-color: white;
+    color: rgb(123, 149, 255);
+    border: 2px solid rgb(123, 149, 255);
+    cursor: not-allowed;
+    height: 44px;
+    padding: 0px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}

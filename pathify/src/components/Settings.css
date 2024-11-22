@@ -1,0 +1,135 @@
+.settings-page {
+    display: flex;
+    height: 100vh;
+    text-align: center;
+  }
+
+.settings-page h1,
+.settings-page h2,
+.settings-page h3,
+.settings-page h4,
+.settings-page div {
+  text-align: left;
+  margin-bottom: 10px; /* Adds vertical space between each text element */
+}
+
+.settings-page h5 {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+hr.line {
+  border: 0;
+  border-top: 1px solid darkgray;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+hr.line.toggled {
+  border: 0;
+  border-top: 2px solid white;
+  margin: 10px 0;
+}
+  
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-right: 1px solid #ddd;
+  }
+  
+.sidebar ul {
+    list-style-type: none;
+    padding: 0px;
+  }
+  
+.sidebar li {
+    margin-bottom: 15px;
+    cursor: pointer;
+    color: #333;
+  }
+  
+.sidebar li:hover {
+    color: #007bff;
+  }
+  
+.settings-content {
+    flex: 1;
+    padding: 20px;
+  }
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.toggle-slider {
+  background-color: darkgrey;
+  padding: 15px 30px;
+  border-radius: 25px;
+  width: 50px;
+  height: 30px;
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.toggle-slider .thumb {
+  height: 23px;
+  width: 23px;
+  background-color: #fff;
+  border-radius: 99px;
+  transform: translateX(0);
+  transition: left 0.15s ease;
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.toggle-slider.toggled {
+  background-color: green;
+}
+
+.toggle-slider.toggled .thumb{
+  left: calc(50px - 15px);
+}
+
+.default-nav {
+  background-color: darkgrey;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: auto; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.default-nav.toggled {
+  background-color: darkgrey;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 25px;
+  width: auto; 
+  height: 40px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.default-nav:hover {
+  background-color: green; 
+}
+
+.react-color .sketch-picker .hue {
+  display: none !important;
+}
