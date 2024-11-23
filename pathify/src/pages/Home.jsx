@@ -1,9 +1,9 @@
 
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext.jsx';
 import './Home.css';
-import StatusDropdown from  "../components/StatusDropdown";
+import {StatusDropdown, InterviewDropdown} from  "../components/Dropdown";
+import DateSelector from '../components/DateSelector';
 
 
 function Home() {
@@ -49,9 +49,9 @@ function Home() {
                             {/* Filler until we get out SQL set up */}
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
-                            <td> November 2024 </td>
+                            <td> <DateSelector/> </td>
                             <td> <StatusDropdown/>  </td>
-                            <td> Interviewed </td>
+                            <td> <InterviewDropdown/> </td>
                             <td> Not Released </td>
                         </tr>
                         <tr>

@@ -67,7 +67,7 @@ body{
 }
 
 .dropdown-btn {
-    padding: 8px 16px;
+    width: 130px;
     background-color: #6ba4b9;
     color: white;
     border: none;
