@@ -9,8 +9,8 @@ import DateSelector from '../components/DateSelector';
 function Home() {
 
     // const navigate = useNavigate();
-
     const navigate = useNavigate(); 
+
     const [statuses, setStatuses] = useState({
         row1: 'Applied',
         row2: 'Not Applied',
@@ -59,7 +59,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> <StatusDropdown/> </td>
+                            <td> Applied  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
@@ -68,7 +68,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> <StatusDropdown/> </td>
+                            <td> Applied  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
