@@ -2,7 +2,6 @@
     margin-top: 20px;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 30px;
     justify-content:left;
     position: relative;
     padding: 30px;
@@ -16,21 +15,17 @@
 
 table{
     font-family: sans-serif;
-    width: 90%;
+    width: 100%;
     border-collapse: collapse; 
-    margin: 0 auto; 
+    background-color: antiquewhite;
 }
 
 th{
-    background-color:rgba(197, 214, 232, 0.753);
+    background-color:rgba(187, 214, 250, 0.811);
 }
 
 tr{
     background-color: white;
-}
-
-td{
-    justify-content: center;
 }
 
 th , tr, td{
