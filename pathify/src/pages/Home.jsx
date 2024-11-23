@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
 import DateSelector from '../components/DateSelector';
+import { AuthContext } from '../components/AuthContext.jsx'
 
 function Home() {
-    const navigateLogin = useNavigate();
     const {user} = useContext(AuthContext);
   
     const [statuses, setStatuses] = useState({
