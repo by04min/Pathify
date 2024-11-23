@@ -1,7 +1,6 @@
 
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from './AuthContext.jsx';
 import './Home.css';
 import StatusDropdown from  "../components/StatusDropdown";
 
@@ -9,8 +8,8 @@ import StatusDropdown from  "../components/StatusDropdown";
 function Home() {
 
     // const navigate = useNavigate();
-
     const navigate = useNavigate(); 
+
     const [statuses, setStatuses] = useState({
         row1: 'Applied',
         row2: 'Not Applied',
@@ -59,7 +58,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> <StatusDropdown/> </td>
+                            <td> Applied  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
@@ -68,7 +67,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> <StatusDropdown/> </td>
+                            <td> Applied  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
