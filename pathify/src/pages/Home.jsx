@@ -1,10 +1,8 @@
-
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import {StatusDropdown, InterviewDropdown} from  "../components/Dropdown";
+import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
 import DateSelector from '../components/DateSelector';
-
 
 function Home() {
 
@@ -23,7 +21,6 @@ function Home() {
             [row]: status,
         }));
     };
-
 
     return(
         <div>
@@ -52,7 +49,7 @@ function Home() {
                             <td> <DateSelector/> </td>
                             <td> <StatusDropdown/>  </td>
                             <td> <InterviewDropdown/> </td>
-                            <td> Not Released </td>
+                            <td> <DecisionDropdown/> </td>
                         </tr>
                         <tr>
                             {/* Filler until we get out SQL set up */}
@@ -63,25 +60,9 @@ function Home() {
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
-                        <tr>
-                            {/* Filler until we get out SQL set up */}
-                            <td> Microsoft </td>
-                            <td> Product Manager Internship </td>
-                            <td>  November 2024 </td>
-                            <td> Applied  </td>
-                            <td> Interviewed </td>
-                            <td> Not Released </td>
-                        </tr>
-                        
-                        
                     </tbody>
                 </table>
             </div>
-            
-            {/* <div className = "buttonDisplay">
-                <button className ="Button" onClick={() => navigate('/profile')}> Back to Home Page</button>
-                <button className ="Button" onClick={() => navigate('/auth')}> Sign out </button>
-            </div> */}
         </div>
     )
 }
