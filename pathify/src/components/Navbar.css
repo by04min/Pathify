@@ -78,3 +78,21 @@
     background-color: green;
     border-radius: 10px;
 }
+
+.dropdown-logout {
+    display: flex;
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+}
+
+.dropdown-logout:hover {
+    background-color: green;
+}

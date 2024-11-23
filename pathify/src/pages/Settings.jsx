@@ -44,8 +44,6 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                 );
             case "privacy":
                 return <div>Privacy Settings</div>
-            case "sign-out":
-                return <div>Sign Out</div>
         }
     };
 
@@ -55,7 +53,6 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                 <ul>
                     <li onClick={() => setSelectedSetting("display")}>Display</li>
                     <li onClick={() => setSelectedSetting("privacy")}>Privacy</li>
-                    <li onClick={() => setSelectedSetting("sign-out")}>Sign Out</li>
                 </ul>
             </aside>
             <main className="settings-content">

@@ -12,8 +12,8 @@ const AuthCallback = () => {
 
         if (token) {
           login(token);
-          navigate('/profile');
-        } else navigate('/login');
+          navigate('/');
+        } else navigate('/');
     }, [login, navigate])
 }
 

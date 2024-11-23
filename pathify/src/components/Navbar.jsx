@@ -1,11 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Navbar.css';
+import { AuthContext } from './AuthContext.jsx'
 
 const Navbar = ({ navColor }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null); // holds reference to dropdown-content across re-renders
+    const { user, logout } = useContext(AuthContext);
+    const navigateLogin = useNavigate();
     
     // toggles the visibility of the dropdown when the user clicks the arrow button
     const toggleDropdown = (event) => {
@@ -19,6 +22,12 @@ const Navbar = ({ navColor }) => {
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
             setDropdownOpen(false);
         }
+    };
+    
+    // calls logout from AuthContext.jsx to log user out
+    const handleLogout = () => {
+        logout();
+        navigateLogin('/') // returns to default home page
     };
 
     useEffect(() => {
@@ -53,8 +62,19 @@ const Navbar = ({ navColor }) => {
                     <div className='dropdown-content'
                         ref={dropdownRef}
                     >
-                        <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
-                        <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
+                        {user ? (
+                            <>
+                                <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
+                                <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
+                                <button onClick={handleLogout} className='dropdown-logout'>
+                                    Sign Out
+                                </button>
+                            </>
+                        ) : (
+                            <a href="http://localhost:8080/auth/oauth">
+                                Sign in to View
+                            </a>
+                        )}
                     </div>
                 )}
             </div>
