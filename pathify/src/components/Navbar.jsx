@@ -52,21 +52,21 @@ const Navbar = ({ navColor }) => {
 
             <div className='nav-links'>
                 <button 
-                    className='dropdown-button'
+                    className='navbar-dropdown-button'
                     onClick={toggleDropdown}
                 >
                     {dropdownOpen ? '↑' : '↓'}
                 </button>
 
                 {dropdownOpen && (
-                    <div className='dropdown-content'
+                    <div className='navbar-dropdown-content'
                         ref={dropdownRef}
                     >
                         {user ? (
                             <>
                                 <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
                                 <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
-                                <button onClick={handleLogout} className='dropdown-logout'>
+                                <button onClick={handleLogout} className='navbar-dropdown-logout'>
                                     Sign Out
                                 </button>
                             </>
