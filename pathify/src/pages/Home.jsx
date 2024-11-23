@@ -9,8 +9,6 @@ import StatusDropdown from  "../components/StatusDropdown";
 function Home() {
 
     // const navigate = useNavigate();
-   
-    const {isSignedIn, handleSignIn, handleSignOut} = useContext(AuthContext);
 
     const navigate = useNavigate(); 
     const [statuses, setStatuses] = useState({

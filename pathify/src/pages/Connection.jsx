@@ -1,13 +1,15 @@
 import React, { useState, useContext } from 'react';
-import {AuthContext} from './AuthContext.jsx'
+import { useNavigate } from 'react-router';
+import {AuthContext} from '../components/AuthContext.jsx'
 
 const Connection = () => {
-    const {isSignedIn} = useContext(AuthContext);
+    const {user} = useContext(AuthContext);
+    const navigate = useNavigate();
     return(
         <div>
             Connection page
             <button onClick={() => navigate('/')}>Return to Home Page</button>
-            <button onClick={() => navigate('/login')}>{isSignedIn ? 'Manage Account' : 'Sign In to View Connections'}</button>
+            <button onClick={() => navigate('/login')}>{user ? 'Manage Account' : 'Sign In to View Connections'}</button>
             
         </div>
     );
