@@ -1,28 +1,3 @@
-import './StatusDropdown.css'
-
-// function StatusDropdown(){
-//     return(
-//         // <div className='container'>
-//             <div className = "dropdown">
-//                 <div className="dropdown-button"> Status </div>
-//                 <div className="dropdown-content">
-//                     <div className="dropdown-item"> 
-//                         Incomplete
-//                     </div>
-//                     <div className="dropdown-item"> 
-//                         Applied
-//                     </div>
-//                     <div className="dropdown-item"> 
-//                         Rejected
-//                     </div>
-//                 </div>
-//             </div>
-//         // </div>
-//     )
-// }
-
-// export default StatusDropdown;
-
 import React, { useState } from 'react';
 import './StatusDropdown.css';
 
