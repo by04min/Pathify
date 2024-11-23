@@ -1,15 +1,29 @@
 
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../components/AuthContext.jsx';
-import './Home.css'
+import { AuthContext } from './AuthContext.jsx';
+import './Home.css';
+import StatusDropdown from  "../components/StatusDropdown";
 
 
 function Home() {
 
     // const navigate = useNavigate();
-    const navigate = useNavigate();
-    const {user, login, logout} = useContext(AuthContext);
+
+    const navigate = useNavigate(); 
+    const [statuses, setStatuses] = useState({
+        row1: 'Applied',
+        row2: 'Not Applied',
+        row3: 'Interviewed',
+    });
+
+    const handleStatusChange = (row, status) => {
+        setStatuses(prevStatuses => ({
+            ...prevStatuses,
+            [row]: status,
+        }));
+    };
+
 
     return(
         <div>
@@ -24,7 +38,7 @@ function Home() {
                             <th> Company </th>
                             <th> Position Title </th>
                             <th> Application Deadline </th>
-                            <th> Applied </th>
+                            <th> Status </th>
                             <th> Interview </th>
                             <th> Decision </th>
                         </tr>
@@ -35,8 +49,8 @@ function Home() {
                             {/* Filler until we get out SQL set up */}
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
-                            <td>  November 2024 </td>
-                            <td> Applied  </td>
+                            <td> November 2024 </td>
+                            <td> <StatusDropdown/>  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
@@ -45,7 +59,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> Applied  </td>
+                            <td> <StatusDropdown/> </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
@@ -54,7 +68,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> Applied  </td>
+                            <td> <StatusDropdown/> </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
