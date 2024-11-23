@@ -8,7 +8,8 @@ import StatusDropdown from  "../components/StatusDropdown";
 function Home() {
 
     // const navigate = useNavigate();
-   
+    const navigate = useNavigate(); 
+
     const [statuses, setStatuses] = useState({
         row1: 'Applied',
         row2: 'Not Applied',
