@@ -18,6 +18,7 @@
   margin-bottom: 10px;
 }
 
+/* CSS for line on UI */
 hr.line {
   border: 0;
   border-top: 1px solid darkgray;
@@ -30,7 +31,8 @@ hr.line.toggled {
   border-top: 2px solid white;
   margin: 10px 0;
 }
-  
+
+/* CSS for Settings page side bar*/
 .sidebar {
     width: 200px;
     padding: 20px;
@@ -52,12 +54,13 @@ hr.line.toggled {
 .sidebar li:hover {
     color: #007bff;
   }
-  
+
 .settings-content {
     flex: 1;
     padding: 20px;
   }
 
+/* CSS for light mode/dark mode toggling */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -96,6 +99,7 @@ hr.line.toggled {
   left: calc(50px - 15px);
 }
 
+/* CSS for default navigation bar color button */
 .default-nav {
   background-color: darkgrey;
   color: black;
@@ -134,6 +138,7 @@ hr.line.toggled {
   display: none !important;
 }
 
+/* CSS for Privacy settings */
 .privacy-option {
   display: flex;
   align-items: flex-start; 
@@ -165,6 +170,7 @@ hr.line.toggled {
   color: #555; 
 }
 
+/* CSS for Current Intern Application List preview */
 .preview-link {
   background: none;
   border: none;
