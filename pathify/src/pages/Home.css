@@ -1,19 +1,53 @@
-.title{
-    /* margin-top: 10px; */
-    position: relative;
+/* Enables scrolling as more jobs are being added*/
+.table-container{ 
+    max-height: 400px; /* Adjust height as needed */
+    overflow-y: auto;  /* Enables vertical scrolling */
+}
+
+.table-container table{
+    font-family: sans-serif;
+    width: 90%;
+    border-collapse: collapse; 
+    margin: 0 auto; 
+}
+
+.table-container th{
+    background-color:rgba(197, 214, 232, 0.753);
     color: black;
 }
 
-.buttonDisplay{
-    display: flex;
-    flex-direction: column;
-    border-radius: 15px ;
-    gap: 15px;
-    justify-content: center;
-    width: auto;
+.table-container tr{
+    background-color: white;
+    color: black;
 }
 
-.Button{
-    background-color: rgb(40, 147, 218);    
-    color:white
+.table-container td{
+    justify-content: center;
+}
+
+.table-container th, tr, td{
+    justify-content: center;
+    border: 1.5px solid black;
+    text-align: center;
+    padding: 20px; 
+}
+
+.login-button{
+    background-color: darkgrey;
+    padding-top: 10px;
+}
+
+.login-button:hover{
+    background-color: green;
+}
+
+.big-home-container h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.table-container p{
+    padding-top:5px;
+    padding-bottom:10px;
+    color: black;
 }

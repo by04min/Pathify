@@ -1,23 +1,30 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {AuthContext} from './AuthContext.jsx'
+import { AuthContext } from '../components/AuthContext.jsx'
 
 const Login = () => {
-    const navigate = useNavigate();
-    const {isSignedIn, handleSignIn, handleSignOut} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const { user, logout } = useContext(AuthContext);
 
-    return(
-        <div>
-            <p>You are currently {isSignedIn ? 'signed in' : 'signed out'}</p>
-            <button onClick={() => navigate('/')}>Return to Home Page</button>
-            {!isSignedIn ? (
-                <button onClick={handleSignIn}>Sign In with Google</button>
-            ) : (
-                <button onClick={handleSignOut}>Sign Out </button>
-            )}
+  useEffect(() => {
+    if (user) { navigate('/'); }
+  }, [user])
 
-        </div>
-    );
+  const loginGoogle = () => {
+    window.open('http://localhost:8080/auth/oauth', '_self')
+  }
+
+  return(
+    <div>
+      <p>You are currently {user ? 'signed in' : 'signed out'}</p>
+      <button onClick={() => navigate('/')}>Return to Home Page</button>
+      {!user ? (
+        <button onClick={loginGoogle}>Sign In with Google</button>
+      ) : (
+        <button onClick={logout}>Sign Out </button>
+      )}
+    </div>
+  );
 }
 
 export default Login;
