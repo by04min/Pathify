@@ -14,3 +14,7 @@ html.dark {
   background-color: black;
   color: white;
 }
+
+body {
+  padding-top: 65px; /* Adjust this value to match the navbar height */
+}
