@@ -18,6 +18,7 @@
     overflow-y: auto;  /* Enables vertical scrolling */
 }
 
+
 .table-container table{
     font-family: sans-serif;
     width: 90%;
@@ -55,9 +56,9 @@
     background-color: green;
 }
 
-.table-container h1{
-    padding-top: 10px;
-    color: black;
+.big-home-container h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .table-container p{
