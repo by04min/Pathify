@@ -8,7 +8,7 @@ const sheetQuery = async (qstring, values) => {
 }
 
 sheetController.getRows = async (req, res, next) => {
-  const { userId } = req.body;
+  const userId = res.locals.user.id;
   const queryString = `SELECT * FROM spreadsheet WHERE userid = $1`;
   
   sheetQuery(queryString, [userId])
@@ -21,15 +21,16 @@ sheetController.getRows = async (req, res, next) => {
 }
 
 sheetController.addRow = async (req, res, next) => {
-  const { company, position, deadline, userId } = req.body;
-  const queryString = `INSERT INTO spreadsheet (company, position, deadline, status, interview, decision, "userId")
+  const { company, position, deadline, } = req.body;
+  const userId = res.locals.user.id;
+  const queryString = `INSERT INTO spreadsheet (company, position, deadline, status, interview, decision, userid)
                       VALUES($1, $2, $3, $4, $5, $6, $7)`;
   const values = [company, position, deadline, 'not applied', 'pending', 'not released', userId];
 
   sheetQuery(queryString, values)
     .then((data) => {
       console.log('add complete', data);
-      res.locals.sheetInsert = data;
+      res.locals.sheetAdd = data;
       return next();
     })
     .catch((err) => { return next(err); })
@@ -37,9 +38,10 @@ sheetController.addRow = async (req, res, next) => {
 
 
 sheetController.updateItem = async (req, res, next) => {
-  const { column, update, userId, id } = req.body;
+  const { column, update, id } = req.body;
+  const userId = res.locals.user.id;
 
-  const queryString = `UPDATE spreadsheet SET $1 = $2 WHERE (userID = $3 AND id = $4)`;
+  const queryString = `UPDATE spreadsheet SET $1 = $2 WHERE (userid = $3 AND id = $4)`;
   const values = [column, update, userId, id];
 
   sheetQuery(queryString, values)
@@ -51,12 +53,13 @@ sheetController.updateItem = async (req, res, next) => {
     .catch((err) => { return next(err); })
 }
 
-sheetController.deleteItem = async (req, res, next) => {
+sheetController.deleteRow = async (req, res, next) => {
   const { id } = req.body;
+  const userId = res.locals.user.id;
+  
+  const queryString = `DELETE FROM spreadsheet WHERE (id = $1 AND userid = $2)`;
 
-  const queryString = `DELETE FROM spreadsheet WHERE id = $1`;
-
-  sheetQuery(queryString, [id])
+  sheetQuery(queryString, [id, userId])
     .then((data) => {
       console.log('delete complete', data);
       res.locals.sheetDelete = data;

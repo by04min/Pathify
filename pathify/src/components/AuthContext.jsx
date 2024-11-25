@@ -20,7 +20,7 @@ export const AuthProvider = ({ children })=> {
         credentials : 'include'
       })
       // .then((response) => response.json())
-      .then((data) => {console.log(data); return data.json()})
+      .then((data) => data.json())
       .then((data) => { console.log(data); if (data.success) setUser(data.user); })
       .catch((err) => { console.log('Token verification failed: ', err); })
       .finally(() => setLoading(false));
