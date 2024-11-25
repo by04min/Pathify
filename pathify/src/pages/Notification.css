@@ -1,11 +1,10 @@
 .notification-title{
-    margin-top: 20px;
     font-family: sans-serif;
     font-weight: bold;
     font-size: 30px;
     justify-content: center;
     position: relative;
-    padding: 30px;
+    padding: 20px;
 }
 
 .notification-table-container table{
@@ -13,6 +12,7 @@
     width: 90%;
     border-collapse: collapse; 
     margin: 0 auto; 
+    color: black;
 }
 
 .notification-table-container th{
