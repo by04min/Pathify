@@ -69,28 +69,29 @@ const Navbar = ({ navColor }) => {
                         {dropdownOpen ? '↑' : '↓'}
                     </button>
 
-                    {dropdownOpen && (
-                        <div className='navbar-dropdown-content'
-                            ref={dropdownRef}
-                        >
-                            {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
-                            {user ? ( 
-                                <>
-                                    <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
-                                    <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
-                                    <button onClick={handleLogout} className='navbar-dropdown-logout'>
-                                        Sign Out
-                                    </button>
-                                </>
-                            ) : (
-                                <a href="http://localhost:8080/auth/oauth">
-                                    Sign in to View
-                                </a>
-                            )}
-                        </div>
-                    )}
-                </div>
+                {dropdownOpen && (
+                    <div className='dropdown-content'
+                        ref={dropdownRef}
+                    >
+                        {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
+                        {user ? ( 
+                            <>
+                                <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
+                                <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
+                                <Link to='connection' onClick={() => setDropdownOpen(false)}>Connection</Link>
+                                <button onClick={handleLogout} className='navbar-dropdown-logout'>
+                                    Sign Out
+                                </button>
+                            </>
+                        ) : (
+                            <a href="http://localhost:8080/auth/oauth">
+                                Sign in to View
+                            </a>
+                        )}
+                    </div>
+                )}
             </div>
+        </div>
         </div>
     );
 };
