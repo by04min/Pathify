@@ -1,13 +1,3 @@
-.home-title{
-    margin-top: 20px;
-    font-family: sans-serif;
-    font-weight: bold;
-    font-size: 30px;
-    justify-content:left;
-    position: relative;
-    padding: 30px;
-}
-
 /* Enables scrolling as more jobs are being added*/
 .home-table-container{ 
     max-height: 400px; /* Adjust height as needed */
@@ -49,7 +39,7 @@
 }
 
 h1{
-    padding-top: 10px;
+    margin-top: 0px;
 }
 
 p{

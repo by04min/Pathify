@@ -33,9 +33,7 @@ function Home() {
                 </div>
             ) : (
                 <div>
-            <div className='title'>
-                Career Tracker
-            </div>
+            <h1>Internship Tracker</h1>
               <div className='table-container'>
                   <table>
                       <thead>
