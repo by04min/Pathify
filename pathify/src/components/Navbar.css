@@ -26,6 +26,12 @@
     text-decoration: none;
 }
 
+.navbar-left-buttons {
+    display: flex;
+    align-items: center; /* Align buttons vertically */
+    gap: 15px; /* Add space between the buttons */
+}
+
 /* CSS for search bar */
 .search-box {
     flex-grow: 0.5; 
@@ -100,5 +106,26 @@
 }
 
 .navbar-dropdown-logout:hover {
+    background-color: green;
+}
+
+/* CSS for notifications button */
+.navbar-notif-button {
+    display: inline-block; 
+    width: 40px;           
+    height: 40px;         
+    line-height: 40px;    
+    text-align: center;    
+    border-radius: 50%;   
+    background-color: white; 
+    color: black;       
+    text-decoration: none; 
+    font-size: 18px;     
+    border: none;       
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-notif-button:hover{
     background-color: green;
 }
