@@ -18,6 +18,7 @@
   margin-bottom: 10px;
 }
 
+/* CSS for line on UI */
 hr.line {
   border: 0;
   border-top: 1px solid darkgray;
@@ -30,7 +31,8 @@ hr.line.toggled {
   border-top: 2px solid white;
   margin: 10px 0;
 }
-  
+
+/* CSS for Settings page side bar*/
 .sidebar {
     width: 200px;
     padding: 20px;
@@ -52,12 +54,13 @@ hr.line.toggled {
 .sidebar li:hover {
     color: #007bff;
   }
-  
+
 .settings-content {
     flex: 1;
     padding: 20px;
   }
 
+/* CSS for light mode/dark mode toggling */
 .theme-toggle {
   display: flex;
   align-items: center;
@@ -96,6 +99,7 @@ hr.line.toggled {
   left: calc(50px - 15px);
 }
 
+/* CSS for default navigation bar color button */
 .default-nav {
   background-color: darkgrey;
   color: black;
@@ -131,9 +135,10 @@ hr.line.toggled {
 }
 
 .react-color .sketch-picker .hue {
-  display: none !important;
+  display: none;
 }
 
+/* CSS for Privacy settings */
 .privacy-option {
   display: flex;
   align-items: flex-start; 
@@ -163,8 +168,17 @@ hr.line.toggled {
   margin: 0;
   font-size: 14px; 
   color: #555; 
+  padding-bottom: 10px;
 }
 
+html.dark .priv-description-col p {
+  margin: 0;
+  font-size: 14px; 
+  color: white; 
+  padding-bottom: 10px;
+}
+
+/* CSS for Current Intern Application List preview */
 .preview-link {
   background: none;
   border: none;
@@ -175,15 +189,31 @@ hr.line.toggled {
   padding: 0;
 }
 
+html.dark .preview-link {
+  background: none;
+  border: none;
+  color: lightblue; 
+  text-decoration: underline;
+  font-size: 14px; 
+  cursor: pointer;
+  padding: 0;
+}
+
 .preview-link:hover {
-  color: darkblue;
+  color: purple;
   text-decoration: none; 
+}
+
+html.dark .preview-link:hover{
+  color: lightpink;
+  text-decoration: none;
 }
 
 .preview-box {
   margin-top: 10px;
   padding: 10px;
   background-color: beige;
+  color: black;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 300px;
