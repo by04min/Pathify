@@ -17,15 +17,15 @@ export function StatusDropdown({ initialStatus = "Applied", onChange }) {
     };
 
     return (
-        <div className="dropdown">
-            <button className="dropdown-btn" onClick={toggleDropdown}>
+        <div className="home-dropdown">
+            <button className="home-dropdown-btn" onClick={toggleDropdown}>
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="dropdown-content">
-                    <div className="dropdown-item" onClick={() => handleSelect("Applied")}>Applied</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Interviewed")}>Interviewed</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
+                <div className="home-dropdown-content">
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Applied")}>Applied</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Interviewed")}>Interviewed</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
                 </div>
             )}
         </div>
@@ -48,15 +48,15 @@ export function InterviewDropdown({ initialStatus = "Pending", onChange }) {
     };
 
     return (
-        <div className="dropdown">
-            <button className="dropdown-btn" onClick={toggleDropdown}>
+        <div className="home-dropdown">
+            <button className="home-dropdown-btn" onClick={toggleDropdown}>
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="dropdown-content">
-                    <div className="dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Scheduled")}>Scheduled</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Completed")}>Completed</div>
+                <div className="home-dropdown-content">
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Scheduled")}>Scheduled</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Completed")}>Completed</div>
                 </div>
             )}
         </div>
@@ -79,16 +79,16 @@ export function DecisionDropdown({ initialStatus = "Pending", onChange }) {
     };
 
     return (
-        <div className="dropdown">
-            <button className="dropdown-btn" onClick={toggleDropdown}>
+        <div className="home-dropdown">
+            <button className="home-dropdown-btn" onClick={toggleDropdown}>
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="dropdown-content">
-                    <div className="dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Rejected")}>Rejected</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Received Offer")}>Receive Offer</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Offer Accepted")}>Offer Accepted</div>
+                <div className="home-dropdown-content">
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Rejected")}>Rejected</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Received Offer")}>Receive Offer</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Offer Accepted")}>Offer Accepted</div>
                 </div>
             )}
         </div>
