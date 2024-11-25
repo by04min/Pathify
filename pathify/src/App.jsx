@@ -70,6 +70,7 @@ function App() {
           <Route path="/auth/callback" element={<AuthCallback/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/connection" element={<Connection/>}/>
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
         </Routes>
       </BrowserRouter>
