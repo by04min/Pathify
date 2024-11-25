@@ -65,6 +65,7 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                         <h4>Privacy Settings</h4>
                         <h2>Manage what you share on Pathify</h2>
                         <hr className="line" />
+                        {/*Share Email: users can click the checkbox to give permission to share their email with other users that view their profile on the Connections page*/}
                         <div className="privacy-option">
                             <div className="priv-checkbox-col">
                                 <input
@@ -81,7 +82,7 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                             </div>
                         </div>
 
-
+                        {/*Share Internship List: users can click the checkbox to give permission to share their current applications list with other users that view their profile on the Connections page*/}
                         <div className="privacy-option">
                             <div className="priv-checkbox-col">
                                 <input
@@ -95,6 +96,7 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                                     <label>Share my internship application list</label>
                                 </div>
                                 <p>Other users will be able to see a list of internships you are currently applying to.<br />Your application status will not be visible at any time.</p>
+                                {/*Preview Button: hidden by default; users can click to see a preview of what an application list would look like on their profile*/}
                                 <button
                                     className="preview-link"
                                     onClick={() => setShowListPreview(!showListPreview)}
