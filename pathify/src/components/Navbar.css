@@ -5,6 +5,10 @@
     justify-content: space-between;
     padding: 10px 20px;
     color: #fff;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000;
 }
 
 .nav-links {
@@ -22,6 +26,7 @@
     text-decoration: none;
 }
 
+/* CSS for search bar */
 .search-box {
     flex-grow: 0.5; 
     display: flex;
@@ -36,7 +41,8 @@
     border-radius: 15px;
 }
 
-.dropdown-button {
+/* CSS for dropdown button */
+.navbar-dropdown-button {
     background-color: white;
     color: black;
     width: 40px;
@@ -51,11 +57,11 @@
     border: none;
 }
 
-.dropdown-button:hover {
+.navbar-dropdown-button:hover {
     background-color: green;
 }
 
-.dropdown-content {
+.navbar-dropdown-content {
     display: flex;
     flex-direction: column; /* items inside of dropdown are stacked vertically */
     position: absolute;
@@ -67,14 +73,32 @@
     border-radius: 10px;
 }
 
-.dropdown-content a {
+.navbar-dropdown-content a {
     color: white;
     padding: 10px;
     text-decoration: none;
     display: block;
 }
 
-.dropdown-content a:hover {
+.navbar-dropdown-content a:hover {
     background-color: green;
     border-radius: 10px;
+}
+
+.navbar-dropdown-logout {
+    display: flex;
+    background-color: darkgrey;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    font-size: 15px;
+}
+
+.navbar-dropdown-logout:hover {
+    background-color: green;
 }

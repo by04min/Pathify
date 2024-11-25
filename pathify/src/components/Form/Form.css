@@ -22,10 +22,12 @@
     display: grid;
     place-items: center;
     margin-top: 10px;
+    color: black;
 }
   
 .form-container .body {
     flex: 60%;
+    color: black;
 }
   
 .form-container .footer {
