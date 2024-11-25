@@ -101,7 +101,6 @@ function Home() {
                             <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
                             
                             <button className="home-form-buttons" type="submit"> Submit </button>
-                            <button className="home-form-buttons" type="button"> Reset </button>
                         </form>
                     </div>
 
