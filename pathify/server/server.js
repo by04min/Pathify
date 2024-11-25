@@ -8,10 +8,11 @@ import cookieSession from 'cookie-session';
 import passport from './middleware/passport.js'
 import authRoutes from './routes/authRoutes.js'
 const app = express();
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const port = 8080;
 dotenv.config();
 
-app.use(cors({ methods:"GET,POST,PUT,DELETE", credentials: true }));
+app.use(cors({ methods:"GET,POST,PUT,DELETE", origin: FRONTEND_URL, credentials: true }));
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.static('public'));
