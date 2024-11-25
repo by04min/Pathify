@@ -133,3 +133,75 @@ hr.line.toggled {
 .react-color .sketch-picker .hue {
   display: none !important;
 }
+
+.privacy-option {
+  display: flex;
+  align-items: flex-start; 
+  gap: 10px; 
+  margin-bottom: 20px;
+}
+
+.priv-checkbox-col {
+  display: flex;
+  align-items: center; 
+  width: 40px; 
+  padding-top: 3px;
+  padding-left: 10px;
+}
+
+.priv-description-col {
+  flex: 1; 
+}
+
+.label-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px; 
+}
+
+.priv-description-col p {
+  margin: 0;
+  font-size: 14px; 
+  color: #555; 
+}
+
+.preview-link {
+  background: none;
+  border: none;
+  color: blue; 
+  text-decoration: underline;
+  font-size: 14px; 
+  cursor: pointer;
+  padding: 0;
+}
+
+.preview-link:hover {
+  color: darkblue;
+  text-decoration: none; 
+}
+
+.preview-box {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: beige;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  width: 300px;
+}
+
+
+.preview-box h5 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.preview-box ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.preview-box li {
+  font-size: 14px;
+  line-height: 1.5;
+}
