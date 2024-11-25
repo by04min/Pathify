@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import './StatusDropdown.css';
 
@@ -16,15 +17,15 @@ function StatusDropdown({ initialStatus = "Applied", onChange }) {
     };
 
     return (
-        <div className="dropdown">
-            <button className="dropdown-btn" onClick={toggleDropdown}>
+        <div className="home-dropdown">
+            <button className="home-dropdown-btn" onClick={toggleDropdown}>
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="dropdown-content">
-                    <div className="dropdown-item" onClick={() => handleSelect("Applied")}>Applied</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Interviewed")}>Interviewed</div>
-                    <div className="dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
+                <div className="home-dropdown-content">
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Applied")}>Applied</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Interviewed")}>Interviewed</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
                 </div>
             )}
         </div>

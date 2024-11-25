@@ -1,4 +1,4 @@
-.title{
+.home-title{
     margin-top: 20px;
     font-family: sans-serif;
     font-weight: bold;
@@ -9,31 +9,31 @@
 }
 
 /* Enables scrolling as more jobs are being added*/
-.table-container{ 
+.home-table-container{ 
     max-height: 400px; /* Adjust height as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
 }
 
-table{
+.home-table-container table{
     font-family: sans-serif;
     width: 90%;
     border-collapse: collapse; 
     margin: 0 auto; 
 }
 
-th{
+.home-table-container th {
     background-color:rgba(197, 214, 232, 0.753);
 }
 
-tr{
+.home-table-container tr{
     background-color: white;
 }
 
-td{
+.home-table-container td{
     justify-content: center;
 }
 
-th , tr, td{
+.home-table-container th , tr, td{
     border: 1.5px solid black;
     text-align: center;
     padding: 20px; 

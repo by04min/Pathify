@@ -26,10 +26,10 @@ function Home() {
 
     return(
         <div>
-            <div className='title'>
+            <div className='home-title'>
                 Career Tracker
             </div>
-            <div className='table-container'>
+            <div className='home-table-container'>
                 <table>
                     <thead>
                         {/* Main Header Row */}
@@ -58,7 +58,7 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> Applied  </td>
+                            <td> <StatusDropdown/>  </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
@@ -67,14 +67,14 @@ function Home() {
                             <td> Microsoft </td>
                             <td> Product Manager Internship </td>
                             <td>  November 2024 </td>
-                            <td> Applied  </td>
+                            <td> <StatusDropdown/> </td>
                             <td> Interviewed </td>
                             <td> Not Released </td>
                         </tr>
-                        
-                        
+ 
                     </tbody>
                 </table>
+                
             </div>
             
             {/* <div className = "buttonDisplay">
