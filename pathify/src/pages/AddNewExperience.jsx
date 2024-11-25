@@ -1,10 +1,9 @@
 import Form from '../components/Form/Form'
-import './AddNew.css'
 
-const AddNew = () => {
+const AddNewExperience = () => {
     return(
         <Form />
     );
 };
 
-export default AddNew;
+export default AddNewExperience;

@@ -7,7 +7,7 @@ import "./Profile.css"
 const Profile = () => {
     const navigate = useNavigate();
     const handleClick = () => {
-        navigate('/add-new');
+        navigate('/add-new-experience');
     };
     
     return (
