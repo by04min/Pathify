@@ -11,11 +11,18 @@ function Home() {
     const navigate = useNavigate();
     const {user, login, logout} = useContext(AuthContext);
 
+    const checking = () => {
+        fetch('http://localhost:8080/auth/verify-token' , {
+            credentials : 'include'
+          }
+        ).then((response) => response.json()).then((data) => {console.log(data)}) 
+    }
     return(
         <div>
             <div className='title'>
                 Career Tracker
             </div>
+            <button onClick={() => {checking()}}> cehckcheckcehk</button>
             <div className='table-container'>
                 <table>
                     <thead>

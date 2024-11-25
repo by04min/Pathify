@@ -13,15 +13,15 @@ export const AuthProvider = ({ children })=> {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    console.log('calling')
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:8080/auth/verify-token', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ 'token': token }),
+      fetch('http://localhost:8080/auth/verify-token' , {
+        credentials : 'include'
       })
-      .then((response) => response.json())
-      .then((data) => { if (data.success) setUser(data.user); })
+      // .then((response) => response.json())
+      .then((data) => {console.log(data); return data.json()})
+      .then((data) => { console.log(data); if (data.success) setUser(data.user); })
       .catch((err) => { console.log('Token verification failed: ', err); })
       .finally(() => setLoading(false));
     } else { setLoading(false); }
