@@ -21,6 +21,7 @@ function Home() {
         }));
     };
 
+
     return(
         <div>
             {/*}
@@ -88,17 +89,16 @@ function Home() {
                 <h3 className="home-form-title"> Add New Job Listing </h3>
                 <div className='home-form-container'>
                     <form className='home-form'>
-                        <label className='home-form-label' htmlFor='company-name'> Company Name* </label>
-                        <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name"></input>
+                        <label className='home-form-label' htmlFor='companyname'> Company Name* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Company Name" name="companyname" required ></input>
 
-                        <label className='home-form-label' htmlFor='position-title'> Position Title* </label>
-                        <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title" ></input>
+                        <label className='home-form-label' htmlFor='positiontitle'> Position Title* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Position Title" name="positiontitle" required ></input>
 
-                        <label className='home-form-label' htmlFor='application-deadline'> Application Title* </label>
-                        <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
+                        <label className='home-form-label' htmlFor='applicationdeadline'> Application Title* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="applicationdeadline" required ></input>
                         
-                        <button className="home-form-buttons" type="submit"> Submit </button>
-                        <button className="home-form-buttons" type="button"> Reset </button>
+                        <button className="home-form-buttons" type="submit" > Submit </button>
                     </form>
                  </div>
 

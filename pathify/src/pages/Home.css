@@ -1,5 +1,9 @@
+.big-home-container h1{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .title{
-    margin-top: 215x;
     font-family: sans-serif;
     font-weight: bold;
     font-size: 30px;
