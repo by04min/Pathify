@@ -14,6 +14,7 @@ import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
 import Settings from './pages/Settings.jsx'
 import Connection from './pages/Connection.jsx'
+import AddNew from './pages/AddNew.jsx'
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -70,6 +71,7 @@ function App() {
           <Route path="/auth/callback" element={<AuthCallback/>}/>
           <Route path="/signup" element={<Signup/>}/>
           <Route path="/profile" element={<Profile/>}/>
+          <Route path="/add-new" element={<AddNew/>}/>
           <Route path="/connection" element={<Connection/>}/>
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
         </Routes>
