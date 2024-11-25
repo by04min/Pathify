@@ -1,5 +1,5 @@
 .profile-info-container button {
-    width: 50%;
+    width: 80%;
     height: 100%;
     background-color: rgb(123, 149, 255);
     font-weight: bold;
@@ -7,6 +7,38 @@
     border-radius: 100px;
     cursor: pointer;
     padding: 10px 5px;
-    margin: 10px 5px;
-    margin: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.profile-info-container h1{
+    margin-top: 20px;
+}
+
+.basic-profile-info {
+    width: 80%;
+    margin: 30px auto 40px auto;
+}
+
+.profile-details {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+}
+  
+.profile-name-school-major {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 30px 40px 20px;
+    text-align: left;
+}
+  
+.profile-picture {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }

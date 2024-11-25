@@ -1,0 +1,67 @@
+.job-experience-container {
+    width: 80%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+  
+.job-experience-header {
+    align-self: stretch;
+    padding: 24px;
+    border-left: 2px solid black;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+}
+ 
+.job-experience-header-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.job-title-date {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-b;
+    align-items: flex-start;
+    width: 100%;
+}
+  
+.divider {
+    width: 100%;
+    border: 1px solid black;
+}
+  
+.role-description {
+    align-self: stretch;
+    padding: 24px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
+  
+.reflection-section {
+    align-self: stretch;
+    padding: 24px;
+    border-left: 2px solid black;
+    border-right: 2px solid black;
+    border-bottom: 2px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 8px;
+}
