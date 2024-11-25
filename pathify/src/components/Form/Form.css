@@ -26,6 +26,7 @@
   
 .form-container .body {
     flex: 60%;
+    color: black;
 }
   
 .form-container .footer {

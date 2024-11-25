@@ -1,29 +1,32 @@
 /* Enables scrolling as more jobs are being added*/
-.home-table-container{ 
+.table-container{ 
     max-height: 400px; /* Adjust height as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
 }
 
-.home-table-container table{
+.table-container table{
     font-family: sans-serif;
     width: 90%;
     border-collapse: collapse; 
     margin: 0 auto; 
 }
 
-.home-table-container th {
+.table-container th{
     background-color:rgba(197, 214, 232, 0.753);
+    color: black;
 }
 
-.home-table-container tr{
+.table-container tr{
     background-color: white;
+    color: black;
 }
 
-.home-table-container td{
+.table-container td{
     justify-content: center;
 }
 
-.home-table-container th , tr, td{
+.table-container th, tr, td{
+    justify-content: center;
     border: 1.5px solid black;
     text-align: center;
     padding: 20px; 
@@ -42,7 +45,8 @@ h1{
     margin-top: 0px;
 }
 
-p{
+.table-container p{
     padding-top:5px;
     padding-bottom:10px;
+    color: black;
 }

@@ -7,7 +7,8 @@ import { AuthContext } from './AuthContext.jsx'
 const Navbar = ({ navColor }) => {
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const dropdownRef = useRef(null); // holds reference to dropdown-content across re-renders
-    const { user, logout } = useContext(AuthContext);
+
+    const { user, logout } = useContext(AuthContext); // props passed from AuthContext; check for whether user is logged in, and sign out functionality
     const navigateLogin = useNavigate();
     
     // toggles the visibility of the dropdown when the user clicks the arrow button
@@ -20,7 +21,7 @@ const Navbar = ({ navColor }) => {
     const handleOutsideClick = (event) => {
         // checks whether element clicked is not inside the dropdown menu
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-            setDropdownOpen(false);
+            setDropdownOpen(false); // hide dropdown menu when user clicks outside of it
         }
     };
     
@@ -50,11 +51,13 @@ const Navbar = ({ navColor }) => {
                 <input type="text" placeholder='Search'/>
             </div>
 
+            {/* Dropdown button: when a user clicks the dropdown, they can then navigate to 'Profile', 'Settings', or Sign Out */}
             <div className='nav-links'>
                 <button 
                     className='navbar-dropdown-button'
                     onClick={toggleDropdown}
                 >
+                    {/* the dropdown button's design changes based on whether it is open or not */}
                     {dropdownOpen ? '↑' : '↓'}
                 </button>
 
@@ -62,7 +65,8 @@ const Navbar = ({ navColor }) => {
                     <div className='navbar-dropdown-content'
                         ref={dropdownRef}
                     >
-                        {user ? (
+                        {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
+                        {user ? ( 
                             <>
                                 <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
                                 <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
