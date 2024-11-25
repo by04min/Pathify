@@ -23,6 +23,7 @@ function Home() {
 
     return(
         <div>
+            {/*}
             {!user ? (
                 <div className="default-welcome">
                     <h1>Welcome to Pathify</h1>
@@ -32,10 +33,12 @@ function Home() {
                     </button>
                 </div>
             ) : (
-                <div>
+            */}
+            <div>
             <div className='title'>
                 Career Tracker
             </div>
+              {/* Table Tracker */}
               <div className='table-container'>
                   <table>
                       <thead>
@@ -69,11 +72,40 @@ function Home() {
                               <td> Interviewed </td>
                               <td> Not Released </td>
                           </tr>
+                          <tr>
+                              {/* Filler until we get out SQL set up */}
+                              <td> Microsoft </td>
+                              <td> Product Manager Internship </td>
+                              <td>  November 2024 </td>
+                              <td> Applied  </td>
+                              <td> Interviewed </td>
+                              <td> Not Released </td>
+                          </tr>
+
                       </tbody>
                   </table>
-              </div>
+              </div> 
+
+                {/* Form for submitting jobs */}
+                <h3 className="home-form-title"> Add New Job Listing </h3>
+                <div className='home-form-container'>
+                    <form className='home-form'>
+                        <label className='home-form-label' htmlFor='company-name'> Company Name* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name"></input>
+
+                        <label className='home-form-label' htmlFor='position-title'> Position Title* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title" ></input>
+
+                        <label className='home-form-label' htmlFor='application-deadline'> Application Title* </label>
+                        <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
+                        
+                        <button className="home-form-buttons" type="submit"> Submit </button>
+                        <button className="home-form-buttons" type="button"> Reset </button>
+                    </form>
+                 </div>
+
             </div>
-          )}
+          {/*})*/}
         </div>
     );
 }

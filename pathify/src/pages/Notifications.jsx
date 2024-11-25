@@ -35,6 +35,8 @@ function Notification(){
                     
                     </tbody>
                 </table>
+                
+
             </div>
         </>
     )
