@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
@@ -7,6 +7,13 @@ import { AuthContext } from '../components/AuthContext.jsx'
 
 function Home() {
     const {user} = useContext(AuthContext);
+
+    const [showDefStatic, setShowDefStatic] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setShowDefStatic(true), 1500);
+        return () => clearTimeout(timer);
+    }, []);
   
     const [statuses, setStatuses] = useState({
         row1: 'Applied',
@@ -24,8 +31,8 @@ function Home() {
     return(
         <div>
             {!user ? (
-                <div className="default-welcome">
-                    <h1>Welcome to Pathify</h1>
+                <div className={"default-welcome"}>
+                    <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
                     <p>Sign in with your UCLA e-mail to begin your jouney.</p>
                     <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
                         Sign In

@@ -34,6 +34,7 @@
 
 .login-button{
     background-color: darkgrey;
+    font-size: 20px;
     padding-top: 10px;
 }
 
@@ -63,11 +64,41 @@
 }
 
 .default-welcome h1 {
-    font-size: 45px;
+    font-size: 60px;
 }
 
 .default-welcome p {
-    font-size: 20px;
+    font-size: 25px;
     padding-top: 5px;
     padding-bottom: 10px;
+}
+
+.typing-animation {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid black; 
+    animation: typing 4s steps(40, end), blink 0.5s step-end infinite;
+}
+
+  .static-default {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: none;
+  }
+
+@keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%; /* Full width of the text */
+    }
+  }
+
+  @keyframes blink {
+    50% {
+      border-color: transparent;
+    }
 }
