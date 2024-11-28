@@ -32,10 +32,8 @@ function Home() {
                     </button>
                 </div>
             ) : (
-                <div>
-            <div className='title'>
-                Career Tracker
-            </div>
+        <div className='big-home-container'>    
+            <h1>Internship Tracker</h1>
               <div className='table-container'>
                   <table>
                       <thead>

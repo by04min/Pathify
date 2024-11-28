@@ -1,18 +1,13 @@
-import React, { useState, useContext } from 'react';
-import {AuthContext} from '../components/AuthContext.jsx'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import JobCard from '../components/JobCard.jsx';
-import Form from '../components/Form/Form'
 import "./Profile.css"
 
 const Profile = () => {
-    const {user} = useContext(AuthContext);
-    
-    const [isFormVisible, setIsFormVisible] = useState(false);
+    const navigate = useNavigate();
     const handleClick = () => {
-        if (!isFormVisible) {
-            setIsFormVisible(true); // Only show the form if it's not already visible
-        }
+        navigate('/add-new-experience');
     };
     
     return (
@@ -31,8 +26,6 @@ const Profile = () => {
             </div>
             <JobCard/>
             <button onClick={handleClick}>Add new experience</button>
-            
-            {isFormVisible && <Form />}
         </div>
     );
 };

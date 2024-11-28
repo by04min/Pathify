@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 import RoleInfo from "./RoleInfo";
 import RoleDescription from "./RoleDescription";
 import Reflection from "./Reflection";
@@ -68,6 +69,10 @@ function Form() {
             alert("Form submitted successfully!");
         }
     };
+    const navigate = useNavigate();
+    const handleCancel = () => {
+        navigate('/profile')
+    };
 
     return (
         <div className="form">
@@ -88,6 +93,7 @@ function Form() {
                     ))}
                 </div>
                 <div className="submit-section">
+                    <button onClick={handleCancel} className="cancel-button">Cancel</button>
                     <button
                         onClick={handleSubmit}
                         className={isFormComplete ? "submit-active" : "submit-inactive"}
