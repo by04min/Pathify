@@ -26,7 +26,7 @@ function Home() {
             {!user ? (
                 <div className="default-welcome">
                     <h1>Welcome to Pathify</h1>
-                    <p>Sign in to begin your jouney.</p>
+                    <p>Sign in with your UCLA e-mail to begin your jouney.</p>
                     <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
                         Sign In
                     </button>
