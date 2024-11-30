@@ -24,7 +24,6 @@ function Home() {
 
     return(
         <div>
-            {/*}
             {!user ? (
                 <div className="default-welcome">
                     <h1>Welcome to Pathify</h1>
@@ -34,7 +33,6 @@ function Home() {
                     </button>
                 </div>
             ) : (
-            {/*})*/}
 
             <div className='big-home-container'>    
                 <h1 className='title'>Internship Tracker</h1>
@@ -59,7 +57,7 @@ function Home() {
                                 {/* Filler until we get out SQL set up */}
                                 <td> Microsoft </td>
                                 <td> Product Manager Internship </td>
-                                <td> <DateSelector/> </td>
+                                <td> mm/dd/yyyy </td>
                                 <td> <StatusDropdown/>  </td>
                                 <td> <InterviewDropdown/> </td>
                                 <td> <DecisionDropdown/> </td>
@@ -82,7 +80,6 @@ function Home() {
                                 <td> Interviewed </td>
                                 <td> Not Released </td>
                             </tr>
-
                         </tbody>
                     </table>
                 </div> 
@@ -92,13 +89,13 @@ function Home() {
                     <div className='home-form-container'>
                         <form className='home-form'>
                             <label className='home-form-label' htmlFor='company-name'> Company Name* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name"></input>
+                            <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name" required></input>
 
                             <label className='home-form-label' htmlFor='position-title'> Position Title* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title" ></input>
+                            <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title"required ></input>
 
-                            <label className='home-form-label' htmlFor='application-deadline'> Application Title* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
+                            <label className='home-form-label' htmlFor='application-deadline'> Application Deadline* </label>
+                            <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline"required ></input>
                             
                             <button className="home-form-buttons" type="submit"> Submit </button>
                         </form>
@@ -106,6 +103,7 @@ function Home() {
 
                 </div>
             </div>
+            )}
         </div>
     );
 }
