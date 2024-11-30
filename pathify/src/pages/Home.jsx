@@ -1,79 +1,79 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
+import { StatusDropdown, InterviewDropdown, DecisionDropdown } from  "../components/Dropdown";
 import DateSelector from '../components/DateSelector';
-import { AuthContext } from '../components/AuthContext.jsx'
+import { AuthContext } from '../components/AuthContext.jsx';
+import { getSheet, deleteRow } from '../services/sheetServices.js';
+
 
 function Home() {
-    const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [sheet, setSheet] = useState([]);
+  const [invisible, setInvisible] = useState(new Set());
+  const navigate = useNavigate();
   
-    const [statuses, setStatuses] = useState({
-        row1: 'Applied',
-        row2: 'Not Applied',
-        row3: 'Interviewed',
-    });
+  const fetchSheet = async() => {
+    const sheetData = await getSheet();
+    await setSheet(sheetData);
+  }
 
-    const handleStatusChange = (row, status) => {
-        setStatuses(prevStatuses => ({
-            ...prevStatuses,
-            [row]: status,
-        }));
-    };
+  useEffect(() => {
+    fetchSheet();
+  }, []);
 
-    return(
+  const DeleteButton = ({tableid}) => {
+    const handleClick = () => {
+      if (confirm("Are you sure you want to delete this internship?")) {
+        setInvisible(prevSet => new Set(prevSet.add(tableid)));
+        deleteRow(tableid);
+      }
+    }
+    return(<button onClick={()=> handleClick()}>-</button>);
+  }
+
+  return(
+    <div>
+      <div className='big-home-container'>    
+        <h1 className='title'>Internship Tracker</h1>
         <div>
-            {!user ? (
-                <div className="default-welcome">
-                    <h1>Welcome to Pathify</h1>
-                    <p>Sign in to begin your jouney.</p>
-                    <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
-                        Sign In
-                    </button>
-                </div>
-            ) : (
-        <div className='big-home-container'>    
-            <h1>Internship Tracker</h1>
-              <div className='table-container'>
-                  <table>
-                      <thead>
-                          {/* Main Header Row */}
-                          <tr> 
-                              <th> Company </th>
-                              <th> Position Title </th>
-                              <th> Application Deadline </th>
-                              <th> Status </th>
-                              <th> Interview </th>
-                              <th> Decision </th>
-                          </tr>
-                      </thead>
-                      {/* tbody contains our data with jobs people applied to etc.  */}
-                      <tbody> 
-                          <tr>
-                              {/* Filler until we get out SQL set up */}
-                              <td> Microsoft </td>
-                              <td> Product Manager Internship </td>
-                              <td> <DateSelector/> </td>
-                              <td> <StatusDropdown/>  </td>
-                              <td> <InterviewDropdown/> </td>
-                              <td> <DecisionDropdown/> </td>
-                          </tr>
-                          <tr>
-                              {/* Filler until we get out SQL set up */}
-                              <td> Microsoft </td>
-                              <td> Product Manager Internship </td>
-                              <td>  November 2024 </td>
-                              <td> Applied  </td>
-                              <td> Interviewed </td>
-                              <td> Not Released </td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-            </div>
-          )}
+          {/* Table Tracker */}        
+          <div className='table-container'>
+            <table>
+              <thead>
+                {/* Main Header Row */}
+                <tr> 
+                  <th> Company </th>
+                  <th> Position Title </th>
+                  <th> Application Deadline </th>
+                  <th> Status </th>
+                  <th> Interview </th>
+                  <th> Decision </th>
+                </tr>
+              </thead>
+              {/* tbody contains our data with jobs people applied to etc.  */}
+              <tbody>
+                {sheet.map((row) => {
+                  if (invisible.has(row.id)) return null;
+                  return (
+                    <tr key={row.id}>
+                      <td> <DeleteButton tableid={row.id}/> {row.company}</td>
+                      <td>{row.position}</td>
+                      <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
+                      <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
+                      <td>{<InterviewDropdown initialStatus={row.interview} tableid={row.id}/>}</td>
+                      <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <button onClick={ () => navigate('/newform')}>+</button>
+          </div> 
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Home;
