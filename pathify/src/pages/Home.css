@@ -10,6 +10,7 @@
     justify-content:left;
     position: relative;
     padding: 30px;
+    margin: 5px;
 }
 
 /* Enables scrolling as more jobs are being added*/
@@ -18,7 +19,6 @@
     max-height: 400px; /* Adjust height as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
 }
-
 
 .table-container table{
     font-family: sans-serif;
@@ -123,5 +123,12 @@
     border: 1px solid #ddd;
     border-radius: 3px;
     font-size: 12px;
+}
 
+.home-sort-date{
+    font-family: sans-serif;
+    background-color: #aaa7ad;
+    color: white;
+    margin-bottom: 25px;
+    justify-content: center;
 }

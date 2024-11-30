@@ -1,27 +1,52 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
-import DateSelector from '../components/DateSelector';
 import { AuthContext } from '../components/AuthContext.jsx'
 
 function Home() {
     const {user} = useContext(AuthContext);
-  
-    const [statuses, setStatuses] = useState({
-        row1: 'Applied',
-        row2: 'Not Applied',
-        row3: 'Interviewed',
-    });
 
-    const handleStatusChange = (row, status) => {
-        setStatuses(prevStatuses => ({
-            ...prevStatuses,
-            [row]: status,
-        }));
+    // Sort using Jonathon's backend implementation
+    // const sortByDate = () => {
+    //     const sortedSheet = [...sheet].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+    //     setSheet(sortedSheet);
+    // };
+
+    // filler until I merge with Jonathon's branch
+
+    const [tableData, setTableData] = useState([
+        {
+            company: 'Microsoft',
+            position: 'Product Manager Internship',
+            deadline: '2024-11-15',
+            status: 'Applied',
+            interview: 'Interviewed',
+            decision: 'Not Released',
+        },
+        {
+            company: 'Google',
+            position: 'Software Engineer Intern',
+            deadline: '2024-10-20',
+            status: 'Not Applied',
+            interview: 'Not Scheduled',
+            decision: 'Not Released',
+        },
+        {
+            company: 'Amazon',
+            position: 'Data Analyst Intern',
+            deadline: '2024-12-01',
+            status: 'Applied',
+            interview: 'Scheduled',
+            decision: 'Not Released',
+        },
+    ]);
+
+    const sortByDate = () => {
+        const sortedData = [...tableData].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
+        setTableData(sortedData);
     };
 
-
+    
     return(
         <div>
             {!user ? (
@@ -38,6 +63,7 @@ function Home() {
                 <h1 className='title'>Internship Tracker</h1>
                 <div>
                 {/* Table Tracker */}
+                <button className='home-sort-date' onClick={sortByDate}>  Sort Table by Application Deadline </button>
                 <div className='table-container'>
                     <table>
                         <thead>
@@ -53,33 +79,16 @@ function Home() {
                         </thead>
                         {/* tbody contains our data with jobs people applied to etc.  */}
                         <tbody> 
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td> mm/dd/yyyy </td>
-                                <td> <StatusDropdown/>  </td>
-                                <td> <InterviewDropdown/> </td>
-                                <td> <DecisionDropdown/> </td>
-                            </tr>
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td>  November 2024 </td>
-                                <td> Applied  </td>
-                                <td> Interviewed </td>
-                                <td> Not Released </td>
-                            </tr>
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td>  November 2024 </td>
-                                <td> Applied  </td>
-                                <td> Interviewed </td>
-                                <td> Not Released </td>
-                            </tr>
+                                 {tableData.map((row, index) => (
+                                    <tr key={index}>
+                                        <td>{row.company}</td>
+                                        <td>{row.position}</td>
+                                        <td>{row.deadline}</td>
+                                        <td><StatusDropdown /></td>
+                                        <td><InterviewDropdown /></td>
+                                        <td><DecisionDropdown /></td>
+                                    </tr>
+                                ))}
                         </tbody>
                     </table>
                 </div> 
