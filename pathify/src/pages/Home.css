@@ -1,6 +1,7 @@
 .big-home-container h1{
     padding-top: 20px;
     padding-bottom: 20px;
+    overflow-y: auto;
 }
 
 .title{
@@ -16,6 +17,7 @@
 .table-container{ 
     max-height: 400px; /* Adjust height as needed */
     overflow-y: auto;  /* Enables vertical scrolling */
+    overflow: visible;
 }
 
 
@@ -23,7 +25,7 @@
     font-family: sans-serif;
     width: 90%;
     border-collapse: collapse; 
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 .table-container th{

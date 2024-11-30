@@ -1,18 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { updateSheet } from '../services/sheetServices.js';
 import './Dropdown.css';
 
+// Close dropdown when clicking outside
+
 // StatusDropdown Component
-export function StatusDropdown({ initialStatus = "Applied", onChange }) {
+export function StatusDropdown({ initialStatus, tableid }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedStatus, setSelectedStatus] = useState(initialStatus);
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target))
+            setIsOpen(false);
+        };
+        // Attach event listener on mount
+        document.addEventListener('mousedown', handleClickOutside);
+        // Clean up the event listener on unmount
+        return () => { document.removeEventListener('mousedown', handleClickOutside); };
+      }, []);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleDropdown = () => { setIsOpen(!isOpen); };
 
     const handleSelect = (status) => {
         setSelectedStatus(status);
-        onChange(status); // Notify parent component of the status change
+        updateSheet('status', status, tableid);
         setIsOpen(false); // Close dropdown after selection
     };
 
@@ -22,10 +34,10 @@ export function StatusDropdown({ initialStatus = "Applied", onChange }) {
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="home-dropdown-content">
+                <div ref={dropdownRef} className="home-dropdown-content">
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Applied")}>Applied</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Interviewed")}>Interviewed</div>
-                    <div className="home-dropdown-item" onClick={() => handleSelect("Not Applied")}>Not Applied</div>
                 </div>
             )}
         </div>
@@ -33,17 +45,26 @@ export function StatusDropdown({ initialStatus = "Applied", onChange }) {
 }
 
 // InterviewDropdown Component
-export function InterviewDropdown({ initialStatus = "Pending", onChange }) {
+export function InterviewDropdown({ initialStatus, tableid }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedStatus, setSelectedStatus] = useState(initialStatus);
-
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target))
+            setIsOpen(false);
+        };
+        // Attach event listener on mount
+        document.addEventListener('mousedown', handleClickOutside);
+        // Clean up the event listener on unmount
+        return () => { document.removeEventListener('mousedown', handleClickOutside); };
+      }, []);
+      
+    const toggleDropdown = () => { setIsOpen(!isOpen); };
 
     const handleSelect = (status) => {
         setSelectedStatus(status);
-        onChange(status); // Notify parent component of the status change
+        updateSheet('interview', status, tableid);
         setIsOpen(false); // Close dropdown after selection
     };
 
@@ -53,7 +74,7 @@ export function InterviewDropdown({ initialStatus = "Pending", onChange }) {
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="home-dropdown-content">
+                <div ref={dropdownRef} className="home-dropdown-content">
                     <div className="home-dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Scheduled")}>Scheduled</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Completed")}>Completed</div>
@@ -64,17 +85,26 @@ export function InterviewDropdown({ initialStatus = "Pending", onChange }) {
 }
 
 // DecisionDropdown Component
-export function DecisionDropdown({ initialStatus = "Pending", onChange }) {
+export function DecisionDropdown({ initialStatus, tableid }) {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedStatus, setSelectedStatus] = useState(initialStatus);
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+          if (dropdownRef.current && !dropdownRef.current.contains(event.target))
+            setIsOpen(false);
+        };
+        // Attach event listener on mount
+        document.addEventListener('mousedown', handleClickOutside);
+        // Clean up the event listener on unmount
+        return () => { document.removeEventListener('mousedown', handleClickOutside); };
+      }, []);
 
-    const toggleDropdown = () => {
-        setIsOpen(!isOpen);
-    };
+    const toggleDropdown = () => { setIsOpen(!isOpen); };
 
     const handleSelect = (status) => {
         setSelectedStatus(status);
-        onChange(status); // Notify parent component of the status change
+        updateSheet('decision', status, tableid);
         setIsOpen(false); // Close dropdown after selection
     };
 
@@ -84,7 +114,7 @@ export function DecisionDropdown({ initialStatus = "Pending", onChange }) {
                 {selectedStatus}
             </button>
             {isOpen && (
-                <div className="home-dropdown-content">
+                <div ref={dropdownRef} className="home-dropdown-content">
                     <div className="home-dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Rejected")}>Rejected</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Received Offer")}>Receive Offer</div>

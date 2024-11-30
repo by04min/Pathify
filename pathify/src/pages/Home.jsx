@@ -1,113 +1,84 @@
-import React, { useContext, useState } from 'react';
+import { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
-import {StatusDropdown, InterviewDropdown, DecisionDropdown} from  "../components/Dropdown";
+import { StatusDropdown, InterviewDropdown, DecisionDropdown } from  "../components/Dropdown";
 import DateSelector from '../components/DateSelector';
-import { AuthContext } from '../components/AuthContext.jsx'
+import { AuthContext } from '../components/AuthContext.jsx';
+import { getSheet } from '../services/sheetServices.js';
 
 function Home() {
-    const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
+  const [sheet, setSheet] = useState([]);
+  const navigate = useNavigate();
   
-    const [statuses, setStatuses] = useState({
-        row1: 'Applied',
-        row2: 'Not Applied',
-        row3: 'Interviewed',
-    });
+  const fetchSheet = async() => {
+    const sheetData = await getSheet();
+    await setSheet(sheetData);
+  }
 
-    const handleStatusChange = (row, status) => {
-        setStatuses(prevStatuses => ({
-            ...prevStatuses,
-            [row]: status,
-        }));
-    };
+  useEffect(() => {
+    fetchSheet();
+  }, []);
 
-
-    return(
+  return(
+    <div>
+      <div className='big-home-container'>    
+        <h1 className='title'>Internship Tracker</h1>
         <div>
-            {/*}
-            {!user ? (
-                <div className="default-welcome">
-                    <h1>Welcome to Pathify</h1>
-                    <p>Sign in to begin your jouney.</p>
-                    <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
-                        Sign In
-                    </button>
-                </div>
-            ) : (
-            {/*})*/}
+        {/* Table Tracker */}        
+        <button onClick={ () => navigate('/newform')}>+</button>
+        <div className='table-container'>
+          <table>
+            <thead>
+              {/* Main Header Row */}
+              <tr> 
+                <th> Company </th>
+                <th> Position Title </th>
+                <th> Application Deadline </th>
+                <th> Status </th>
+                <th> Interview </th>
+                <th> Decision </th>
+              </tr>
+            </thead>
+            {/* tbody contains our data with jobs people applied to etc.  */}
+            <tbody>
+              {sheet.map((row) => {
+                return (
+                  <tr key={row.id}>
+                    <td>{row.company}</td>
+                    <td>{row.position}</td>
+                    <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
+                    <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
+                    <td>{<InterviewDropdown initialStatus={row.interview} tableid={row.id}/>}</td>
+                    <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div> 
 
-            <div className='big-home-container'>    
-                <h1 className='title'>Internship Tracker</h1>
-                <div>
-                {/* Table Tracker */}
-                <div className='table-container'>
-                    <table>
-                        <thead>
-                            {/* Main Header Row */}
-                            <tr> 
-                                <th> Company </th>
-                                <th> Position Title </th>
-                                <th> Application Deadline </th>
-                                <th> Status </th>
-                                <th> Interview </th>
-                                <th> Decision </th>
-                            </tr>
-                        </thead>
-                        {/* tbody contains our data with jobs people applied to etc.  */}
-                        <tbody> 
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td> <DateSelector/> </td>
-                                <td> <StatusDropdown/>  </td>
-                                <td> <InterviewDropdown/> </td>
-                                <td> <DecisionDropdown/> </td>
-                            </tr>
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td>  November 2024 </td>
-                                <td> Applied  </td>
-                                <td> Interviewed </td>
-                                <td> Not Released </td>
-                            </tr>
-                            <tr>
-                                {/* Filler until we get out SQL set up */}
-                                <td> Microsoft </td>
-                                <td> Product Manager Internship </td>
-                                <td>  November 2024 </td>
-                                <td> Applied  </td>
-                                <td> Interviewed </td>
-                                <td> Not Released </td>
-                            </tr>
+          {/* Form for submitting jobs */}
+          {/* <h3 className="home-form-title"> Add New Job Listing </h3>
+          <div className='home-form-container'>
+            <form className='home-form'>
+              <label className='home-form-label' htmlFor='company-name'> Company Name* </label>
+              <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name"></input>
 
-                        </tbody>
-                    </table>
-                </div> 
+              <label className='home-form-label' htmlFor='position-title'> Position Title* </label>
+              <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title" ></input>
 
-                    {/* Form for submitting jobs */}
-                    <h3 className="home-form-title"> Add New Job Listing </h3>
-                    <div className='home-form-container'>
-                        <form className='home-form'>
-                            <label className='home-form-label' htmlFor='company-name'> Company Name* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Company Name" name="company-name"></input>
+              <label className='home-form-label' htmlFor='application-deadline'> Application Title* </label>
+              <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
+              
+              <button className="home-form-buttons" type="submit"> Submit </button>
+            </form>
+          </div> */}
 
-                            <label className='home-form-label' htmlFor='position-title'> Position Title* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Position Title" name="position-title" ></input>
-
-                            <label className='home-form-label' htmlFor='application-deadline'> Application Title* </label>
-                            <input className='home-form-input' type="text" placeholder="Enter Application Deadline" name="application-deadline" ></input>
-                            
-                            <button className="home-form-buttons" type="submit"> Submit </button>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 export default Home;
