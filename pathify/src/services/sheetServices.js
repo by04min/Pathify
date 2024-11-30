@@ -35,4 +35,18 @@ const updateSheet = async(column, update, id) => {
   } catch (err) { console.log(err); }
 }
 
-export { getSheet, addRow, updateSheet };
+const deleteRow = async(id) => {
+  try {
+    const response = await fetch('http://localhost:8080/sheets/deleteRow', { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ id }),
+    });
+    
+    if (!response.ok) { throw new Error('Failed to delete row'); }
+    return response.json();
+  } catch (err) { console.log(err); }
+}
+
+export { getSheet, addRow, updateSheet, deleteRow };

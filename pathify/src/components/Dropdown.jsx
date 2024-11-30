@@ -2,8 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { updateSheet } from '../services/sheetServices.js';
 import './Dropdown.css';
 
-// Close dropdown when clicking outside
-
 // StatusDropdown Component
 export function StatusDropdown({ initialStatus, tableid }) {
     const [isOpen, setIsOpen] = useState(false);

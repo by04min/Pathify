@@ -73,7 +73,7 @@ const RowForm = () => {
       return;
     }
 
-    addRow(company, position, dateForSQL(deadline));    
+    await addRow(company, position, dateForSQL(deadline));    
     navigate('/');
   }
   return (
