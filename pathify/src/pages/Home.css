@@ -53,6 +53,7 @@
     background-color: darkgrey;
     font-size: 20px;
     padding-top: 10px;
+    border-radius: 25px;
     transition: background-color 0.3s ease;
 }
 
