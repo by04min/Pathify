@@ -58,6 +58,7 @@
 
 .login-button:hover{
     background-color: green;
+    color: white;
 }
 
 .big-home-container h1{
@@ -122,11 +123,11 @@
   }
 
 .home-form-title{
-    margin-top: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 28px;
-    margin-bottom: 20px;
+    font-size: 30px;
 }
 
 .home-form-container{
@@ -155,10 +156,12 @@
     font-family: sans-serif;
     transition: background-color 0.5s ease;
     font-size: 16px;
+    border-radius: 25px;
 }
 
 .home-form-buttons:hover{
     background-color: green;
+    color: white;
 }
 
 .home-form-label{
@@ -199,6 +202,7 @@
 
 .add-internship:hover{
     background-color: green;
+    color: white;
 }
 
 .form-error-message{
@@ -224,5 +228,6 @@
 }
 
 .delete-internship:hover{
-    background-color: red;
+    background-color: darkred;
+    color: white;
 }
