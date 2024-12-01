@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { StatusDropdown, InterviewDropdown, DecisionDropdown } from  "../components/Dropdown";
@@ -8,6 +8,13 @@ import { getSheet, deleteRow } from '../services/sheetServices.js';
 
 
 function Home() {
+    const [showDefStatic, setShowDefStatic] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setShowDefStatic(true), 1500);
+        return () => clearTimeout(timer);
+    }, []);
+
   const { user } = useContext(AuthContext);
   const [sheet, setSheet] = useState([]);
   const [invisible, setInvisible] = useState(new Set());
@@ -34,6 +41,15 @@ function Home() {
 
   return(
     <div>
+    {!user ? (
+                <div className={"default-welcome"}>
+                    <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
+                    <p>Sign in with your UCLA e-mail to begin your jouney.</p>
+                    <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
+                        Sign In
+                    </button>
+                </div>
+            ) : (
       <div className='big-home-container'>    
         <h1 className='title'>Internship Tracker</h1>
         <div>
