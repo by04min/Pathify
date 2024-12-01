@@ -1,5 +1,4 @@
 import React, {createContext, useState, useEffect } from 'react';
-import { gapi } from 'gapi-script';
 
 // Google API Client Info
 const CLIENT_ID = '963784017356-2cd14mnif6naio0q3d43m0e61emf38e6.apps.googleusercontent.com'; 
@@ -19,9 +18,8 @@ export const AuthProvider = ({ children })=> {
       fetch('http://localhost:8080/auth/verify-token' , {
         credentials : 'include'
       })
-      // .then((response) => response.json())
       .then((data) => data.json())
-      .then((data) => { console.log(data); if (data.success) setUser(data.user); })
+      .then((data) => { console.log('data is: ', data); if (data.success) setUser(data.user); })
       .catch((err) => { console.log('Token verification failed: ', err); })
       .finally(() => setLoading(false));
     } else { setLoading(false); }
@@ -44,45 +42,3 @@ export const AuthProvider = ({ children })=> {
   )
 
 };
-
-
-// export const AuthProvider = ({ children }) => {
-//   const [isSignedIn, setIsSignedIn] = useState(false);
-
-//   useEffect(() => {
-//     const initializeGapiClient = () => {
-//       gapi.client
-//         .init({
-//           apiKey: API_KEY,
-//           clientId: CLIENT_ID,
-//           scope: SCOPES,
-//         })
-//         .then(() => {
-//           const authInstance = gapi.auth2.getAuthInstance();
-//           setIsSignedIn(authInstance.isSignedIn.get());
-//           authInstance.isSignedIn.listen((signedIn) => {
-//             setIsSignedIn(signedIn);
-//           });
-//         })
-//         .catch((error) => {
-//           console.error('Error initializing GAPI client', error);
-//         });
-//     };
-
-//     gapi.load('client:auth2', initializeGapiClient);
-//   }, []);
-
-//   const handleSignIn = () => {
-//     gapi.auth2.getAuthInstance().signIn();
-//   };
-
-//   const handleSignOut = () => {
-//     gapi.auth2.getAuthInstance().signOut();
-//   };
-
-//   return (
-//     <AuthContext.Provider value={{ isSignedIn, handleSignIn, handleSignOut }}>
-//       {children}
-//     </AuthContext.Provider>
-//   );
-// };
