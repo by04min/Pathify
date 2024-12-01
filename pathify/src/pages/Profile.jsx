@@ -11,6 +11,7 @@ const Profile = () => {
     };
     
     return (
+        <div>
         <div className="profile-info-container">
             <h1>My Profile</h1>
             <div className="basic-profile-info">
@@ -25,7 +26,8 @@ const Profile = () => {
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus luctus urna sed urna ultricies ac tempor dui sagittis. In condimentum facilisis porta.</p>
             </div>
             <JobCard/>
-            <button onClick={handleClick}>Add new experience</button>
+        </div>
+        <button onClick={handleClick} className="add-experience">Add new experience</button>
         </div>
     );
 };

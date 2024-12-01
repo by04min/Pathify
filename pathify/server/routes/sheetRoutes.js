@@ -6,7 +6,7 @@ import sheetController from '../controllers/sheetController.js';
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const router = express.Router();
 
-router.post('/getRows',
+router.get('/getRows',
   authController.verify,
   sheetController.getRows,
   (req, res) => {
@@ -22,7 +22,7 @@ router.post('/addRow',
   }
 );
 
-router.update('/updateItem',
+router.post('/updateItem',
   authController.verify,
   sheetController.updateItem,
   (req, res) => {
@@ -38,7 +38,4 @@ router.post('/deleteRow',
   }
 );
 
-
-router.put('/updateItem',
-
-);
+export default router;

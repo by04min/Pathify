@@ -33,15 +33,23 @@
     object-fit: cover;
 }
 
-.profile-info-container button {
-    width: 80%;
-    height: 100%;
-    background-color: rgb(123, 149, 255);
-    font-weight: bold;
-    color: white;
-    border-radius: 100px;
+.add-experience {
+    background-color: darkgrey;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    height: 40px; 
+    align-items: center; 
+    justify-content: center; 
+    transition: background-color 0.3s ease;
     cursor: pointer;
-    padding: 10px 5px;
-    margin-top: 40px;
-    margin-bottom: 40px;
+    position: relative;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.add-experience:hover{
+    background-color: green;
+    color: white;
 }
