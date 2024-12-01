@@ -194,3 +194,49 @@
     justify-content: center;
 }
 
+.add-internship{
+    background-color: darkgrey;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 25px;
+    height: 40px; 
+    align-items: center; 
+    justify-content: center; 
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    border: none;
+    margin-top: 20px;
+}
+
+.add-internship:hover{
+    background-color: green;
+    color: white;
+}
+
+.form-error-message{
+    color: red;
+    font-size: 13px;
+}
+
+.delete-internship{
+    color: black;
+    background-color: darkgrey;
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 12px; 
+    cursor: pointer; 
+    border: none; 
+    transition: background-color 0.3s ease;
+    vertical-align: middle;
+    margin-right: 3px;
+}
+
+.delete-internship:hover{
+    background-color: darkred;
+    color: white;
+}
