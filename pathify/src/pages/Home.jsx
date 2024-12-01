@@ -44,62 +44,63 @@ function Home() {
         setSheet(sortedSheet);
     };
 
-  return(
-    <div>
-      {!user ? (
-        <div className={"default-welcome"}>
-            <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
-            <p>Sign in with your UCLA e-mail to begin your jouney.</p>
-            <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
-              Sign In
-            </button>
+    return(
+      <div>
+        {!user ? (
+          <div className={"default-welcome"}>
+              <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
+              <p>Sign in with your UCLA e-mail to begin your jouney.</p>
+              <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
+                Sign In
+              </button>
+          </div>
+        ) : (
+        <div className='big-home-container'>    
+          <h1 className='title'>Internship Tracker</h1>
+          <div className='home-button-containers'>
+            <button onClick={ () => navigate('/newform')} className="add-internship">Add Internship</button>
+            <button onClick={sortByDate} className="home-sort-date"> Sort by Deadline </button>
+          </div>
+          <div>
+            {/* Table Tracker */}        
+            <div className='table-container'>
+              <table>
+                <thead>
+                  {/* Main Header Row */}
+                  <tr> 
+                    <th> Company </th>
+                    <th> Position Title </th>
+                    <th> Application Deadline </th>
+                    <th> Status </th>
+                    <th> Interview </th>
+                    <th> Decision </th>
+                  </tr>
+                </thead>
+                {/* tbody contains our data with jobs people applied to etc.  */}
+                <tbody>
+                  {sheet.map((row) => {
+                    if (invisible.has(row.id)) return null;
+                    return (
+                      <tr key={row.id}>
+                        <td> <DeleteButton tableid={row.id} className="delete-internship"/> {row.company}</td>
+                        <td>{row.position}</td>
+                        <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
+                        <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
+                        <td>{<InterviewDropdown initialStatus={row.interview} tableid={row.id}/>}</td>
+                        <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div> 
+          </div>
         </div>
-      ) : (
-      <div className='big-home-container'>    
-        <h1 className='title'>Internship Tracker</h1>
-        <div className='home-button-containers'>
-          <button onClick={ () => navigate('/newform')} className="add-internship">Add Internship</button>
-          <button onClick={sortByDate} className="home-sort-date"> Sort by Deadline </button>
-        </div>
-        <div>
-          {/* Table Tracker */}        
-          <div className='table-container'>
-            <table>
-              <thead>
-                {/* Main Header Row */}
-                <tr> 
-                  <th> Company </th>
-                  <th> Position Title </th>
-                  <th> Application Deadline </th>
-                  <th> Status </th>
-                  <th> Interview </th>
-                  <th> Decision </th>
-                </tr>
-              </thead>
-              {/* tbody contains our data with jobs people applied to etc.  */}
-              <tbody>
-                {sheet.map((row) => {
-                  if (invisible.has(row.id)) return null;
-                  return (
-                    <tr key={row.id}>
-                      <td> <DeleteButton tableid={row.id} className="delete-internship"/> {row.company}</td>
-                      <td>{row.position}</td>
-                      <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
-                      <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
-                      <td>{<InterviewDropdown initialStatus={row.interview} tableid={row.id}/>}</td>
-                      <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
-                    </tr>
-                  );
-                })}
-              </tbody>
-            </table>
-          </div> 
-        </div>
+        )}
       </div>
-      )}
-    </div>
-  );
-}
-
+    );
+  }
+  
+        
 export default Home;
    
