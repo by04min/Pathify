@@ -81,9 +81,6 @@ const RowForm = () => {
       {/* Form for submitting jobs */}
       <h3 className="home-form-title"> Add New Job Listing </h3>
       <div className='home-form-container'>
-        {
-          empty ? (<h5>Do not leave rows empty</h5>) : dateFormat ? (<h5>Please enter valid date in MM/DD/YYYY format</h5>) : (<></>)
-        }
         <form className='home-form' onSubmit={() => handleSubmit()}>
           <label className='home-form-label' htmlFor='company-name'> Company Name </label>
           <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
@@ -97,6 +94,10 @@ const RowForm = () => {
           <input className='home-form-input' type="text" name="application-deadline" placeholder="Application Deadline: MM/DD/YYYY"
             onChange={(e) => { setDeadline(e.target.value); }} value={deadline}/>
           
+          {
+          empty ? (<h5 className="form-error-message">Do not leave rows empty</h5>) : dateFormat ? (<h5 className="form-error-message">Please enter valid date in MM/DD/YYYY format</h5>) : (<></>)
+          }
+
           <button className="home-form-buttons" type="submit"> Submit </button>
         </form>
       </div>

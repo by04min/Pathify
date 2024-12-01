@@ -110,7 +110,7 @@ hr.line.toggled {
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease;
   cursor: pointer;
   position: relative;
 }
@@ -125,7 +125,7 @@ hr.line.toggled {
   display: flex; 
   align-items: center; 
   justify-content: center; 
-  transition: background-color 0.5s ease;
+  transition: background-color 0.3s ease;
   cursor: pointer;
   position: relative;
 }
@@ -218,7 +218,6 @@ html.dark .preview-link:hover{
   border-radius: 4px;
   width: 300px;
 }
-
 
 .preview-box h5 {
   margin: 0 0 10px;

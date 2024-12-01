@@ -29,14 +29,14 @@ function Home() {
     fetchSheet();
   }, []);
 
-  const DeleteButton = ({tableid}) => {
+  const DeleteButton = ({tableid, className}) => {
     const handleClick = () => {
       if (confirm("Are you sure you want to delete this internship?")) {
         setInvisible(prevSet => new Set(prevSet.add(tableid)));
         deleteRow(tableid);
       }
     }
-    return(<button onClick={()=> handleClick()}>-</button>);
+    return(<button onClick={()=> handleClick()} className={className}>X</button>);
   }
 
   return(
@@ -73,7 +73,7 @@ function Home() {
                   if (invisible.has(row.id)) return null;
                   return (
                     <tr key={row.id}>
-                      <td> <DeleteButton tableid={row.id}/> {row.company}</td>
+                      <td> <DeleteButton tableid={row.id} className="delete-internship"/> {row.company}</td>
                       <td>{row.position}</td>
                       <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
                       <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
@@ -84,7 +84,7 @@ function Home() {
                 })}
               </tbody>
             </table>
-            <button onClick={ () => navigate('/newform')}>+</button>
+            <button onClick={ () => navigate('/newform')} className="add-internship">Add Internship</button>
           </div> 
         </div>
       </div>
