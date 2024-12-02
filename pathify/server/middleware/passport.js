@@ -13,13 +13,16 @@ passport.use( new GoogleStrategy(
   async (accessToken, refreshToken, profile, done) => {
     const googleId = profile.id;
     const email = profile.emails[0].value;
+    const username = profile.displayName;
 
     try {
       const userList = await pool.query('SELECT * FROM "userTable" WHERE email = $1', [email]);
       
       let user;
       if (userList.rows.length == 0) {
-        const newUser = await pool.query('INSERT INTO "userTable" ("googleId", email) VALUES ($1, $2) RETURNING *', [`${googleId}`, email]);
+        const newUser = await pool.query('INSERT INTO "userTable" ("googleId", email, username) VALUES ($1, $2, $3) RETURNING *', [`${googleId}`, email, username]);
+        const newProfile = await pool.query('INSERT INTO profile (email, privacy, username) VALUES ($1, $2, $3) RETURNING *', [email, {email: false, list: false}, username])
+        console.log('new profile is: ', newProfile);
         user = newUser.rows[0];
       } else { user = userList.rows[0]; }
       console.log('user is : ', user);

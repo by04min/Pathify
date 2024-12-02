@@ -8,6 +8,9 @@ import cookieSession from 'cookie-session';
 import passport from './middleware/passport.js';
 import authRoutes from './routes/authRoutes.js';
 import sheetRoutes from './routes/sheetRoutes.js';
+import profileRoutes from './routes/profileRoutes.js';
+import searchRoutes from './routes/searchRoutes.js';
+
 const app = express();
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const port = 8080;
@@ -25,6 +28,8 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/auth', authRoutes);
 app.use('/sheets', sheetRoutes);
+app.use('/profile', profileRoutes);
+app.use('/search', searchRoutes);
 
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for...")

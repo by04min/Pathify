@@ -12,12 +12,9 @@ authController.verify = (req, res, next) => {
   jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
     if (err) res.locals.ret = { success: false, message: 'Invalid token' };
     res.locals.ret = { success: true, user: decoded }
+    console.log('verified user is: ', res.locals.ret.user);
   });
   return next();
-}
-
-authController.signup = async (req, res, next) => {
-
 }
 
 export default authController;

@@ -32,11 +32,27 @@ function Home() {
     return(<button onClick={()=> handleClick()}>-</button>);
   }
 
+  const forClick = async (column, search) => {
+    const encodedColumn = encodeURIComponent(column);
+    const encodedSearch = encodeURIComponent(search);
+
+    try {
+      const response = await fetch(`http://localhost:8080/search/query?column=${encodedColumn}&search=${encodedSearch}`, { 
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+      });
+      
+      if (!response.ok) { throw new Error('Failed to get query'); }
+      return response.json();
+    } catch (err) { console.log(err); }
+  }
   return(
     <div>
       <div className='big-home-container'>    
         <h1 className='title'>Internship Tracker</h1>
         <div>
+          <button onClick={()=> forClick('major', 'Ling & CS')}></button>
           {/* Table Tracker */}        
           <div className='table-container'>
             <table>
