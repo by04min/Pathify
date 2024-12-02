@@ -1,5 +1,4 @@
 import passport from 'passport';
-import jwt from 'jsonwebtoken';
 import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
 
 import pool from '../db.js';
@@ -23,6 +22,7 @@ passport.use( new GoogleStrategy(
         const newUser = await pool.query('INSERT INTO "userTable" ("googleId", email) VALUES ($1, $2) RETURNING *', [`${googleId}`, email]);
         user = newUser.rows[0];
       } else { user = userList.rows[0]; }
+      console.log('user is : ', user);
       return done(null, user);
     } catch (err) { return done(err); }
   }

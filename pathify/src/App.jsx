@@ -7,6 +7,7 @@ import './App.css'
 
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
+import RowForm from './pages/RowForm.jsx';
 import Notification from './pages/Notifications.jsx'
 import Login from './pages/Login.jsx'
 import AuthCallback from './components/AuthCallback.jsx'
@@ -66,6 +67,7 @@ function App() {
         <Navbar navColor={navColor}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
+          <Route path="/newform" element={<RowForm/>}/>
           <Route path="/Notification" element={<Notification/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile />}/>

@@ -55,15 +55,21 @@
 }
 
 .form-container .footer button.completed {
-    background-color: rgb(123, 149, 255);
+    background-color: green;
     color: white;
     border: none;
 }
 
 .form-container .footer button.incomplete {
-    background-color: white;
-    color: rgb(123, 149, 255);
-    border: 2px solid rgb(123, 149, 255);
+    background-color: darkgrey;
+    color: black;
+    border: none;
+}
+
+.form-container .footer button.incomplete:hover {
+    background-color: green;
+    color: white;
+    border: none;
 }
   
 .role-info-container {
@@ -131,7 +137,7 @@
 }
 
 .submit-section button.submit-active {
-    background-color: rgb(123, 149, 255);
+    background-color: green;
     color: white;
     border: none;
     cursor: pointer;
@@ -140,23 +146,30 @@
     font-size: 16px;
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .submit-section button.submit-inactive {
-    background-color: white;
-    color: rgb(123, 149, 255);
-    border: 2px solid rgb(123, 149, 255);
+    background-color: darkgrey;
+    color: black;
     cursor: not-allowed;
     height: 44px;
     padding: 0px 20px;
     font-size: 16px;
     border-radius: 20px;
     transition: all 0.3s ease;
+    border: none;
+}
+
+.submit-section button.submit-inactive:hover {
+    background-color: darkred;
+    color: white;
+    border: none;
 }
 
 .cancel-button {
-    background-color: rgb(123, 149, 255);
-    color: white;
+    background-color: darkgrey;
+    color: black;
     border: none;
     cursor: pointer;
     height: 44px;
@@ -164,4 +177,14 @@
     font-size: 16px;
     border-radius: 20px;
     margin-right: 50px;
+    transition: background-color 0.3s ease;
+}
+
+.cancel-button:hover {
+    background-color: green;
+    color: white;
+}
+
+.form-title{
+    color: black;
 }
