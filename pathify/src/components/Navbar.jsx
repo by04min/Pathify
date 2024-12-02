@@ -56,7 +56,7 @@ const Navbar = ({ navColor }) => {
             <div className='navbar-left-buttons'>
                 <div>
                     {user ? (
-                        <Link to="/Notification" className="navbar-notif-button">N</Link>
+                        <Link to="connection" className="navbar-notif-button">🔗</Link>
                     ) : null}
                 </div>
 
@@ -71,15 +71,15 @@ const Navbar = ({ navColor }) => {
                     </button>
 
                 {dropdownOpen && (
-                    <div className='dropdown-content'
+                    <div className='navbar-dropdown-content'
                         ref={dropdownRef}
                     >
                         {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
                         {user ? ( 
                             <>
-                                <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
+                                <Link to='/profile' onClick={() => setDropdownOpen(false)}>My Profile</Link>
                                 <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
-                                <Link to='connection' onClick={() => setDropdownOpen(false)}>Connection</Link>
+                                {/*<Link to='connection' onClick={() => setDropdownOpen(false)}>Connections</Link>*/}
                                 <button onClick={handleLogout} className='navbar-dropdown-logout'>
                                     Sign Out
                                 </button>
