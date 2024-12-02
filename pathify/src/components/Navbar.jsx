@@ -10,7 +10,7 @@ const Navbar = ({ navColor }) => {
 
     const { user, logout } = useContext(AuthContext); // props passed from AuthContext; check for whether user is logged in, and sign out functionality
     const navigateLogin = useNavigate();
-    
+        
     // toggles the visibility of the dropdown when the user clicks the arrow button
     const toggleDropdown = (event) => {
         event.stopPropagation(); // prevents handleOutsideClick function from being triggered when clicking on the dropdown button
@@ -47,10 +47,11 @@ const Navbar = ({ navColor }) => {
                     <h1>Pathify</h1> 
                 </Link>
             </div>
+            {/*
             <div className='search-box'>
                 <input type="text" placeholder='Search'/>
             </div>
-
+            */}
             {/* Notifications Button: leads user to the notifications page. Only available when the user is logged in */}
             <div className='navbar-left-buttons'>
                 <div>

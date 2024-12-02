@@ -1,0 +1,38 @@
+.search-result{
+    padding:10px 20px;
+}
+
+.search-result:hover{
+    background-color: #efefef;
+}
+.user-picture{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    position: left;
+    text-align: left;
+}
+
+.user-info{
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.user-details{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    height: 170px;
+}
+
+.user-specific{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 30px 40px 20px;
+    text-align: left;
+}
