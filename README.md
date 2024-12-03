@@ -12,7 +12,7 @@ With most entry-level jobs now preferring or even requiring high-level technical
 5) Settings Page: Display & Privacy
 
 
-### ** Getting Pathify on your local device: **
+### Getting Pathify on your local device
 
 1) Ensure you have React and Node.js installed on your device
 2) Download the repo from Github
@@ -22,7 +22,7 @@ With most entry-level jobs now preferring or even requiring high-level technical
    cd pathify
    ```
 
-### ** Installing Packages and Running the code: **
+### Installing Packages and Running the code
 
 1)  Open a new Terminal window
 2)  Install relevant packages using the following command on your terminal:
