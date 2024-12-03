@@ -78,7 +78,7 @@ function Form() {
         <div className="form">
             <div className="form-container">
                 <div className="header">
-                    <h1>{FormTitles[page]}</h1>
+                    <h1 className="form-title">{FormTitles[page]}</h1>
                 </div>
                 <div className="body">{PageDisplay()}</div>
                 <div className="footer">

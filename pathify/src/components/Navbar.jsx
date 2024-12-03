@@ -10,7 +10,7 @@ const Navbar = ({ navColor }) => {
 
     const { user, logout } = useContext(AuthContext); // props passed from AuthContext; check for whether user is logged in, and sign out functionality
     const navigateLogin = useNavigate();
-    
+        
     // toggles the visibility of the dropdown when the user clicks the arrow button
     const toggleDropdown = (event) => {
         event.stopPropagation(); // prevents handleOutsideClick function from being triggered when clicking on the dropdown button
@@ -47,15 +47,16 @@ const Navbar = ({ navColor }) => {
                     <h1>Pathify</h1> 
                 </Link>
             </div>
+            {/*
             <div className='search-box'>
                 <input type="text" placeholder='Search'/>
             </div>
-
+            */}
             {/* Notifications Button: leads user to the notifications page. Only available when the user is logged in */}
             <div className='navbar-left-buttons'>
                 <div>
                     {user ? (
-                        <Link to="/Notification" className="navbar-notif-button">N</Link>
+                        <Link to="connection" className="navbar-notif-button">🔗</Link>
                     ) : null}
                 </div>
 
@@ -69,28 +70,29 @@ const Navbar = ({ navColor }) => {
                         {dropdownOpen ? '↑' : '↓'}
                     </button>
 
-                    {dropdownOpen && (
-                        <div className='navbar-dropdown-content'
-                            ref={dropdownRef}
-                        >
-                            {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
-                            {user ? ( 
-                                <>
-                                    <Link to='/profile' onClick={() => setDropdownOpen(false)}>Profile</Link>
-                                    <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
-                                    <button onClick={handleLogout} className='navbar-dropdown-logout'>
-                                        Sign Out
-                                    </button>
-                                </>
-                            ) : (
-                                <a href="http://localhost:8080/auth/oauth">
-                                    Sign in to View
-                                </a>
-                            )}
-                        </div>
-                    )}
-                </div>
+                {dropdownOpen && (
+                    <div className='navbar-dropdown-content'
+                        ref={dropdownRef}
+                    >
+                        {/* users can only navigate the Profile, Settings, or Sign Out when they are signed into Pathify */}
+                        {user ? ( 
+                            <>
+                                <Link to='/profile' onClick={() => setDropdownOpen(false)}>My Profile</Link>
+                                <Link to='/settings' onClick={() => setDropdownOpen(false)}>Settings</Link>
+                                {/*<Link to='connection' onClick={() => setDropdownOpen(false)}>Connections</Link>*/}
+                                <button onClick={handleLogout} className='navbar-dropdown-logout'>
+                                    Sign Out
+                                </button>
+                            </>
+                        ) : (
+                            <a href="http://localhost:8080/auth/oauth">
+                                Sign in to View
+                            </a>
+                        )}
+                    </div>
+                )}
             </div>
+        </div>
         </div>
     );
 };
