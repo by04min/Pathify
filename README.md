@@ -16,17 +16,23 @@ Features
 
 1) Ensure you have React and Node.js installed on your device
 2) Download the repo from Github
+   ```
    git clone https://github.com/by04min/Pathify.git
    cd Pathify
    cd pathify
+   ```
 
 ** Installing Packages and Running the code: **
 
 1)  Open a new Terminal window
 2)  Install relevant packages using the following command on your terminal:
+```
    npm install
-3)  To run the program on the local host, use the following command on your terminal:
+```
+4)  To run the program on the local host, use the following command on your terminal:
+```
    npm run dev
+```
 The app should be accessible at http://localhost:5173 so you can view it in the browser.
 Have fun adding internships!
 
