@@ -21,7 +21,7 @@ passport.use( new GoogleStrategy(
       let user;
       if (userList.rows.length == 0) {
         const newUser = await pool.query('INSERT INTO "userTable" ("googleId", email, username) VALUES ($1, $2, $3) RETURNING *', [`${googleId}`, email, username]);
-        const newProfile = await pool.query('INSERT INTO profile (email, privacy, username) VALUES ($1, $2, $3) RETURNING *', [email, {email: false, list: false}, username])
+        const newProfile = await pool.query('INSERT INTO profiles (email, privacy, username) VALUES ($1, $2, $3) RETURNING *', [email, {email: false, list: false}, username])
         console.log('new profile is: ', newProfile);
         user = newUser.rows[0];
       } else { user = userList.rows[0]; }
