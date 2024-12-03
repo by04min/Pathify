@@ -1,8 +1,7 @@
-# Pathify
-CS35L Project: Pathify
+##CS35L Project: Pathify
 Group Members: Jimin Kim, Bethany Kim, Annmarie Jessil, Jonathan Si, Coco Li
 
-** Getting Pathify on your local device: **
+Getting Pathify on your local device: 
 
 1) Ensure you have React and Node.js installed on your device
 2) Download the repo from Github
