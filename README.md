@@ -1,10 +1,10 @@
 ## CS35L Project: Pathify
 ### Group Members: Jimin Kim, Bethany Kim, Annmarie Jessil, Jonathan Si, Coco Li
 
-# Description
+Description
      With most entry-level jobs now preferring or even requiring high-level technical skills and relevant work experience, internships are critical for undergraduate students to earn a desired full-time job. Most major job-searching platforms such as Handshake, LinkedIn, or Indeed, however, do not have a streamlined way for students to keep track of their application process, or efficient job search methods that match user-specific skill levels. Consequently, most students find themselves using multiple platforms during their internship application process, whether to manage relevant files, track important deadlines, or connect with former interns of companies. 
 
-# Features
+Features
 1) Default Home Page: Sign-in to View
 2) Home Page: Internship Tracker
 3) Sort + Add/Delete Internship, Updated Statuses
