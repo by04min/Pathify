@@ -1,5 +1,5 @@
-##CS35L Project: Pathify
-Group Members: Jimin Kim, Bethany Kim, Annmarie Jessil, Jonathan Si, Coco Li
+## CS35L Project: Pathify
+### Group Members: Jimin Kim, Bethany Kim, Annmarie Jessil, Jonathan Si, Coco Li
 
 Getting Pathify on your local device: 
 
