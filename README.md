@@ -16,9 +16,9 @@ Features
 
 1) Ensure you have React and Node.js installed on your device
 2) Download the repo from Github
-git clone https://github.com/by04min/Pathify.git
-cd Pathify
-cd pathify
+   git clone https://github.com/by04min/Pathify.git
+   cd Pathify
+   cd pathify
 
 ** Installing Packages and Running the code: **
 
