@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router';
 import {AuthContext} from '../components/AuthContext.jsx';
 import './Connection.css';
 import pool from '../../server/db.js';
-import { SearchBar } from '../components/Searchbar.jsx';
+import { SearchBar } from '../components/SearchBar.jsx';
 import { SearchResultsList } from '../components/SearchResultsList.jsx';
 
 const Connection = () => {
