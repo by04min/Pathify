@@ -1,0 +1,90 @@
+.editProf-form-title{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.editProf-form-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.editProf-form {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.editProf-form-buttons{
+    margin-top: 15px;
+    background-color: #6ba4b9;
+    margin-right: 10px;
+    color:white;
+    font-family: sans-serif;
+    transition: background-color 0.5s ease;
+    font-size: 16px;
+    border-radius: 25px;
+}
+
+.editProf-form-buttons:hover{
+    background-color: green;
+    color: white;
+}
+
+.editProf-form-label{
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.editProf-form-input{
+    display: block;
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.editProf-button-containers{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 90px;
+}
+
+.delete-experience{
+    color: black;
+    background-color: darkgrey;
+    width: 20px; 
+    height: 20px;
+    border-radius: 50%; 
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 12px; 
+    cursor: pointer; 
+    border: none; 
+    transition: background-color 0.3s ease;
+    vertical-align: stretch;
+    margin-right: 3px;
+}
+
+.delete-experience:hover{
+    background-color: darkred;
+    color: white;
+}
+
