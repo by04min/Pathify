@@ -40,6 +40,10 @@ function Form() {
     const start = new Date(roleInfo.startDate);
     const end = new Date(roleInfo.endDate);
 
+    const currentDate = new Date();
+    const maxEndDate = new Date();
+    maxEndDate.setFullYear(currentDate.getFullYear() + 10);
+
     if (start && start < startDateLimit) {
         setRoleInfoError("Start date cannot be earlier than 01/01/1950.");
         return false;
@@ -48,6 +52,11 @@ function Form() {
     if (end && start && end < start) {
         setRoleInfoError("End date must be later than the start date.");
         return false;
+    }
+
+    if (end && end > maxEndDate) {
+      setRoleInfoError("End date must be no later than 10 years from the current date.");
+      return false;
     }
 
     setRoleInfoError(null);
