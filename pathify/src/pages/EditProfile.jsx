@@ -6,9 +6,9 @@ import './EditProfile.css'
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const { user, logout } = useContext(AuthContext);
 
   const [data, setData] = useState(null);
+  const [empty, setEmpty] = useState(false);
   const [invisible, setInvisible] = useState(new Set());
   const [username, setUsername] = useState('');
   const [major, setMajor] = useState('');
@@ -29,8 +29,11 @@ const EditProfile = () => {
   }, []);
   
   const handleSubmit = async (event) => {
+    await setEmpty(false);
     event.preventDefault();
+
     if (username == '' || major == '' || industry == '') {
+      setEmpty(true);
       return;
     }
 
@@ -57,16 +60,16 @@ const EditProfile = () => {
       <h3 className="editProf-form-title"> Edit Profile Page </h3>
       <div className='editProf-form-container'>
         <form className='editProf-form' onSubmit={handleSubmit}>
-          <label className='editProf-form-label' htmlFor='company-name'> Username </label>
-          <input className='editProf-form-input' type="text"  name="company-name" placeholder="Company Name" 
+          <label className='editProf-form-label' htmlFor='user-name'> Name </label>
+          <input className='editProf-form-input' type="text"  name="user-name" placeholder="Enter name here..." 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 
-          <label className='editProf-form-label' htmlFor='position-title'> Major </label>
-          <input className='editProf-form-input' type="text" name="position-title" placeholder="Position Title" 
+          <label className='editProf-form-label' htmlFor='user-major'> Major </label>
+          <input className='editProf-form-input' type="text" name="user-major" placeholder="Enter major here..." 
             onChange={(e) => { setMajor(e.target.value); }} value={major}/>
 
-          <label className='editProf-form-label' htmlFor='application-deadline'> Industry</label>
-          <input className='editProf-form-input' type="text" name="application-deadline" placeholder="Application Deadline: MM/DD/YYYY"
+          <label className='editProf-form-label' htmlFor='user-industry'> Industry</label>
+          <input className='editProf-form-input' type="text" name="user-industry" placeholder="Enter industry here..."
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
           
           {!experiences ? (<div>N/A</div>) : experiences.map((row, index) => {
@@ -130,6 +133,9 @@ const EditProfile = () => {
               </div>
             )} 
           )}
+          {
+          empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : (<></>)
+          }
           <button className="editProf-form-buttons" type="submit"> Done </button>
         </form>
       </div>

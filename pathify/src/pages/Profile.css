@@ -76,3 +76,7 @@
     margin-left: auto;
     margin-right: auto; 
 }
+
+.no-info-default{
+    color: grey;
+}
