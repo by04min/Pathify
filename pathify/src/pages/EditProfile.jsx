@@ -84,7 +84,7 @@ const EditProfile = () => {
                       value={row.company}/>
 
                   <label className='home-form-label' htmlFor='company-name'> Job Title</label>
-                  <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name"
+                  <input className='home-form-input' type="text"  name="company-name" placeholder="Job Title"
                       onChange={(e) => { 
                         const updatedExp = [...experiences];
                         updatedExp[index] = { ...row, job: e.target.value};
@@ -92,8 +92,8 @@ const EditProfile = () => {
                       }}
                       value={row.job}/>
 
-                  <label className='home-form-label' htmlFor='company-name'> Start date</label>
-                  <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
+                  <label className='home-form-label' htmlFor='company-name'> Start Date</label>
+                  <input className='home-form-input' type="text"  name="company-name" placeholder="Start Date" 
                       onChange={(e) => { 
                         const updatedExp = [...experiences];
                         updatedExp[index] = { ...row, start: e.target.value};
@@ -101,8 +101,8 @@ const EditProfile = () => {
                       }}
                       value={row.start}/>
 
-                  <label className='home-form-label' htmlFor='company-name'> End date</label>
-                  <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
+                  <label className='home-form-label' htmlFor='company-name'> End Date</label>
+                  <input className='home-form-input' type="text"  name="company-name" placeholder="End Date" 
                       onChange={(e) => { 
                         const updatedExp = [...experiences];
                         updatedExp[index] = { ...row, end: e.target.value};
@@ -111,7 +111,7 @@ const EditProfile = () => {
                       value={row.end}/>
 
                   <label className='home-form-label' htmlFor='company-name'> Description </label>
-                  <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
+                  <input className='home-form-input' type="text"  name="company-name" placeholder="Enter a description of your experience" 
                       onChange={(e) => { 
                         const updatedExp = [...experiences];
                         updatedExp[index] = { ...row, description: e.target.value};
@@ -120,7 +120,7 @@ const EditProfile = () => {
                       value={row.description}/>
 
                   <label className='home-form-label' htmlFor='company-name'> Reflection</label>
-                  <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
+                  <input className='home-form-input' type="text"  name="company-name" placeholder="Enter reflection of your experience" 
                       onChange={(e) => { 
                           const updatedExp = [...experiences];
                           updatedExp[index] = { ...row, reflection: e.target.value};
