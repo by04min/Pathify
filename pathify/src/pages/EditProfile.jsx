@@ -58,75 +58,87 @@ const EditProfile = () => {
       <div className='editProf-form-container'>
         <form className='editProf-form' onSubmit={handleSubmit}>
           <label className='editProf-form-label' htmlFor='company-name'> Username </label>
-          <input className='editProf-form-input' type="text"  name="company-name" placeholder="Company Name" 
+          <input className='editProf-form-input' type="text"  name="company-name" 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 
           <label className='editProf-form-label' htmlFor='position-title'> Major </label>
-          <input className='editProf-form-input' type="text" name="position-title" placeholder="Position Title" 
+          <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
             onChange={(e) => { setMajor(e.target.value); }} value={major}/>
 
           <label className='editProf-form-label' htmlFor='application-deadline'> Industry</label>
-          <input className='editProf-form-input' type="text" name="application-deadline" placeholder="Application Deadline: MM/DD/YYYY"
+          <input className='editProf-form-input' type="text" name="application-deadline" placeholder="Enter Industry"
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
           
           {!experiences ? (<div>N/A</div>) : experiences.map((row, index) => {
             if (invisible.has(index)) return null;
             return (
               <div key={index}>
-                <DeleteButton index={index} />
-                  <label className='editProf-form-label' htmlFor='company-name'>Company</label>
-                  <input className='editProf-form-input' type="text"  name="company-name" placeholder="Company Name" 
-                      onChange={(e) => { 
-                        const updatedExp = [...experiences];
-                        updatedExp[index] = { ...row, company: e.target.value};
-                        setExperiences(updatedExp); 
-                      }}
-                      value={row.company}/>
-
-                  <label className='editProf-form-label' htmlFor='job-title'>Job Title</label>
-                  <input className='editProf-form-input' type="text"  name="job-title" placeholder="Job Title"
-                      onChange={(e) => { 
-                        const updatedExp = [...experiences];
-                        updatedExp[index] = { ...row, job: e.target.value};
-                        setExperiences(updatedExp); 
-                      }}
-                      value={row.job}/>
-
-                  <label className='editProf-form-label' htmlFor='start-date'>Start Date</label>
-                  <input className='editProf-form-input' type="date"  name="start-date" placeholder="Start Date" 
-                      onChange={(e) => { 
-                        const updatedExp = [...experiences];
-                        updatedExp[index] = { ...row, start: e.target.value};
-                        setExperiences(updatedExp); 
-                      }}
-                      value={row.start}/>
-
-                  <label className='editProf-form-label' htmlFor='end-date'>End Date</label>
-                  <input className='editProf-form-input' type="date"  name="end-date" placeholder="End Date" 
-                      onChange={(e) => { 
-                        const updatedExp = [...experiences];
-                        updatedExp[index] = { ...row, end: e.target.value};
-                        setExperiences(updatedExp); 
-                      }}
-                      value={row.end}/>
-
-                  <label className='editProf-form-label' htmlFor='role-description'>Description</label>
-                  <input className='editProf-form-input' type="text"  name="role-description" placeholder="Role Description" 
-                      onChange={(e) => { 
-                        const updatedExp = [...experiences];
-                        updatedExp[index] = { ...row, description: e.target.value};
-                        setExperiences(updatedExp); 
-                      }}
-                      value={row.description}/>
-
-                  <label className='editProf-form-label' htmlFor='reflection'> Reflection</label>
-                  <input className='editProf-form-input' type="text"  name="reflection" placeholder="Reflection" 
-                      onChange={(e) => { 
+                <div className='experience-container'>
+                  <div className='delete-experience-container'> <DeleteButton index={index} /> </div>
+                  <div className='editProf-Header-Container'>
+                    <label className='editProf-header-label' htmlFor='company-name'>Company</label>
+                    <input className='editProf-header-input' type="text"  name="company-name" placeholder="Company Name" 
+                        onChange={(e) => { 
                           const updatedExp = [...experiences];
-                          updatedExp[index] = { ...row, reflection: e.target.value};
+                          updatedExp[index] = { ...row, company: e.target.value};
                           setExperiences(updatedExp); 
-                      }}
-                      value={row.reflection}/>
+                        }}
+                        value={row.company}/>
+                  </div>
+                  <div className='editProf-Header-Container'>
+                    <label className='editProf-header-label' htmlFor='job-title'>Job Title</label>
+                    <input className='editProf-header-input' type="text"  name="job-title" placeholder="Job Title"
+                        onChange={(e) => { 
+                          const updatedExp = [...experiences];
+                          updatedExp[index] = { ...row, job: e.target.value};
+                          setExperiences(updatedExp); 
+                        }}
+                        value={row.job}/>
+                  </div>
+                  <div className='editProf-Header-Container'>
+                    <label className='editProf-header-label' htmlFor='start-date'>Start Date</label>
+                    <input className='editProf-header-input' type="date"  name="start-date" placeholder="Start Date" 
+                        onChange={(e) => { 
+                          const updatedExp = [...experiences];
+                          updatedExp[index] = { ...row, start: e.target.value};
+                          setExperiences(updatedExp); 
+                        }}
+                        value={row.start}/>
+                  </div>
+                  <div className='editProf-Header-Container'>
+                    <label className='editProf-header-label' htmlFor='end-date'>End Date</label>
+                    <input className='editProf-header-input' type="date"  name="end-date" placeholder="End Date" 
+                        onChange={(e) => { 
+                          const updatedExp = [...experiences];
+                          updatedExp[index] = { ...row, end: e.target.value};
+                          setExperiences(updatedExp); 
+                        }}
+                        value={row.end}/>
+
+                  </div>
+                </div>
+
+                {/* Below helps with formatting the rows */}
+                <div>
+                    <label className='editProf-form-label' htmlFor='role-description'>Description</label>
+                    <input className='editProf-form-input' type="text"  name="role-description" placeholder="Enter your Role's description" 
+                        onChange={(e) => { 
+                          const updatedExp = [...experiences];
+                          updatedExp[index] = { ...row, description: e.target.value};
+                          setExperiences(updatedExp); 
+                        }}
+                        value={row.description}/>
+
+                    <label className='editProf-form-label' htmlFor='reflection'> Reflection</label>
+                    <input className='editProf-form-input' type="text"  name="reflection" placeholder="Reflect on your experience" 
+                        onChange={(e) => { 
+                            const updatedExp = [...experiences];
+                            updatedExp[index] = { ...row, reflection: e.target.value};
+                            setExperiences(updatedExp); 
+                        }}
+                        value={row.reflection}/>
+                </div>
+               
               </div>
             )} 
           )}
