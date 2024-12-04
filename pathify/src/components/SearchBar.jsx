@@ -27,14 +27,14 @@ export const SearchBar = ({setResults}) => {
         };
     
         return (
-            <div className="home-dropdown">
-                <button className="home-dropdown-btn" onClick={toggleDropdown}>
+            <div className="search-dropdown">
+                <button className="search-dropdown-btn" onClick={toggleDropdown}>
                     {selectedStatus}
                 </button>
                 {isOpen && (
-                    <div className="home-dropdown-content">
-                        <div className="home-dropdown-item" onClick={() => handleSelect("industry")}>Industry</div>
-                        <div className="home-dropdown-item" onClick={() => handleSelect("major")}>Major</div>
+                    <div className="search-dropdown-content">
+                        <div className="search-dropdown-item" onClick={() => handleSelect("industry")}>Industry</div>
+                        <div className="search-dropdown-item" onClick={() => handleSelect("major")}>Major</div>
                     </div>
                 )}
             </div>
