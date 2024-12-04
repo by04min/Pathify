@@ -1,25 +1,25 @@
 import React from 'react';
 import './JobCard.css';
 
-const JobExperience = () => {
+const JobExperience = ({ expObj }) => {
   return (
     <div className="job-experience-container">
       <div className="job-experience-header">
         <div className="job-experience-header-details">
-          <p>Company name</p>
-          <p>Job Title</p>
-          <p>Date - Date</p>
+          <p>{expObj.company}</p>
+          <p>{expObj.job}</p>
+          <p>{expObj.start} - {expObj.end}</p>
         </div>
       </div>
       <div className="divider"></div>
       <div className="role-description">
         <p>Role Description:</p>
-        <p>Lorem ipsum dolor</p>
+        <p>{expObj.description}</p>
       </div>
       <div className="divider"></div>
       <div className="reflection-section">
         <p>Reflection:</p>
-        <p>Lorem ipsum dolor</p>
+        <p>{expObj.reflection}</p>
       </div>
     </div>
   );

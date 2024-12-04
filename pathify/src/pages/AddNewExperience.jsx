@@ -1,9 +1,7 @@
 import Form from '../components/Form/Form'
 
 const AddNewExperience = () => {
-    return(
-        <Form />
-    );
+    return(<Form />);
 };
 
 export default AddNewExperience;

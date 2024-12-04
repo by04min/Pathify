@@ -8,17 +8,8 @@ function RoleDescription({ roleDescription, onChange }) {
                 id="role-description"
                 type="text"
                 placeholder="Role description..."
-                value={roleDescription.description}
-                onChange={(e) => onChange("description", e.target.value)}
-            />
-
-            <label htmlFor="file-upload">Upload attachments:</label>
-            <gap />
-            <input
-                id="file-upload"
-                type="file"
-                multiple
-                onChange={(e) => onChange("attachments", Array.from(e.target.files))}
+                value={roleDescription}
+                onChange={(e) => onChange(e.target.value)}
             />
         </div>
     )

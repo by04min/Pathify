@@ -30,4 +30,12 @@ router.post('/editProfile',
   }
 )
 
+router.post('/addExperience',
+  authController.verify,
+  profileController.addExperience,
+  (req, res) => {
+    return res.status(200).json(res.locals.addExperience);
+  }
+)
+
 export default router;

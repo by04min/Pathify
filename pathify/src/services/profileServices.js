@@ -10,7 +10,7 @@ const getProfile = async() => {
   } catch (err) { console.log(err); }
 }
 
-const editProfile = async(username, major, industry, experiences) => {  
+const editProfile = async(username, major, industry, experiences) => { 
   try {
     const response = await fetch(`http://localhost:8080/profile/editProfile`, { 
       method: 'POST',
@@ -18,12 +18,25 @@ const editProfile = async(username, major, industry, experiences) => {
       credentials: 'include',
       body: JSON.stringify({ username, major, industry, experiences })
     });
-
+    console.log(response);
     if (!response.ok) { throw new Error('Failed to edit profile'); }
     return response.json();
   } catch (err) { console.log(err); }
 }
 
+const addNewExp = async(expObj) => { 
+  try {
+    const response = await fetch(`http://localhost:8080/profile/addExperience`, { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({expObj})
+    });
+    console.log(response);
+    if (!response.ok) { throw new Error('Failed to edit profile'); }
+    return response.json();
+  } catch (err) { console.log(err); }
+}
 
 const querySearch = async(column, search) => {  
   const encodedColumn = encodeURIComponent(column);
@@ -55,4 +68,4 @@ const searchOther = async(username) => {
   } catch (err) { console.log(err); }
 }
 
-export { getProfile, editProfile, querySearch, searchOther };
+export { getProfile, editProfile, addNewExp, querySearch, searchOther };

@@ -34,27 +34,28 @@ profileController.searchProfile = async (req, res, next) => {
 profileController.editProfile = async (req, res, next) => {
   const { username, major, industry, experiences } = req.body;
   const email = res.locals.ret.user.email;
+  console.log('username: ', username, 'major: ', major, 'industry: ', industry, 'experiences: ', experiences);
   const queryString = `UPDATE profiles 
-    SET username = $1, major = $2, industry = $3, experiences = $4 WHERE email = ${email}`;
-  const values = [username, major, industry, experiences];
+    SET username = $1, major = $2, industry = $3, experiences = $4 WHERE email = $5`;
+  const values = [username, major, industry, experiences, email];
   try {
     const data = await profileQuery(queryString, values);
-    res.locals.profileEdit = data;
+    res.locals.editProfile = data;
     return next();
   } catch (err) { return next(err); }
 }
 
-// profileController.addExperience = async (req, res, next) => {
-//   // const { company, title, start, end, role_description, reflection } = req.body;
-//   const { expObj } = req.body;
-//   const userId = res.locals.ret.user.id;
-//   const queryString = `UPDATE profile SET experiences = json_array_append(experiences, $1}) WHERE userid = $2`;
+profileController.addExperience = async (req, res, next) => {
+  const { expObj } = req.body;
+  console.log(expObj);
+  const email = res.locals.ret.user.email;
+  const queryString = `UPDATE profiles SET experiences = array_append(experiences, $1) WHERE email = $2`;
 
-//   try {
-//     const data = await profileQuery(queryString, [expObj, userId]);
-//     res.locals.addExp = data;
-//     return next();
-//   } catch (err) { return next(err); }
-// }
+  try {
+    const data = await profileQuery(queryString, [expObj, email]);
+    res.locals.addExperience = data;
+    return next();
+  } catch (err) { return next(err); }
+}
 
 export default profileController;
