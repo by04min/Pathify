@@ -50,51 +50,7 @@ function Home() {
       return response.json();
     } catch (err) { console.log(err); }
   }
-//   }
-//   return(
-//     <div>
-//       <div className='big-home-container'>    
-//         <h1 className='title'>Internship Tracker</h1>
-//         <div>
-//           <button onClick={()=> forClick('major', 'Ling & CS')}></button>
-//           {/* Table Tracker */}        
-//           <div className='table-container'>
-//             <table>
-//               <thead>
-//                 {/* Main Header Row */}
-//                 <tr> 
-//                   <th> Company </th>
-//                   <th> Position Title </th>
-//                   <th> Application Deadline </th>
-//                   <th> Status </th>
-//                   <th> Interview </th>
-//                   <th> Decision </th>
-//                 </tr>
-//               </thead>
-//               {/* tbody contains our data with jobs people applied to etc.  */}
-//               <tbody>
-//                 {sheet.map((row) => {
-//                   if (invisible.has(row.id)) return null;
-//                   return (
-//                     <tr key={row.id}>
-//                       <td> <DeleteButton tableid={row.id}/> {row.company}</td>
-//                       <td>{row.position}</td>
-//                       <td>{<DateSelector initialDate={row.deadline} tableid={row.id}/>}</td>
-//                       <td>{<StatusDropdown initialStatus={row.status} tableid={row.id}/>}</td>
-//                       <td>{<InterviewDropdown initialStatus={row.interview} tableid={row.id}/>}</td>
-//                       <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
-//                     </tr>
-//                   );
-//                 })}
-//               </tbody>
-//             </table>
-//             <button onClick={ () => navigate('/newform')}>+</button>
-//           </div> 
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+  
    const sortByDate = () => {
         const sortedSheet = [...sheet].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
         setSheet(sortedSheet);
