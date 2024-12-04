@@ -27,12 +27,14 @@ const Profile = () => {
           <div className="profile-details">
             <div className="profile-name-school-major">
               <h2>{profile.username}</h2>
-              <h3>{profile?.industry || "Edit profile to add industry..."}</h3>
-              <h3>{profile?.major || "Edit profile to add major..."}</h3>
+              <p><strong><u>Industry:</u></strong> {profile.industry}</p>
+              <p><strong><u>Major:</u></strong> {profile.major}</p>
+
             </div>
           </div>
         </div>
-        <h3>Experiences: </h3>
+        <hr className="prof-divider" />
+        <h2 className="experience-title">Experiences: </h2>
         {profile.experiences.map((row, index) => {
           return (<JobCard key={index} expObj={row} />);
         })}

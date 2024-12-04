@@ -3,9 +3,9 @@
 }
 
 .basic-profile-info {
-    width: 80%;
+    width: 75%;
     margin-top: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -14,7 +14,6 @@
     margin-top: 30px;
     display: flex;
     flex-direction: row;
-    height: 170px;
 }
   
 .profile-name-school-major {
@@ -22,17 +21,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
-    margin: 30px 40px 20px;
     text-align: left;
 }
-  
-.profile-picture {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-}
 
+.profile-name-school-major p {
+    font-size: 17px;
+}
+  
 .edit-profile,
 .add-experience {
     background-color: darkgrey;
@@ -64,4 +59,20 @@
     margin-top: 30px;
     font-size: 20px;
     font-family: sans-serif;
+}
+
+.experience-title{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.prof-divider {
+    border: 0;
+    border-top: 1px solid black;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    width: 80%;
+    display: block; 
+    margin-left: auto;
+    margin-right: auto; 
 }

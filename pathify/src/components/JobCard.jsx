@@ -6,19 +6,19 @@ const JobExperience = ({ expObj }) => {
     <div className="job-experience-container">
       <div className="job-experience-header">
         <div className="job-experience-header-details">
-          <p>{expObj.company}</p>
-          <p>{expObj.job}</p>
-          <p>{expObj.start} - {expObj.end}</p>
+          <p><strong>Company: </strong>{expObj.company}</p>
+          <p><strong>Position: </strong>{expObj.job}</p>
+          <p><strong>Term: </strong>{expObj.start} to {expObj.end}</p>
         </div>
       </div>
       <div className="divider"></div>
       <div className="role-description">
-        <p>Role Description:</p>
+        <p><strong>Role Description:</strong></p>
         <p>{expObj.description}</p>
       </div>
       <div className="divider"></div>
       <div className="reflection-section">
-        <p>Reflection:</p>
+        <p><strong>Reflection:</strong></p>
         <p>{expObj.reflection}</p>
       </div>
     </div>
