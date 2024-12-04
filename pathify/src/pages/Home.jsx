@@ -62,6 +62,8 @@ function Home() {
         {!user ? (
           <div className={"default-welcome"}>
               <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
+              <h2>Your home for internship tracking and networking</h2>
+              
               <p>Sign in with your UCLA e-mail to begin your journey.</p>
               <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
                 Sign In
