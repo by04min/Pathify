@@ -92,6 +92,8 @@
     border: 2px solid #ddd;
     border-radius: 3px;
     margin-bottom: 15px;
+    font-size: 12px;
+    background-color: white;
 }
 
 .editProf-button-containers{
@@ -125,4 +127,10 @@
 .delete-experience:hover{
     background-color: darkred;
     color: white;
+}
+
+.editProf-error-message{
+    color: red;
+    font-size: 13px;
+    margin-top: 10px;
 }

@@ -51,7 +51,6 @@ const dateForSQL = (str) => {
 }
 
 const RowForm = () => {
-  const { user } = useContext(AuthContext);
   const [empty, setEmpty] = useState(false);  
   const [dateFormat, setDateFormat] = useState(false);
   const [company, setCompany] = useState('');

@@ -6,7 +6,6 @@ import './EditProfile.css'
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const { user, logout } = useContext(AuthContext);
 
   const [data, setData] = useState(null);
   const [invisible, setInvisible] = useState(new Set());
@@ -14,6 +13,10 @@ const EditProfile = () => {
   const [major, setMajor] = useState('');
   const [industry, setIndustry] = useState('');
   const [experiences, setExperiences ] = useState([]);
+
+  // if empty or dateError, error message should be displayed
+  const [empty, setEmpty] = useState(false);
+  const [dateError, setDateError] = useState(null);
 
   const populateData = async () => {
     const data = await getProfile();
@@ -29,8 +32,39 @@ const EditProfile = () => {
   }, []);
   
   const handleSubmit = async (event) => {
+    await setEmpty(false);
     event.preventDefault();
+
     if (username == '' || major == '' || industry == '') {
+      setEmpty(true);
+      return;
+    }
+
+    const minStartDate = new Date('1950-01-01');
+    const currentDate = new Date();
+    const maxEndDate = new Date();
+    maxEndDate.setFullYear(currentDate.getFullYear() + 10);
+
+    const invalidDates = experiences.some((experience) => {
+      const startDate = new Date(experience.start);
+      const endDate = new Date(experience.end);
+      
+      if(startDate > endDate){
+        setDateError("End date must be later than the start date.");
+        return true;
+      } else if (startDate < minStartDate){
+        setDateError("Start date must be later than 01/01/1950.");
+        return true;
+      } else if (endDate > maxEndDate){
+        setDateError("End date must be no later than 10 years from the current date.");
+        return true;
+      } else if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())){
+        setDateError("Not a valid start or end date (MM/DD/YYYY).");
+        return true;
+      }
+    });
+
+    if (invalidDates) {
       return;
     }
 
@@ -142,6 +176,9 @@ const EditProfile = () => {
               </div>
             )} 
           )}
+          {
+          empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : dateError ? (<h5 className="editProf-error-message">{dateError}</h5>) : (<></>)
+          }
           <button className="editProf-form-buttons" type="submit"> Done </button>
         </form>
       </div>
