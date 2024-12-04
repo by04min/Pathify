@@ -51,22 +51,22 @@ const EditProfile = () => {
   }
 
   return (
-    data == null ? <p>Loading...</p> :(
+    // data == null ? <p className='profile-loading'>Loading...</p> :(
     <div>
       {/* Form for submitting jobs */}
       <h3 className="home-form-title"> Edit Profile Page </h3>
       <div className='home-form-container'>
         <form className='home-form' onSubmit={handleSubmit}>
           <label className='home-form-label' htmlFor='company-name'> Username </label>
-          <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
+          <input className='home-form-input' type="text"  name="company-name" placeholder="Username" 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 
           <label className='home-form-label' htmlFor='position-title'> Major </label>
-          <input className='home-form-input' type="text" name="position-title" placeholder="Position Title" 
+          <input className='home-form-input' type="text" name="position-title" placeholder="Major" 
             onChange={(e) => { setMajor(e.target.value); }} value={major}/>
 
           <label className='home-form-label' htmlFor='application-deadline'> Industry</label>
-          <input className='home-form-input' type="text" name="application-deadline" placeholder="Application Deadline: MM/DD/YYYY"
+          <input className='home-form-input' type="text" name="application-deadline" placeholder="Industry"
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
           
           {!experiences ? (<div>N/A</div>) : experiences.map((row, index) => {
@@ -134,7 +134,7 @@ const EditProfile = () => {
         </form>
       </div>
     </div>)
-  );
+  // );
 }
 
 export default EditProfile;

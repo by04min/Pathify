@@ -42,7 +42,7 @@ const Profile = () => {
         <button onClick={()=> navigate('/edit-profile')} className="edit-profile">Edit Profile</button>
       </div>
     </div>
-    ) : <p> Loading... </p>
+    ) : <p className='profile-loading'> Loading... </p>
   );
 };
 
