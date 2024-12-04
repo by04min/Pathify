@@ -69,6 +69,7 @@
     padding-left: 12px;
     padding-right: 8px;
     text-align: left;
+    font-size: 15px;
 }
 
 .editProf-form-label{
@@ -92,7 +93,6 @@
     border: 2px solid #ddd;
     border-radius: 3px;
     margin-bottom: 15px;
-    font-size: 12px;
     background-color: white;
 }
 
