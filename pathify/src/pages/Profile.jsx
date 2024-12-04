@@ -27,8 +27,8 @@ const Profile = () => {
           <div className="profile-details">
             <div className="profile-name-school-major">
               <h2>{profile.username}</h2>
-              <h3>{profile.industry}</h3>
-              <h3>{profile.major}</h3>
+              <h3>{profile?.industry || "Edit profile to add industry..."}</h3>
+              <h3>{profile?.major || "Edit profile to add major..."}</h3>
             </div>
           </div>
         </div>
