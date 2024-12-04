@@ -6,8 +6,11 @@ import "./Profile.css"
 
 const Profile = () => {
     const navigate = useNavigate();
-    const handleClick = () => {
+    const handleExpClick = () => {
         navigate('/add-new-experience');
+    };
+    const handleEditProfileClick = () => {
+        navigate('/edit-profile');
     };
     
     return (
@@ -27,7 +30,10 @@ const Profile = () => {
             </div>
             <JobCard/>
         </div>
-        <button onClick={handleClick} className="add-experience">Add new experience</button>
+        <div className="profile-buttons">
+            <button onClick={handleExpClick} className="add-experience">Add New Experience</button>
+            <button onClick={handleEditProfileClick} className="edit-profile">Edit Profile</button>
+        </div>
         </div>
     );
 };

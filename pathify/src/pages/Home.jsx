@@ -40,15 +40,16 @@ function Home() {
   }
 
   const forClick = async (column, search) => {
-    const encodedColumn = encodeURIComponent(column);
-    const encodedSearch = encodeURIComponent(search);
+    // const encodedColumn = encodeURIComponent(column);
+    // const encodedSearch = encodeURIComponent(search);
 
-    try {
-      const response = await fetch(`http://localhost:8080/search/query?column=${encodedColumn}&search=${encodedSearch}`, { credentials: 'include', });
+    // try {
+    //   const response = await fetch(`http://localhost:8080/search/query?column=${encodedColumn}&search=${encodedSearch}`, { credentials: 'include', });
       
-      if (!response.ok) { throw new Error('Failed to get query'); }
-      return response.json();
-    } catch (err) { console.log(err); }
+    //   if (!response.ok) { throw new Error('Failed to get query'); }
+    //   return response.json();
+    // } catch (err) { console.log(err); }
+    navigate(`/${'Jimin Kim'}`);
   }
 //   }
 //   return(

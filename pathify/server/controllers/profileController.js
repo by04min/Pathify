@@ -8,10 +8,11 @@ const profileQuery = async (qstring, values) => {
 }
 
 profileController.getProfile = async (req, res, next) => {
-  const userId = res.locals.ret.user.id;
-  const queryString = `SELECT * FROM profile where userid = $1`;
+  const email = res.locals.ret.user.email;
+  console.log(email);
+  const queryString = `SELECT * FROM profiles where email = $1`;
   try {
-    const data = await profileQuery(queryString, [userId]);    
+    const data = await profileQuery(queryString, [email]);    
     console.log('get complete', data.rows);
     res.locals.profileData = data.rows;
     return next();
@@ -19,8 +20,9 @@ profileController.getProfile = async (req, res, next) => {
 }
 
 profileController.searchProfile = async (req, res, next) => {
-  const { username } = req.body;
-  const queryString = `SELECT * FROM profile where username = $1`;
+  const { username } = req.query;
+  console.log(username);
+  const queryString = `SELECT * FROM profiles where username = $1`;
   try {
     const data = await profileQuery(queryString, [username]);    
     console.log('search others complete', data.rows);
@@ -30,11 +32,11 @@ profileController.searchProfile = async (req, res, next) => {
 }
 
 profileController.editProfile = async (req, res, next) => {
-  const { username, major, industry, expObj, privacy } = req.body;
+  const { username, major, industry, experiences } = req.body;
   const email = res.locals.ret.user.email;
-  const queryString = `UPDATE profile 
-    SET username = $1, major = $2, industry = $3, experiences = $4, privacy = $5 WHERE email = ${email}`;
-  const values = [username, major, industry, expObj, privacy];
+  const queryString = `UPDATE profiles 
+    SET username = $1, major = $2, industry = $3, experiences = $4 WHERE email = ${email}`;
+  const values = [username, major, industry, experiences];
   try {
     const data = await profileQuery(queryString, values);
     res.locals.profileEdit = data;

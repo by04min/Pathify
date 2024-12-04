@@ -33,6 +33,7 @@
     object-fit: cover;
 }
 
+.edit-profile,
 .add-experience {
     background-color: darkgrey;
     color: black;
@@ -49,6 +50,11 @@
     margin-bottom: 20px;
 }
 
+.edit-profile{
+    margin-left: 10px;
+}
+
+.edit-profile:hover,
 .add-experience:hover{
     background-color: green;
     color: white;

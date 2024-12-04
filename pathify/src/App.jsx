@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import {AuthProvider} from './components/AuthContext.jsx'
 import React from 'react'
-import { gapi } from 'gapi-script'
 import './App.css'
 
 import Navbar from './components/Navbar.jsx'
@@ -13,9 +12,11 @@ import Login from './pages/Login.jsx'
 import AuthCallback from './components/AuthCallback.jsx'
 import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
+import EditProfile from './pages/EditProfile.jsx'
 import Settings from './pages/Settings.jsx'
 import Connection from './pages/Connection.jsx'
 import AddNewExperience from './pages/AddNewExperience.jsx'
+import OtherProfile from './pages/OtherProfile.jsx'
 
 function App() {
   const [theme, setTheme] = useState('light');
@@ -71,9 +72,10 @@ function App() {
           <Route path="/Notification" element={<Notification/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/profile" element={<Profile />}/>
+          <Route path="/edit-profile" element={<EditProfile/>}/>
           <Route path="/auth/callback" element={<AuthCallback/>}/>
           <Route path="/signup" element={<Signup/>}/>
-          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/profile/:username" element={<OtherProfile/>}/>
           <Route path="/add-new-experience" element={<AddNewExperience/>}/>
           <Route path="/connection" element={<Connection/>}/>
           <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>

@@ -6,7 +6,7 @@ import profileController from '../controllers/profileController.js';
 const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const router = express.Router();
 
-router.post('/getProfile', 
+router.get('/getProfile', 
   authController.verify,
   profileController.getProfile,
   (req, res) => {
@@ -14,7 +14,7 @@ router.post('/getProfile',
   }
 );
 
-router.post('/searchProfile',
+router.get('/searchProfile',
   authController.verify,
   profileController.searchProfile,
   (req, res) => {
