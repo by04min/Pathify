@@ -14,6 +14,14 @@ router.post('/getProfile',
   }
 );
 
+router.post('/searchProfile',
+  authController.verify,
+  profileController.searchProfile,
+  (req, res) => {
+    return res.status(200).json(res.locals.searchProfile);
+  }
+)
+
 router.post('/editProfile',
   authController.verify,
   profileController.editProfile,
