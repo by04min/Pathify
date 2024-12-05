@@ -18,8 +18,8 @@ const Profile = () => {
           <div className="profile-details">
             <div className="profile-name-school-major">
               <h2>{profile.username}</h2>
-              <p><strong><u>Industry:</u></strong> Industry: {profile?.industry || <span className="no-info-default">"Edit profile to add industry..."</span> }</p>
-              <p><strong><u>Major:</u></strong> Major: {profile?.major || <span className="no-info-default">"Edit profile to add major..."</span>}</p>
+              <p><strong><u>Industry:</u></strong> {profile?.industry || <span className="no-info-default">"Edit profile to add industry..."</span> }</p>
+              <p><strong><u>Major:</u></strong> {profile?.major || <span className="no-info-default">"Edit profile to add major..."</span>}</p>
 
             </div>
           </div>
