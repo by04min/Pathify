@@ -110,7 +110,7 @@ const EditProfile = () => {
           <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
             onChange={(e) => { setMajor(e.target.value); }} value={major}/>
           
-          {experiences.length > 0 ? experiences.map((row, index) => {
+          {(experiences && experiences.length > 0) ? experiences.map((row, index) => {
             if (invisible.has(index)) return null;
             return (
               <div key={index}>
