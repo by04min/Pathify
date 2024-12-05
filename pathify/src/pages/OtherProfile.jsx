@@ -42,7 +42,7 @@ const OtherProfile = () => {
           <div className='category-title'> Experiences: </div>
           { otherProfile.experiences.map((row, index) => {
             return (
-              <div key={index} className='experience-container'>
+              <div key={index} className='other-experience-container'>
 
                 <h4> Experience: #{index+1} </h4>
 

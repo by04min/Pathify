@@ -29,7 +29,7 @@
     margin-left: 4%;
 }
 
-.experience-container{
+.other-experience-container{
     display: grid;
     grid-template-rows: auto auto auto auto auto auto;
     margin-top: 30px;
@@ -38,7 +38,7 @@
     margin-left: 5%;
 }
 
-.experience-container h4{
+.other-experience-container h4{
     margin-bottom: 15px;
     font-size: 22px;
 }
