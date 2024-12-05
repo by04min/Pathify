@@ -50,14 +50,17 @@
 .editProf-Header-Container{
     margin-right: 8px;
     margin-bottom: 12px;
+    justify-content: center;
 }
 
 .editProf-header-label{
     font-family: sans-serif;
     font-size: 18px;
     font-weight: bold;
+    display: block;
     margin-bottom: 10px;
-    align-items: center;
+    margin-left: 10px;
+    text-align: left;
 }
 
 .editProf-header-input{
@@ -70,7 +73,6 @@
     padding-left: 12px;
     padding-right: 8px;
     text-align: left;
-    font-size: 15px;
 }
 
 .editProf-form-label{
@@ -123,7 +125,6 @@
     vertical-align: stretch;
     margin-right: 12px;
 }
-
 
 .delete-experience:hover{
     background-color: darkred;
