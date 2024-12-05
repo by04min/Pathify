@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { searchOther } from '../services/profileServices.js';
 import { getOtherSheet } from '../services/sheetServices.js';
 import "./Profile.css"
+import "./OtherProfile.css"
 
 const OtherProfile = () => {
   const { username } = useParams();
@@ -30,44 +31,71 @@ const OtherProfile = () => {
 
   return (
     <div>
-      <h1>{username}</h1>
+      <h1 className='username-header'>{username}</h1>
       {Object.keys(otherProfile).length > 0 ? (
         <div>
-          <h2>Email: {otherProfile.privacy.email ? otherProfile.email : 'not listed'}</h2>
-          <h3>Industry: {otherProfile.industry ? otherProfile.industry : 'N/A'}</h3>
-          <h3>Major: {otherProfile.major ? otherProfile.major : 'N/A'}</h3>
+          <div className='personal-info-container'>
+            <h3>Email: {otherProfile.privacy.email ? otherProfile.email : 'not listed'}</h3>
+            <h3>Industry: {otherProfile.industry ? otherProfile.industry : 'N/A'}</h3>
+            <h3>Major: {otherProfile.major ? otherProfile.major : 'N/A'}</h3>
+          </div>
+          <div className='category-title'> Experiences: </div>
           { otherProfile.experiences.map((row, index) => {
             return (
-              <div key={index}>
-                <h4>Company: {row.company}</h4>
-                <h4>Job Title: {row.job}</h4>                
-                <h4>Time period: {formatDate(row.start)} - {formatDate(row.end)}</h4>
-                <h4>Job Description: {row.description}</h4>
-                <h4>Reflection: {row.reflection}</h4>
-              </div>
+              <div key={index} className='experience-container'>
+
+                <h4> Experience: #{index+1} </h4>
+
+                <div className='experience-container-content-grid-container'>
+                  <div>
+                    <span className='experience-container-titles'>Company:</span>
+                    <span>{row.company}</span>
+                  </div>
+                  <div>
+                    <span className='experience-container-titles'>Job Title:</span>
+                    <span> {row.job} </span>
+                  </div>
+                  <div>
+                    <span className='experience-container-titles'>Time period:</span>
+                    <span> {formatDate(row.start)} - {formatDate(row.end)} </span>
+                  </div>
+                </div> 
+
+                <div className='experience-content-items'>
+                  <span className='experience-container-titles'>Job Description:</span>
+                  <span> {row.description} </span>
+                </div>
+                <div className='experience-content-items'>
+                  <span className='experience-container-titles'>Job Reflection:</span>
+                  <span>  {row.reflection} </span>
+                </div>
+
+              </div> //outermost of exeperience-container
             )}) }
+          <div className='category-title'>Internships:</div>
           { otherProfile.privacy.list ? (
             <>
-              <h3>Internships</h3>
-              <div className='table-container'>
-              <table>
-                <thead>
-                  <tr>
-                    <th>Company Title</th>
-                    <th>Position</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {(spreadsheet.map((row, index) => {
-                    console.log('row is: ', row);
-                    return (
-                      <tr key={index}>
-                        <td>{row.company}</td>
-                        <td>{row.position}</td>
-                      </tr>
-                    )}))}
-                </tbody>
-              </table>
+              <div className='profile-table-spacing'> 
+                <div className='table-container'>
+                <table>
+                  <thead>
+                    <tr>
+                      <th>Company Title</th>
+                      <th>Position</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {(spreadsheet.map((row, index) => {
+                      console.log('row is: ', row);
+                      return (
+                        <tr key={index}>
+                          <td>{row.company}</td>
+                          <td>{row.position}</td>
+                        </tr>
+                      )}))}
+                  </tbody>
+                </table>
+                </div>
               </div>
             </> ) : <></>
           }
