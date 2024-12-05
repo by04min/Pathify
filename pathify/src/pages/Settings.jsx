@@ -17,6 +17,8 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
   const [showListPreview, setShowListPreview] = useState(false); // tracks whether to show or hide preview of user application list as it would appear on the connections page
   const navigate = useNavigate();
 
+  const [showPrivSaved, setShowPrivSaved] = useState(false);
+
   // helper function: for user to toggle between light and dark mode
   const clickedToggle = () => { 
     setToggled(!toggled);
@@ -34,6 +36,13 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
     const updatedProfile = { ...profile, privacy: updatedPrivacy }
     await editProfile(profile.username, profile.major, profile.industry, profile.experiences, updatedPrivacy);
     await setProfile(updatedProfile);
+
+    setShowPrivSaved(true);
+
+    setTimeout(() => {
+      setShowPrivSaved(false);
+    }, 1500);
+
     navigate('.');
   }
 
@@ -177,6 +186,11 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
         </aside>
         <main className="settings-content">
           {renderSetting()}
+          {showPrivSaved && (
+            <div className="success-message">
+                Changes saved successfully!
+            </div>
+          )}
         </main>
       </div>  
   );

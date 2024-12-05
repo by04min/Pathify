@@ -60,6 +60,14 @@ hr.line.toggled {
     padding: 20px;
   }
 
+.success-message {
+  width: 100%;
+  text-align: center;
+  font-style: italic; 
+  font-size: 15px;
+  color: red;
+}
+
 /* CSS for light mode/dark mode toggling */
 .theme-toggle {
   display: flex;
