@@ -39,19 +39,6 @@ function Home() {
     return(<button onClick={()=> handleClick()} className={className}>X</button>);
   }
 
-  const forClick = async (column, search) => {
-    // const encodedColumn = encodeURIComponent(column);
-    // const encodedSearch = encodeURIComponent(search);
-
-    // try {
-    //   const response = await fetch(`http://localhost:8080/search/query?column=${encodedColumn}&search=${encodedSearch}`, { credentials: 'include', });
-      
-    //   if (!response.ok) { throw new Error('Failed to get query'); }
-    //   return response.json();
-    // } catch (err) { console.log(err); }
-    navigate(`/${'Jimin Kim'}`);
-  }
-  
    const sortByDate = () => {
         const sortedSheet = [...sheet].sort((a, b) => new Date(a.deadline) - new Date(b.deadline));
         setSheet(sortedSheet);
@@ -77,7 +64,6 @@ function Home() {
             <button onClick={sortByDate} className="home-sort-date"> Sort by Deadline </button>
           </div>
           <div>
-            <button onClick={()=> forClick('major', 'Ling & CS')}></button>
             {/* Table Tracker */}        
             <div className='table-container'>
               <table>
@@ -94,7 +80,7 @@ function Home() {
                 </thead>
                 {/* tbody contains our data with jobs people applied to etc.  */}
                 <tbody>
-                  {sheet.map((row) => {
+                  {sheet.length > 0 ? sheet.map((row) => {
                     if (invisible.has(row.id)) return null;
                     return (
                       <tr key={row.id}>
@@ -106,7 +92,7 @@ function Home() {
                         <td>{<DecisionDropdown initialStatus={row.decision} tableid={row.id}/>}</td>
                       </tr>
                     );
-                  })}
+                  }): <></>}
                 </tbody>
               </table>
             </div> 

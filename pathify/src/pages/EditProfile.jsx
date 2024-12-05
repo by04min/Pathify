@@ -5,9 +5,8 @@ import { getProfile, editProfile } from '../services/profileServices.js';
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const { user, logout } = useContext(AuthContext);
+  const { user, profile, setProfile, loading } = useContext(AuthContext);
 
-  const [data, setData] = useState(null);
   const [invisible, setInvisible] = useState(new Set());
   const [username, setUsername] = useState('');
   const [major, setMajor] = useState('');
@@ -15,17 +14,20 @@ const EditProfile = () => {
   const [experiences, setExperiences ] = useState([]);
 
   const populateData = async () => {
-    const data = await getProfile();
-    console.log(data[0]);
-    setUsername(data[0].username);
-    setMajor(data[0].major);
-    setIndustry(data[0].industry);
-    setExperiences(data[0].experiences);
-    setData(data[0]);
+    console.log('populating data: ', profile);
+    if (profile) {
+      setUsername(profile.username);
+      setMajor(profile.major);
+      setIndustry(profile.industry);
+      setExperiences(profile.experiences);
+    }
   }
   useEffect(() => {
-    populateData();
-  }, []);
+    console.log('edit profile is: ', profile);
+    if (!loading && profile) {
+      populateData();
+    }
+  }, [loading, profile]);
   
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -35,7 +37,9 @@ const EditProfile = () => {
 
     console.log('Submitting data:', { username, major, industry, experiences });
     const updatedExperiences = experiences.filter((_, index) => !invisible.has(index));
-    await editProfile(username, major, industry, updatedExperiences);    
+    const updatedProfile = { ...profile, username, major, industry, experiences: updatedExperiences };
+    await editProfile(username, major, industry, updatedExperiences, profile.privacy); 
+    await setProfile(updatedProfile);
     navigate('/profile');
   }
 
@@ -51,7 +55,7 @@ const EditProfile = () => {
   }
 
   return (
-    data == null ? <p>Loading...</p> :(
+    (loading || !profile) ? <p>Loading...</p> :(
     <div>
       {/* Form for submitting jobs */}
       <h3 className="home-form-title"> Edit Profile Page </h3>
@@ -69,7 +73,7 @@ const EditProfile = () => {
           <input className='home-form-input' type="text" name="application-deadline" placeholder="Application Deadline: MM/DD/YYYY"
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
           
-          {!experiences ? (<div>N/A</div>) : experiences.map((row, index) => {
+          {experiences.length > 0 ? experiences.map((row, index) => {
             if (invisible.has(index)) return null;
             return (
               <div key={index}>
@@ -129,7 +133,7 @@ const EditProfile = () => {
                       value={row.reflection}/>
               </div>
             )} 
-          )}
+          ) : (<div>N/A</div>) }
           <button className="home-form-buttons" type="submit"> Done </button>
         </form>
       </div>

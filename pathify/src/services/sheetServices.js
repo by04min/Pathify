@@ -7,6 +7,20 @@ const getSheet = async() => {
   } catch (err) { console.log(err); }
 };
 
+const getOtherSheet = async(email) => {
+  try {
+    const response = await fetch('http://localhost:8080/sheets/getOtherRows', { 
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({email}),
+    });
+
+    if (!response.ok) { throw new Error('Failed to get other rows'); }
+    return response.json();
+  } catch (err) { console.log(err); }
+};
+
 const addRow = async(company, position, deadline) => {
   try {
     const response = await fetch('http://localhost:8080/sheets/addRow', {
@@ -49,4 +63,4 @@ const deleteRow = async(id) => {
   } catch (err) { console.log(err); }
 }
 
-export { getSheet, addRow, updateSheet, deleteRow };
+export { getSheet, getOtherSheet, addRow, updateSheet, deleteRow };

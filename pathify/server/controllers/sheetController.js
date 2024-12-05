@@ -18,6 +18,17 @@ sheetController.getRows = async (req, res, next) => {
   } catch (err) { return next(err); }
 }
 
+sheetController.getOtherRows = async (req, res, next) => {
+  const { email } = req.body;
+  const queryString = `SELECT * FROM spreadsheet s JOIN "userTable" u ON s.userid = u.id WHERE u.email = $1`;
+  try {
+    const data = await sheetQuery(queryString, [email]);
+    console.log('get other complete', data.rows);
+    res.locals.otherSheetData = data.rows;
+    return next();
+  } catch (err) { return next(err); }
+}
+
 sheetController.addRow = async (req, res, next) => {
   const { company, position, deadline, } = req.body;
   const userId = res.locals.ret.user.id;

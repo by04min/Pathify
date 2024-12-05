@@ -4,21 +4,19 @@ const getProfile = async() => {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include' 
     });
-
     if (!response.ok) { throw new Error('Failed to get profile'); }
     return response.json();
   } catch (err) { console.log(err); }
 }
 
-const editProfile = async(username, major, industry, experiences) => { 
+const editProfile = async(username, major, industry, experiences, privacy) => { 
   try {
     const response = await fetch(`http://localhost:8080/profile/editProfile`, { 
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
-      body: JSON.stringify({ username, major, industry, experiences })
+      body: JSON.stringify({ username, major, industry, experiences, privacy })
     });
-    console.log(response);
     if (!response.ok) { throw new Error('Failed to edit profile'); }
     return response.json();
   } catch (err) { console.log(err); }
@@ -32,7 +30,6 @@ const addNewExp = async(expObj) => {
       credentials: 'include',
       body: JSON.stringify({expObj})
     });
-    console.log(response);
     if (!response.ok) { throw new Error('Failed to edit profile'); }
     return response.json();
   } catch (err) { console.log(err); }
@@ -41,7 +38,6 @@ const addNewExp = async(expObj) => {
 const querySearch = async(column, search) => {  
   const encodedColumn = encodeURIComponent(column);
   const encodedSearch = encodeURIComponent(search);
-
   try {
     const response = await fetch(`http://localhost:8080/search/query?column=${encodedColumn}&search=${encodedSearch}`, { 
       method: 'GET',
@@ -56,7 +52,6 @@ const querySearch = async(column, search) => {
 
 const searchOther = async(username) => {  
   const encodedUsername= encodeURIComponent(username);
-
   try {
     const response = await fetch(`http://localhost:8080/profile/searchProfile?username=${encodedUsername}`, { 
       headers: { 'Content-Type': 'application/json' },

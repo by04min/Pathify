@@ -33,8 +33,8 @@ export const SearchBar = ({setResults}) => {
                 </button>
                 {isOpen && (
                     <div className="search-dropdown-content">
-                        <div className="search-dropdown-item" onClick={() => handleSelect("industry")}>Industry</div>
-                        <div className="search-dropdown-item" onClick={() => handleSelect("major")}>Major</div>
+                        <div className="search-dropdown-item" onClick={() => handleSelect("Industry")}>Industry</div>
+                        <div className="search-dropdown-item" onClick={() => handleSelect("Major")}>Major</div>
                     </div>
                 )}
             </div>
@@ -55,8 +55,6 @@ export const SearchBar = ({setResults}) => {
     return <div className="input-wrapper">
         <FaSearch id="search-icon"/>
         <ColumnDropdown/>
-        <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)}/>
-    
-    
+        <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)}/>    
     </div>
 };

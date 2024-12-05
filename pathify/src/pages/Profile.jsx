@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import { getProfile } from '../services/profileServices.js';
+import { AuthContext } from '../components/AuthContext.jsx';
 import JobCard from '../components/JobCard.jsx';
 import "./Profile.css"
 
 const Profile = () => {
   const navigate = useNavigate();
-
-  const [profile, setProfile] = useState(null);
+  const { profile } = useContext(AuthContext);
   
-  const populateData = async () => {
-    const data = await getProfile();
-    setProfile(data[0]);
-  }
-  useEffect(() => {
-    populateData();
-  }, [])
-    
   return (
     profile ? (
     <div>
@@ -27,8 +18,8 @@ const Profile = () => {
           <div className="profile-details">
             <div className="profile-name-school-major">
               <h2>{profile.username}</h2>
-              <h3>{profile.industry}</h3>
-              <h3>{profile.major}</h3>
+              <h3>Industry: {profile.industry}</h3>
+              <h3>Major: {profile.major}</h3>
             </div>
           </div>
         </div>
