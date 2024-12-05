@@ -30,6 +30,8 @@ const EditProfile = () => {
   useEffect(() => {
     populateData();
   }, []);
+
+  const handleCancel = () => { navigate('/profile'); }
   
   const handleSubmit = async (event) => {
     await setEmpty(false);
@@ -179,7 +181,10 @@ const EditProfile = () => {
           {
           empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : dateError ? (<h5 className="editProf-error-message">{dateError}</h5>) : (<></>)
           }
+          <div className="profile-buttons">
+          <button className="editProf-form-buttons" onClick={handleCancel}>Cancel</button>
           <button className="editProf-form-buttons" type="submit"> Done </button>
+          </div>
         </form>
       </div>
     </div>)

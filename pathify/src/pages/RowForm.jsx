@@ -75,6 +75,9 @@ const RowForm = () => {
     await addRow(company, position, dateForSQL(deadline));    
     navigate('/');
   }
+
+  const handleCancel = () => { navigate('/'); }
+
   return (
     <div>
       {/* Form for submitting jobs */}
@@ -96,8 +99,11 @@ const RowForm = () => {
           {
           empty ? (<h5 className="form-error-message">Do not leave rows empty</h5>) : dateFormat ? (<h5 className="form-error-message">Please enter valid date in MM/DD/YYYY format</h5>) : (<></>)
           }
-
+          
+          <div className="profile-buttons">
+          <button className="home-form-buttons" onClick={handleCancel}> Cancel </button>
           <button className="home-form-buttons" type="submit"> Submit </button>
+          </div>
         </form>
       </div>
     </div>
