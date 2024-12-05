@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { searchOther } from '../services/profileServices.js';
+import { useNavigate } from 'react-router-dom';
 import { getOtherSheet } from '../services/sheetServices.js';
 import "./Profile.css"
 import "./OtherProfile.css"
@@ -12,6 +13,7 @@ const OtherProfile = () => {
   const [otherProfile, setOtherProfile] = useState({});
   const [spreadsheet, setSpreadsheet] = useState([]);
 
+  const navigate = useNavigate();
   const formatDate = (date) => {
     const [year, month, day] = date.split('-');
     return (`${month}/${day}/${year}`);
@@ -29,17 +31,22 @@ const OtherProfile = () => {
     populateData();
   }, [])
 
+  const handleBack = () => { navigate('/connection'); }
+
   return (
     <div>
       <h1 className='username-header'>{username}</h1>
       {Object.keys(otherProfile).length > 0 ? (
         <div>
           <div className='personal-info-container'>
-            <h3>Email: {otherProfile.privacy.email ? otherProfile.email : 'not listed'}</h3>
-            <h3>Industry: {otherProfile.industry ? otherProfile.industry : 'N/A'}</h3>
-            <h3>Major: {otherProfile.major ? otherProfile.major : 'N/A'}</h3>
+            <p><strong>Email: </strong>{otherProfile.privacy.email ? otherProfile.email : 'not listed'}</p>
+            <p><strong>Industry: </strong>{otherProfile.industry ? otherProfile.industry : 'N/A'}</p>
+            <p><strong>Major: </strong>{otherProfile.major ? otherProfile.major : 'N/A'}</p>
           </div>
-          <div className='category-title'> Experiences: </div>
+          {/* <div className='category-title'> Experiences: </div> */}
+          <div className='category-title'>
+            {otherProfile.experiences && otherProfile.experiences.length > 0 && 'Experiences:'}
+          </div>
           { otherProfile.experiences.map((row, index) => {
             return (
               <div key={index} className='other-experience-container'>
@@ -72,9 +79,9 @@ const OtherProfile = () => {
 
               </div> //outermost of exeperience-container
             )}) }
-          <div className='category-title'>Internships:</div>
           { otherProfile.privacy.list ? (
             <>
+            <div className='category-title'>Current Internship Applications:</div>
               <div className='profile-table-spacing'> 
                 <div className='table-container'>
                 <table>
@@ -101,6 +108,7 @@ const OtherProfile = () => {
           }
         </div>
       ) : (<div> Loading... </div>)}
+      <button className='back-to-connect' onClick={handleBack}>Back</button>
     </div>);
 };
 
