@@ -21,6 +21,9 @@ function Form() {
   const [roleDescription, setRoleDescription] = useState("");
   const [reflection, setReflection] = useState("");
 
+  // Error message state
+  const [roleInfoError, setRoleInfoError] = useState(null);
+
   // Check if input fields are filled in
   const [completionStatus, setCompletionStatus] = useState([false, false, false]);
 
@@ -28,9 +31,40 @@ function Form() {
     const updatedRoleInfo = { ...roleInfo, [field]: value };
     setRoleInfo(updatedRoleInfo);
 
+    const validDates = validateDates(updatedRoleInfo);
+
     const isComplete = Object.values(updatedRoleInfo).every((v) => v.trim() !== "");
-    handleCompletionUpdate(0, isComplete);
+    handleCompletionUpdate(0, isComplete && validDates);
   }
+
+  const validateDates = (roleInfo) => {
+    const startDateLimit = new Date('1950-01-01')
+    const start = new Date(roleInfo.startDate);
+    const end = new Date(roleInfo.endDate);
+
+    const currentDate = new Date();
+    const maxEndDate = new Date();
+    maxEndDate.setFullYear(currentDate.getFullYear() + 10);
+
+    if (start && start < startDateLimit) {
+        setRoleInfoError("Start date cannot be earlier than 01/01/1950.");
+        return false;
+    }
+
+    if (end && start && end < start) {
+        setRoleInfoError("End date must be later than the start date.");
+        return false;
+    }
+
+    if (end && end > maxEndDate) {
+      setRoleInfoError("End date must be no later than 10 years from the current date.");
+      return false;
+    }
+
+    setRoleInfoError(null);
+    return true;
+};
+
   const handleRoleDescriptionChange = (value) => {
     setRoleDescription(value);
 
@@ -52,7 +86,7 @@ function Form() {
   // Display the correct page
   const PageDisplay = () => {
     if (page === 0) {
-      return <RoleInfo roleInfo={roleInfo} onChange={handleRoleInfoChange} />;
+      return <RoleInfo roleInfo={roleInfo} onChange={handleRoleInfoChange} error={roleInfoError} setError={setRoleInfoError} validateDates={validateDates}/>;
     } else if (page === 1) {
       return <RoleDescription roleDescription={roleDescription} onChange={handleRoleDescriptionChange} />;
     } else {
@@ -62,6 +96,7 @@ function Form() {
 
   // Check if all input fields are filled in
   const isFormComplete = completionStatus.every((status) => status);
+
   const handleSubmit = async () => {
     if (isFormComplete) {
       console.log("Form submitted!", { roleInfo, roleDescription, reflection });

@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../components/AuthContext.jsx';
@@ -18,22 +18,28 @@ const Profile = () => {
           <div className="profile-details">
             <div className="profile-name-school-major">
               <h2>{profile.username}</h2>
-              <h3>Industry: {profile.industry}</h3>
-              <h3>Major: {profile.major}</h3>
+              <p><strong><u>Industry:</u></strong> Industry: {profile?.industry || <span className="no-info-default">"Edit profile to add industry..."</span> }</p>
+              <p><strong><u>Major:</u></strong> Major: {profile?.major || <span className="no-info-default">"Edit profile to add major..."</span>}</p>
+
             </div>
           </div>
         </div>
-        <h3>Experiences: </h3>
-        {profile.experiences.map((row, index) => {
-          return (<JobCard key={index} expObj={row} />);
-        })}
+        <hr className="prof-divider" />
+        <h2 className="experience-title">Experiences: </h2>
+          {profile.experiences.length === 0 ? (
+            <p className="no-info-default">Add experiences here...</p>
+          ) : (
+            profile.experiences.map((row, index) => {
+              return <JobCard key={index} expObj={row} />;
+            })
+          )}
       </div>
       <div className="profile-buttons">
         <button onClick={()=> navigate('/add-new-experience')} className="add-experience">Add New Experience</button>
         <button onClick={()=> navigate('/edit-profile')} className="edit-profile">Edit Profile</button>
       </div>
     </div>
-    ) : <p> Loading... </p>
+    ) : <p className='profile-loading'> Loading... </p>
   );
 };
 

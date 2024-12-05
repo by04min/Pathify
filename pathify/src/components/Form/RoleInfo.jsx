@@ -1,6 +1,6 @@
-import React from "react"
+import React, { useState } from "react"
 
-function RoleInfo({ roleInfo, onChange }) {
+function RoleInfo({ roleInfo, onChange, error, setError, validateDates }) {
     return (
         <div className="role-info-container">
             <label htmlFor="company-name">Company name:</label>
@@ -27,6 +27,7 @@ function RoleInfo({ roleInfo, onChange }) {
                 type="date"
                 value={roleInfo.startDate}
                 onChange={(e) => onChange("startDate", e.target.value)}
+                onBlur={validateDates}
             />
 
             <label htmlFor="end-date">End date:</label>
@@ -35,7 +36,10 @@ function RoleInfo({ roleInfo, onChange }) {
                 type="date"
                 value={roleInfo.endDate}
                 onChange={(e) => onChange("endDate", e.target.value)}
+                onBlur={validateDates}
             />
+
+            {error && <p style={{ color: 'red' }}><strong>{error}</strong></p>}
         </div>
     );
 }

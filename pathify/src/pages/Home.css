@@ -169,29 +169,33 @@
     border-radius: 25px;
 }
 
+
 .home-form-buttons:hover{
-    background-color: green;
+    background-color:  #757575;
     color: white;
 }
 
 .home-form-label{
     font-family: sans-serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
     display: block;
     width: 100%;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
     text-align: left;
 }
 
 .home-form-input{
     display: block;
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     box-sizing: border-box;
     border: 1px solid #ddd;
     border-radius: 3px;
-    font-size: 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    background-color: white;
 }
 
 .home-button-containers{
