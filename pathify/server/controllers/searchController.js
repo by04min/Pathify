@@ -11,9 +11,12 @@ searchController.search = async (req, res, next) => {
   const username = res.locals.ret.user.username;
   const { column, search } = req.query;
   console.log(column, search ,username);
-  const queryString = `SELECT * FROM profiles WHERE ${column} = $1`;
+
+  const queryString = `SELECT * FROM profiles WHERE ${column} ILIKE $1`;
+  const substringSearch = `%${search}%`;
+
   try {
-    const data = await searchQuery(queryString, [search]);
+    const data = await searchQuery(queryString, [substringSearch]);
     console.log(data.rows);
     res.locals.searchData = data.rows;
     return next();

@@ -28,13 +28,13 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
     setter(event.target.checked);
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const updatedPrivacy = { email: shareEmail, list: shareInternships };
     const updatedProfile = { ...profile, privacy: updatedPrivacy }
     await editProfile(profile.username, profile.major, profile.industry, profile.experiences, updatedPrivacy);
     await setProfile(updatedProfile);
-    navigate('/');
+    navigate('.');
   }
 
   const populateData = async () => {
@@ -141,7 +141,7 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                 )}
               </div>
             </div>
-            <button>Save</button>
+            <button className="setting-save-priv">Save</button>
           </form>
         );
     }
