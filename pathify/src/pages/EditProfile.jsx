@@ -102,13 +102,13 @@ const EditProfile = () => {
           <input className='editProf-form-input' type="text"  name="company-name" 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 
-          <label className='editProf-form-label' htmlFor='position-title'> Major </label>
-          <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
-            onChange={(e) => { setMajor(e.target.value); }} value={major}/>
-
           <label className='editProf-form-label' htmlFor='application-deadline'> Industry</label>
           <input className='editProf-form-input' type="text" name="application-deadline" placeholder="Enter Industry"
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
+
+          <label className='editProf-form-label' htmlFor='position-title'> Major </label>
+          <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
+            onChange={(e) => { setMajor(e.target.value); }} value={major}/>
           
           {experiences.length > 0 ? experiences.map((row, index) => {
             if (invisible.has(index)) return null;
@@ -183,7 +183,6 @@ const EditProfile = () => {
               </div>
             )} 
           ) : (<div>N/A</div>) }
-          <button className="home-form-buttons" type="submit"> Done </button>
           {
           empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : dateError ? (<h5 className="editProf-error-message">{dateError}</h5>) : (<></>)
           }
