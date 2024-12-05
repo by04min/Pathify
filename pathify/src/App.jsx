@@ -10,7 +10,6 @@ import RowForm from './pages/RowForm.jsx';
 import Notification from './pages/Notifications.jsx'
 import Login from './pages/Login.jsx'
 import AuthCallback from './components/AuthCallback.jsx'
-import Signup from './pages/Signup.jsx'
 import Profile from './pages/Profile.jsx'
 import EditProfile from './pages/EditProfile.jsx'
 import Settings from './pages/Settings.jsx'
@@ -63,25 +62,24 @@ function App() {
 
   return (
     <div className='app'>
-    <AuthProvider>
       <BrowserRouter>
-        <Navbar navColor={navColor}/>
-        <Routes>
-          <Route path="/" element={<Home/>}/>
-          <Route path="/newform" element={<RowForm/>}/>
-          <Route path="/Notification" element={<Notification/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/profile" element={<Profile />}/>
-          <Route path="/edit-profile" element={<EditProfile/>}/>
-          <Route path="/auth/callback" element={<AuthCallback/>}/>
-          <Route path="/signup" element={<Signup/>}/>
-          <Route path="/profile/:username" element={<OtherProfile/>}/>
-          <Route path="/add-new-experience" element={<AddNewExperience/>}/>
-          <Route path="/connection" element={<Connection/>}/>
-          <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
-        </Routes>
+        <AuthProvider>
+          <Navbar navColor={navColor}/>
+          <Routes>
+            <Route path="/" element={<Home/>}/>
+            <Route path="/newform" element={<RowForm/>}/>
+            <Route path="/Notification" element={<Notification/>}/>
+            <Route path="/login" element={<Login/>}/>
+            <Route path="/profile" element={<Profile />}/>
+            <Route path="/edit-profile" element={<EditProfile/>}/>
+            <Route path="/auth/callback" element={<AuthCallback/>}/>
+            <Route path="/profile/:username" element={<OtherProfile/>}/>
+            <Route path="/add-new-experience" element={<AddNewExperience/>}/>
+            <Route path="/connection" element={<Connection/>}/>
+            <Route path="/settings" element={<Settings toggleTheme={toggleTheme} navColor={navColor} updateNavColor={updateNavColor} resetNavColor={resetNavColor} />}/>
+          </Routes>
+        </AuthProvider>
       </BrowserRouter>
-    </AuthProvider>
     </div>
   );
 }

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthContext.jsx'
-import { getProfile, editProfile } from '../services/profileServices.js';
+import { editProfile } from '../services/profileServices.js';
 import './EditProfile.css'
 
 const EditProfile = () => {
   const navigate = useNavigate();
+  const { user, profile, setProfile, loading } = useContext(AuthContext);
 
-  const [data, setData] = useState(null);
   const [invisible, setInvisible] = useState(new Set());
   const [username, setUsername] = useState('');
   const [major, setMajor] = useState('');
@@ -19,17 +19,20 @@ const EditProfile = () => {
   const [dateError, setDateError] = useState(null);
 
   const populateData = async () => {
-    const data = await getProfile();
-    console.log(data[0]);
-    setUsername(data[0].username);
-    setMajor(data[0].major);
-    setIndustry(data[0].industry);
-    setExperiences(data[0].experiences);
-    setData(data[0]);
+    console.log('populating data: ', profile);
+    if (profile) {
+      setUsername(profile.username);
+      setMajor(profile.major);
+      setIndustry(profile.industry);
+      setExperiences(profile.experiences);
+    }
   }
   useEffect(() => {
-    populateData();
-  }, []);
+    console.log('edit profile is: ', profile);
+    if (!loading && profile) {
+      populateData();
+    }
+  }, [loading, profile]);
 
   const handleCancel = () => { navigate('/profile'); }
   
@@ -72,7 +75,9 @@ const EditProfile = () => {
 
     console.log('Submitting data:', { username, major, industry, experiences });
     const updatedExperiences = experiences.filter((_, index) => !invisible.has(index));
-    await editProfile(username, major, industry, updatedExperiences);    
+    const updatedProfile = { ...profile, username, major, industry, experiences: updatedExperiences };
+    await editProfile(username, major, industry, updatedExperiences, profile.privacy); 
+    await setProfile(updatedProfile);
     navigate('/profile');
   }
 
@@ -87,7 +92,7 @@ const EditProfile = () => {
   }
 
   return (
-    data == null ? <p>Loading...</p> :(
+    (loading || !profile) ? <p>Loading...</p> :(
     <div>
       {/* Form for submitting jobs */}
       <h3 className="editProf-form-title"> Edit Profile Page </h3>
@@ -97,15 +102,15 @@ const EditProfile = () => {
           <input className='editProf-form-input' type="text"  name="company-name" 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 
-          <label className='editProf-form-label' htmlFor='position-title'> Major </label>
-          <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
-            onChange={(e) => { setMajor(e.target.value); }} value={major}/>
-
           <label className='editProf-form-label' htmlFor='application-deadline'> Industry</label>
           <input className='editProf-form-input' type="text" name="application-deadline" placeholder="Enter Industry"
             onChange={(e) => { setIndustry(e.target.value); }} value={industry}/>
+
+          <label className='editProf-form-label' htmlFor='position-title'> Major </label>
+          <input className='editProf-form-input' type="text" name="position-title" placeholder="Enter Major" 
+            onChange={(e) => { setMajor(e.target.value); }} value={major}/>
           
-          {!experiences ? (<div>N/A</div>) : experiences.map((row, index) => {
+          {experiences.length > 0 ? experiences.map((row, index) => {
             if (invisible.has(index)) return null;
             return (
               <div key={index}>
@@ -177,7 +182,7 @@ const EditProfile = () => {
                
               </div>
             )} 
-          )}
+          ) : (<div>N/A</div>) }
           {
           empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : dateError ? (<h5 className="editProf-error-message">{dateError}</h5>) : (<></>)
           }

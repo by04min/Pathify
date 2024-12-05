@@ -14,6 +14,14 @@ router.get('/getRows',
   }
 );
 
+router.post('/getOtherRows',
+  authController.verify,
+  sheetController.getOtherRows,
+  (req, res) => {
+    return res.status(200).json(res.locals.otherSheetData);
+  }
+);
+
 router.post('/addRow',
   authController.verify,
   sheetController.addRow,

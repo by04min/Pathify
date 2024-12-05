@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 
+import { AuthContext } from '../../components/AuthContext'
 import { addNewExp } from '../../services/profileServices';
 import RoleInfo from "./RoleInfo";
 import RoleDescription from "./RoleDescription";
@@ -10,6 +11,7 @@ import "./Form.css";
 function Form() {
   const FormTitles = ["Role Info", "Role Description", "Reflection"];
   const navigate = useNavigate();
+  const { profile, setProfile } = useContext(AuthContext);
   const [page, setPage] = useState(0);
 
   // Use states for input fields
@@ -108,6 +110,8 @@ function Form() {
       }
 
       const exp = await addNewExp(expObj);
+      const updatedProfile = { ...profile, experiences: [...profile.experiences, expObj] };
+      await setProfile(updatedProfile);
       console.log(exp);
       navigate('/profile');
     }

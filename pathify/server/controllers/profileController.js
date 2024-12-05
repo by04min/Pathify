@@ -32,12 +32,12 @@ profileController.searchProfile = async (req, res, next) => {
 }
 
 profileController.editProfile = async (req, res, next) => {
-  const { username, major, industry, experiences } = req.body;
+  const { username, major, industry, experiences, privacy } = req.body;
   const email = res.locals.ret.user.email;
-  console.log('username: ', username, 'major: ', major, 'industry: ', industry, 'experiences: ', experiences);
+  console.log('username: ', username, 'major: ', major, 'industry: ', industry, 'experiences: ', experiences, 'privacy: ', privacy);
   const queryString = `UPDATE profiles 
-    SET username = $1, major = $2, industry = $3, experiences = $4 WHERE email = $5`;
-  const values = [username, major, industry, experiences, email];
+    SET username = $1, major = $2, industry = $3, experiences = $4, privacy = $5 WHERE email = $6`;
+  const values = [username, major, industry, experiences, privacy, email];
   try {
     const data = await profileQuery(queryString, values);
     res.locals.editProfile = data;

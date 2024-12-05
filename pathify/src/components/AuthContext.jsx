@@ -1,5 +1,6 @@
 import React, {createContext, useState, useEffect } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { getProfile } from '../services/profileServices';
 // Google API Client Info
 const CLIENT_ID = '963784017356-2cd14mnif6naio0q3d43m0e61emf38e6.apps.googleusercontent.com'; 
 const API_KEY = 'AIzaSyAqiKoMTQBP5eg5RrkIue_XvTECNFyC3Zs'; 
@@ -8,8 +9,10 @@ const SCOPES = 'https://www.googleapis.com/auth/drive.file';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children })=> {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);  
+  const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     console.log('calling')
@@ -19,8 +22,10 @@ export const AuthProvider = ({ children })=> {
         credentials : 'include'
       })
       .then((data) => data.json())
-      .then((data) => { console.log('data is: ', data); if (data.success) setUser(data.user); })
-      .catch((err) => { console.log('Token verification failed: ', err); })
+      .then((data) => { if (data.success) setUser(data.user); })
+      .then(() => getProfile())
+      .then((data) => { setProfile(data[0]); })
+      .catch((err) => { navigate('/'); console.log('Token verification failed: ', err); })
       .finally(() => setLoading(false));
     } else { setLoading(false); }
   }, []);
@@ -33,10 +38,11 @@ export const AuthProvider = ({ children })=> {
   const logout = (token) => {
     localStorage.removeItem('token', token);
     setUser(null);
+    setProfile(null);
   }
 
   return(
-    <AuthContext.Provider value={{ user, login, logout, loading }}>
+    <AuthContext.Provider value={{ user, profile, setProfile, login, logout, loading }}>
       { children }
     </AuthContext.Provider>
   )
