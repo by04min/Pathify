@@ -35,11 +35,14 @@ const OtherProfile = () => {
       {Object.keys(otherProfile).length > 0 ? (
         <div>
           <div className='personal-info-container'>
-            <h3>Email: {otherProfile.privacy.email ? otherProfile.email : 'not listed'}</h3>
-            <h3>Industry: {otherProfile.industry ? otherProfile.industry : 'N/A'}</h3>
-            <h3>Major: {otherProfile.major ? otherProfile.major : 'N/A'}</h3>
+            <p><strong>Email: </strong>{otherProfile.privacy.email ? otherProfile.email : 'not listed'}</p>
+            <p><strong>Industry: </strong>{otherProfile.industry ? otherProfile.industry : 'N/A'}</p>
+            <p><strong>Major: </strong>{otherProfile.major ? otherProfile.major : 'N/A'}</p>
           </div>
-          <div className='category-title'> Experiences: </div>
+          {/* <div className='category-title'> Experiences: </div> */}
+          <div className='category-title'>
+            {otherProfile.experiences && otherProfile.experiences.length > 0 && 'Experiences:'}
+          </div>
           { otherProfile.experiences.map((row, index) => {
             return (
               <div key={index} className='experience-container'>
@@ -72,9 +75,9 @@ const OtherProfile = () => {
 
               </div> //outermost of exeperience-container
             )}) }
-          <div className='category-title'>Internships:</div>
           { otherProfile.privacy.list ? (
             <>
+            <div className='category-title'>Current Internship Applications:</div>
               <div className='profile-table-spacing'> 
                 <div className='table-container'>
                 <table>

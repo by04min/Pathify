@@ -182,7 +182,7 @@ const EditProfile = () => {
                
               </div>
             )} 
-          ) : (<div>N/A</div>) }
+          ) : (<div>No experiences to edit.</div>) }
           {
           empty ? (<h5 className="editProf-error-message">Do not leave rows empty</h5>) : dateError ? (<h5 className="editProf-error-message">{dateError}</h5>) : (<></>)
           }

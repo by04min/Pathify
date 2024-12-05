@@ -131,12 +131,31 @@ const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
                 </button>
                 {showListPreview && (
                   <div className="preview-box">
-                    <h5>Current Internship Applications:</h5>
-                    <ul>
-                      <li>ABC Internship Position, at XYZ Inc</li>
-                      <li>ABC Summer Internship, at XYZ Ltd</li>
-                      <li>ABC Position Application, at XYZ</li>
-                    </ul>
+                    <div className='preview-category-title'>Current Internship Applications:</div>
+                    <div className="table-container">
+                    <table>
+                      <thead>
+                        <tr>
+                          <th>Company</th>
+                          <th>Position</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>ABC Inc</td>
+                          <td>XYZ Position</td>
+                        </tr>
+                        <tr>
+                          <td>DEF Ltd</td>
+                          <td>XYZ Intern</td>
+                        </tr>
+                        <tr>
+                          <td>GHI and Co</td>
+                          <td>XYZ Manager</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
                   </div>
                 )}
               </div>

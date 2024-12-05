@@ -11,6 +11,7 @@
     display: grid;
     grid-template-rows: auto auto auto;
     font-size: 20px;
+    gap: 5px;
     font-family: sans-serif;
     margin-left: 30px;
     margin-bottom: 30px;
