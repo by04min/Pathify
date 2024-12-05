@@ -9,12 +9,11 @@ export const SearchResult = ({result}) => {
          onClick={(e) => navigate(`/profile/${result.username}`)}>
             <div className="user-info">
                 <div className="user-details">
-                    <img src="https://via.placeholder.com/150" alt="User Picture" className="user-picture" />
                     <div className="user-specific">
-                        <h1>Name: {result.username}</h1>
-                        {result.privacy.email ? (<h2>Email: {result.email}</h2>) : (null)}
-                        <h3>Major: {result.major}</h3>                         
-                        <h3>Industry: {result.industry}</h3>  
+                        <h1>{result.username}</h1>
+                        {result.privacy.email ? (<p><strong>Email:</strong> {result.email}</p>) : (null)}
+                        <p><strong>Major:</strong> {result.major}</p>                         
+                        <p><strong>Industry:</strong> {result.industry}</p>  
                     </div> 
                 </div>
             </div>
