@@ -26,7 +26,7 @@ const Profile = () => {
         </div>
         <hr className="prof-divider" />
         <h2 className="experience-title">Experiences: </h2>
-          {profile.experiences.length === 0 ? (
+          {!profile.experiences || profile.experiences.length === 0  ? (
             <p className="no-info-default">Add experiences here...</p>
           ) : (
             profile.experiences.map((row, index) => {
