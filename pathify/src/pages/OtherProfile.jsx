@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { searchOther } from '../services/profileServices.js';
+import { useNavigate } from 'react-router-dom';
 import { getOtherSheet } from '../services/sheetServices.js';
 import "./Profile.css"
 import "./OtherProfile.css"
@@ -12,6 +13,7 @@ const OtherProfile = () => {
   const [otherProfile, setOtherProfile] = useState({});
   const [spreadsheet, setSpreadsheet] = useState([]);
 
+  const navigate = useNavigate();
   const formatDate = (date) => {
     const [year, month, day] = date.split('-');
     return (`${month}/${day}/${year}`);
@@ -28,6 +30,8 @@ const OtherProfile = () => {
   useEffect(() => {
     populateData();
   }, [])
+
+  const handleBack = () => { navigate('/connection'); }
 
   return (
     <div>
@@ -104,6 +108,7 @@ const OtherProfile = () => {
           }
         </div>
       ) : (<div> Loading... </div>)}
+      <button className='back-to-connect' onClick={handleBack}>Back</button>
     </div>);
 };
 

@@ -66,5 +66,18 @@
 
 .profile-table-spacing{
     margin-top: 2%;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
+}
+
+.back-to-connect {
+    border-radius: 25px;
+    background: darkgrey;
+    transition: background-color 0.3s ease;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.back-to-connect:hover{
+  background-color: green;
+  color: white;
 }
