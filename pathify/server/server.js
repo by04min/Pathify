@@ -12,7 +12,7 @@ import profileRoutes from './routes/profileRoutes.js';
 import searchRoutes from './routes/searchRoutes.js';
 
 const app = express();
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173/';
 const port = 8080;
 dotenv.config();
 

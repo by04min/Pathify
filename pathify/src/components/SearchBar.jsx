@@ -41,7 +41,11 @@ export const SearchBar = ({setResults}) => {
         );
     }
 
-    const fetchData = async (value) =>{ //to test result display 
+    const fetchData = async (value) =>{ //to test result display
+        if (value.length == 0) {
+            setResults([]);
+            return;
+        } 
         const data = await querySearch(selectedStatus, value);
         console.log('search data is: ', data);
         setResults(data);
