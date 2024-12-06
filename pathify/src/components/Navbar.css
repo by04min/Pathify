@@ -64,7 +64,7 @@
 }
 
 .navbar-dropdown-button:hover {
-    background-color: rgb(216, 194, 121);
+    background-color: black;
     color: white;
 }
 
@@ -90,8 +90,8 @@
 }
 
 .navbar-dropdown-content a:hover {
-    background-color: rgb(216, 194, 121);
-    color: white;
+    background-color: lightgrey;
+    color: black;
     transition: background-color 0.3s ease;
 }
 
@@ -112,12 +112,12 @@
 }
 
 .navbar-dropdown-logout:hover {
-    background-color: rgb(216, 194, 121);
-    color: white;
+    background-color: lightgrey;
+    color: black;
     border-radius: 25px;
 }
 
-/* CSS for notifications button */
+/* CSS for conections button */
 .navbar-notif-button {
     display: inline-block; 
     width: 40px;           
@@ -136,6 +136,6 @@
 
 /* this is for the connections button!! */
 .navbar-notif-button:hover{
-    background-color: rgb(216, 194, 121);
+    background-color: black;
     color: white;
 }
