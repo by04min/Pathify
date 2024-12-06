@@ -64,7 +64,7 @@ input:focus{
 }
 
 .search-dropdown-item:hover {
-    background-color: green;
-    color: white;
+    background-color: lightgrey;
+    color: black;
     border-radius: 25px;
 }
