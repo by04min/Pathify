@@ -11,7 +11,16 @@ export const SearchResult = ({result}) => {
                 <div className="user-details">
                     <div className="user-specific">
                         <h1>{result.username}</h1>
-                        {result.privacy.email ? (<p><strong>Email:</strong> {result.email}</p>) : (null)}
+                        <p>
+                            <strong>Email: </strong>
+                            {result.privacy.email ? (
+                                <a href={`mailto:${result.email}`} className='email-link'>
+                                    {result.email}
+                                </a>
+                            ) : (
+                                'not listed'
+                            )}
+                        </p>
                         <p><strong>Major:</strong> {result.major}</p>                         
                         <p><strong>Industry:</strong> {result.industry}</p>  
                     </div> 

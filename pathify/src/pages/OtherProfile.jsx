@@ -39,7 +39,16 @@ const OtherProfile = () => {
       {Object.keys(otherProfile).length > 0 ? (
         <div>
           <div className='personal-info-container'>
-            <p><strong>Email: </strong>{otherProfile.privacy.email ? otherProfile.email : 'not listed'}</p>
+            <p>
+              <strong>Email: </strong>
+              {otherProfile.privacy.email ? (
+                <a href={`mailto:${otherProfile.email}`} className='email-link'>
+                  {otherProfile.email}
+                </a>
+              ) : (
+                'not listed'
+              )}
+            </p>
             <p><strong>Industry: </strong>{otherProfile.industry ? otherProfile.industry : 'N/A'}</p>
             <p><strong>Major: </strong>{otherProfile.major ? otherProfile.major : 'N/A'}</p>
           </div>
