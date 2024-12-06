@@ -48,31 +48,32 @@ const EditProfile = () => {
     const minStartDate = new Date('1950-01-01');
     const currentDate = new Date();
     const maxEndDate = new Date();
-    maxEndDate.setFullYear(currentDate.getFullYear() + 10);
+    if (experiences && experiences.length != 0) {
+      maxEndDate.setFullYear(currentDate.getFullYear() + 10);
 
-    const invalidDates = experiences.some((experience) => {
-      const startDate = new Date(experience.start);
-      const endDate = new Date(experience.end);
-      
-      if(startDate > endDate){
-        setDateError("End date must be later than the start date.");
-        return true;
-      } else if (startDate < minStartDate){
-        setDateError("Start date must be later than 01/01/1950.");
-        return true;
-      } else if (endDate > maxEndDate){
-        setDateError("End date must be no later than 10 years from the current date.");
-        return true;
-      } else if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())){
-        setDateError("Not a valid start or end date (MM/DD/YYYY).");
-        return true;
+      const invalidDates = experiences.some((experience) => {
+        const startDate = new Date(experience.start);
+        const endDate = new Date(experience.end);
+        
+        if(startDate > endDate){
+          setDateError("End date must be later than the start date.");
+          return true;
+        } else if (startDate < minStartDate){
+          setDateError("Start date must be later than 01/01/1950.");
+          return true;
+        } else if (endDate > maxEndDate){
+          setDateError("End date must be no later than 10 years from the current date.");
+          return true;
+        } else if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())){
+          setDateError("Not a valid start or end date (MM/DD/YYYY).");
+          return true;
+        }
+      });
+
+      if (invalidDates) {
+        return;
       }
-    });
-
-    if (invalidDates) {
-      return;
     }
-
     console.log('Submitting data:', { username, major, industry, experiences });
     const updatedExperiences = experiences.filter((_, index) => !invisible.has(index));
     const updatedProfile = { ...profile, username, major, industry, experiences: updatedExperiences };
