@@ -75,7 +75,7 @@ const EditProfile = () => {
       }
     }
     console.log('Submitting data:', { username, major, industry, experiences });
-    const updatedExperiences = experiences.filter((_, index) => !invisible.has(index));
+    const updatedExperiences = (experiences && experiences.length !== 0) ? experiences.filter((_, index) => !invisible.has(index)) : [];
     const updatedProfile = { ...profile, username, major, industry, experiences: updatedExperiences };
     await editProfile(username, major, industry, updatedExperiences, profile.privacy); 
     await setProfile(updatedProfile);
