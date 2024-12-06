@@ -115,7 +115,7 @@ export function DecisionDropdown({ initialStatus, tableid }) {
                 <div ref={dropdownRef} className="home-dropdown-content">
                     <div className="home-dropdown-item" onClick={() => handleSelect("Pending")}>Pending</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Rejected")}>Rejected</div>
-                    <div className="home-dropdown-item" onClick={() => handleSelect("Received Offer")}>Receive Offer</div>
+                    <div className="home-dropdown-item" onClick={() => handleSelect("Received Offer")}>Received Offer</div>
                     <div className="home-dropdown-item" onClick={() => handleSelect("Offer Accepted")}>Offer Accepted</div>
                 </div>
             )}
