@@ -9,7 +9,7 @@
     font-weight: bold;
     font-size: 30px;
     justify-content:center;
-    margin-top: 20px;
+    margin-top: 2px;
 }
 
 /* Enables scrolling as more jobs are being added*/
@@ -28,8 +28,8 @@
 }
 
 .table-container th{
-    background-color:rgba(197, 214, 232, 0.753);
-    color: black;
+    background-color:rgb(121, 143, 216);
+    color: white;
 }
 
 .table-container tr{
@@ -49,7 +49,8 @@
 }
 
 .login-button{
-    background-color: darkgrey;
+    background-color: grey;
+    color: white;
     font-size: 20px;
     padding-top: 10px;
     border-radius: 25px;
@@ -57,8 +58,8 @@
 }
 
 .login-button:hover{
-    background-color: green;
-    color: white;
+    background-color: darkgrey;
+    color: black;
 }
 
 .big-home-container h1{
@@ -90,16 +91,16 @@
     padding-top: 5px;
     font-style: italic;
     color: rgb(91, 88, 88);
+    padding-top: 25px;
     padding-bottom: 10px;
     font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 .default-welcome p {
-    font-size: 25px;
-    padding-top: 5px;
-    padding-bottom: 10px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 22px;
+    padding-top: 20px;
+    padding-bottom: 36px;
 }
 
 .typing-animation {
@@ -160,7 +161,7 @@
 
 .home-form-buttons{
     margin-top: 15px;
-    background-color: #6ba4b9;
+    background-color: grey;
     margin-right: 10px;
     color:white;
     font-family: sans-serif;
@@ -171,8 +172,8 @@
 
 
 .home-form-buttons:hover{
-    background-color:  #757575;
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .home-form-label{
@@ -206,7 +207,7 @@
 
 .home-sort-date{
     font-family: sans-serif;
-    background-color: #757575;
+    background-color: grey;
     color: white;
     margin-bottom: 25px;
     border-radius: 25px;
@@ -216,13 +217,13 @@
 }
 
 .home-sort-date:hover{
-    background-color:  rgb(117, 153, 167);
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .add-internship{
     font-family: sans-serif;
-    background-color:  #757575;
+    background-color: grey;
     color: white;
     margin-bottom: 25px;
     border-radius: 25px;
@@ -232,8 +233,8 @@
 }
 
 .add-internship:hover{
-    background-color: rgb(117, 153, 167);
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .form-error-message{
@@ -242,10 +243,9 @@
 }
 
 .delete-internship{
-    color: black;
-    background-color: darkgrey;
-    width: 20px; 
-    height: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 30px; 
+    height: 30px;
     border-radius: 50%; 
     display: inline-flex; 
     align-items: center; 
@@ -253,12 +253,6 @@
     font-size: 12px; 
     cursor: pointer; 
     border: none; 
-    transition: background-color 0.3s ease;
     vertical-align: middle;
     margin-right: 3px;
-}
-
-.delete-internship:hover{
-    background-color: darkred;
-    color: white;
 }

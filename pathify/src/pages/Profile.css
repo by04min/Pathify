@@ -30,8 +30,8 @@
   
 .edit-profile,
 .add-experience {
-    background-color: darkgrey;
-    color: black;
+    background-color: grey;
+    color: white;
     padding: 10px 20px;
     border-radius: 25px;
     height: 40px; 
@@ -51,8 +51,8 @@
 
 .edit-profile:hover,
 .add-experience:hover{
-    background-color: green;
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .profile-loading{

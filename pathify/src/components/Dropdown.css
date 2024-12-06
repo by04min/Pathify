@@ -7,7 +7,7 @@
 
 .home-dropdown-btn {
     padding: 8px 16px;
-    background-color: #6ba4b9;
+    background-color: grey;
     color: white;
     border: none;
     cursor: pointer;
@@ -17,14 +17,14 @@
 }
 
 .home-dropdown-btn:hover {
-    background-color: green;
+    background-color: grey;
     color: white;
 }
 
 .home-dropdown-content {
     position: absolute;
     top: 120%;
-    background-color: darkgrey;
+    background-color: lightgray;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -37,7 +37,7 @@
 }
 
 .home-dropdown-item:hover {
-    background-color: green;
-    color: white;
+    background-color: darkgrey;
+    color: black;
     border-radius: 25px;
 }

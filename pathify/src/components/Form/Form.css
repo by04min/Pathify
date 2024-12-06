@@ -13,7 +13,7 @@
     height: 600px;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
 }
@@ -55,20 +55,20 @@
 }
 
 .form-container .footer button.completed {
-    background-color: green;
+    background-color: rgb(121, 143, 216);
     color: white;
     border: none;
 }
 
 .form-container .footer button.incomplete {
-    background-color: darkgrey;
-    color: black;
+    background-color: grey;
+    color: white;
     border: none;
 }
 
 .form-container .footer button.incomplete:hover {
-    background-color: green;
-    color: white;
+    background-color: lightgrey;
+    color: black;
     border: none;
 }
   
@@ -138,7 +138,7 @@
 }
 
 .submit-section button.submit-active {
-    background-color: green;
+    background-color: grey;
     color: white;
     border: none;
     cursor: pointer;
@@ -150,9 +150,15 @@
     border: none;
 }
 
-.submit-section button.submit-inactive {
-    background-color: darkgrey;
+.submit-section button.submit-active:hover {
+    background-color: lightgrey;
     color: black;
+    border: none;
+}
+
+.submit-section button.submit-inactive {
+    background-color: grey;
+    color: white;
     cursor: not-allowed;
     height: 44px;
     padding: 0px 20px;
@@ -163,14 +169,14 @@
 }
 
 .submit-section button.submit-inactive:hover {
-    background-color: darkred;
+    background-color: red;
     color: white;
     border: none;
 }
 
 .cancel-button {
-    background-color: darkgrey;
-    color: black;
+    background-color: grey;
+    color: white;
     border: none;
     cursor: pointer;
     height: 44px;
@@ -182,8 +188,8 @@
 }
 
 .cancel-button:hover {
-    background-color: green;
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .form-title{

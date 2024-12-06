@@ -41,7 +41,7 @@ const Navbar = ({ navColor }) => {
 
     return (
         // receives user-specified background color (from Settings page), or default
-        <div style={{ background: navColor }}className='navbar'>
+        <div style={{ background: navColor || 'rgb(121, 143, 216)'}} className='navbar'>
             <div className='nav-links'>
                 <Link to='/'>
                     <h1>Pathify</h1> 
@@ -67,7 +67,7 @@ const Navbar = ({ navColor }) => {
                         onClick={toggleDropdown}
                     >
                         {/* the dropdown button's design changes based on whether it is open or not */}
-                        {dropdownOpen ? '↑' : '↓'}
+                        {dropdownOpen ? '⬆️' : '⚙️'}
                     </button>
 
                 {dropdownOpen && (

@@ -2,10 +2,9 @@ import React, { useState, useEffect, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { SketchPicker } from 'react-color';
 
-
 import { AuthContext } from '../components/AuthContext.jsx';
 import { editProfile } from '../services/profileServices.js';
-import "../components/Settings.css"
+import "./Settings.css"
 
 const Settings = ({ toggleTheme, navColor, updateNavColor, resetNavColor }) => {
   const { profile, setProfile, loading } = useContext(AuthContext);
