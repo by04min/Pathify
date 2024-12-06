@@ -64,7 +64,7 @@
 }
 
 .navbar-dropdown-button:hover {
-    background-color: green;
+    background-color: rgb(216, 194, 121);
     color: white;
 }
 
@@ -74,14 +74,14 @@
     position: absolute;
     top: 140%;
     right: 0;
-    background-color: darkgrey;
+    background-color: grey;
     z-index: 1;
     min-width: 175px;
     border-radius: 25px;
 }
 
 .navbar-dropdown-content a {
-    color: black;
+    color: white;
     padding: 10px;
     text-decoration: none;
     display: block;
@@ -90,16 +90,16 @@
 }
 
 .navbar-dropdown-content a:hover {
-    background-color: green;
+    background-color: rgb(216, 194, 121);
     color: white;
     transition: background-color 0.3s ease;
 }
 
 .navbar-dropdown-logout {
     display: flex;
-    background-color: darkgrey;
+    background-color: grey;
     border: none;
-    color: black;
+    color: white;
     cursor: pointer;
     font-size: 14px;
     display: block;
@@ -112,7 +112,7 @@
 }
 
 .navbar-dropdown-logout:hover {
-    background-color: green;
+    background-color: rgb(216, 194, 121);
     color: white;
     border-radius: 25px;
 }
@@ -134,7 +134,8 @@
     transition: background-color 0.3s ease;
 }
 
+/* this is for the connections button!! */
 .navbar-notif-button:hover{
-    background-color: green;
+    background-color: rgb(216, 194, 121);
     color: white;
 }

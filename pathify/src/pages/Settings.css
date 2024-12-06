@@ -21,7 +21,7 @@
 /* CSS for line on UI */
 hr.line {
   border: 0;
-  border-top: 1px solid darkgray;
+  border-top: 1px solid grey;
   margin-top: 15px;
   margin-bottom: 20px;
 }
@@ -50,10 +50,6 @@ hr.line.toggled {
     cursor: pointer;
     color: #333;
   }
-  
-.sidebar li:hover {
-    color: green;
-  }
 
 .settings-content {
     flex: 1;
@@ -76,7 +72,7 @@ hr.line.toggled {
 }
 
 .toggle-slider {
-  background-color: darkgrey;
+  background-color: grey;
   padding: 15px 30px;
   border-radius: 25px;
   width: 50px;
@@ -100,7 +96,7 @@ hr.line.toggled {
 }
 
 .toggle-slider.toggled {
-  background-color: green;
+  background-color: rgb(121, 143, 216);
 }
 
 .toggle-slider.toggled .thumb{
@@ -109,8 +105,8 @@ hr.line.toggled {
 
 /* CSS for default navigation bar color button */
 .default-nav {
-  background-color: darkgrey;
-  color: black;
+  background-color: grey;
+  color: white;
   padding: 10px 20px;
   border-radius: 25px;
   width: auto; 
@@ -124,8 +120,8 @@ hr.line.toggled {
 }
 
 .default-nav.toggled {
-  background-color: darkgrey;
-  color: white;
+  background-color: lightgrey;
+  color: black;
   padding: 10px 20px;
   border-radius: 25px;
   width: auto; 
@@ -139,8 +135,8 @@ hr.line.toggled {
 }
 
 .default-nav:hover {
-  background-color: green; 
-  color: white;
+  background-color: lightgrey; 
+  color: black;
 }
 
 .react-color .sketch-picker .hue {
@@ -201,21 +197,11 @@ html.dark .priv-description-col p {
 html.dark .preview-link {
   background: none;
   border: none;
-  color: lightblue; 
+  color: rgb(170, 170, 255); 
   text-decoration: underline;
   font-size: 14px; 
   cursor: pointer;
   padding: 0;
-}
-
-.preview-link:hover {
-  color: green;
-  text-decoration: none; 
-}
-
-html.dark .preview-link:hover{
-  color: green;
-  text-decoration: none;
 }
 
 .preview-box {
@@ -233,14 +219,15 @@ html.dark .preview-link:hover{
 
 .setting-save-priv{
   border-radius: 25px;
-  background: darkgrey;
+  background: grey;
+  color: white;
   transition: background-color 0.3s ease;
   border: none;
 }
 
 .setting-save-priv:hover{
-  background-color: green;
-  color: white;
+  background-color: lightgrey;
+  color: black;
 }
 
 .preview-category-title{

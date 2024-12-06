@@ -24,7 +24,10 @@ input:focus{
 }
 
 #search-icon{
-    color: green;
+    color: black;
+    font-size: 36px;
+    padding-right: 8px;
+    box-sizing: content-box;
 }
 
 .search-dropdown {
@@ -45,15 +48,10 @@ input:focus{
     transition: background-color 0.3s ease;
 }
 
-.search-dropdown-btn:hover {
-    background-color: green;
-    color: white;
-}
-
 .search-dropdown-content {
     position: absolute;
     top: 120%;
-    background-color: darkgrey;
+    background-color: lightgrey;
     min-width: 160px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
     z-index: 1;

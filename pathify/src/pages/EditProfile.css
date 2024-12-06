@@ -1,5 +1,5 @@
 .editProf-form-title{
-    margin-top: 40px;
+    margin-top: 20px;
     font-family: sans-serif;
     font-weight: bold;
     font-size: 30px;
@@ -26,7 +26,7 @@
 .editProf-form-buttons{
     margin-top: 20px;
     margin-bottom: 50px;
-    background-color: #6ba4b9;
+    background-color: grey;
     margin-right: 10px;
     color:white;
     font-family: sans-serif;
@@ -36,8 +36,8 @@
 }
 
 .editProf-form-buttons:hover{
-    background-color: green;
-    color: white;
+    background-color: lightgrey;
+    color: black;
 }
 
 .experience-container{
@@ -64,15 +64,17 @@
 }
 
 .editProf-header-input{
+    height: 40px;
     margin-top: 10px;
     display: block;
     box-sizing: border-box;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     background-color: white;
     border-radius: 3px;
     padding-left: 12px;
-    padding-right: 8px;
+    padding-right: 12px;
     text-align: left;
+    font-size: 14px;
 }
 
 .editProf-form-label{
@@ -87,14 +89,14 @@
     align-items: center;
     margin-left: 8px;
 }
-
 .editProf-form-input{
     display: block;
     width: 100%;
     padding: 12px;
     box-sizing: border-box;
-    border: 2px solid #ddd;
+    border: 1px solid #ddd;
     border-radius: 3px;
+    font-size: 14px;
     margin-bottom: 15px;
     background-color: white;
 }
@@ -110,10 +112,9 @@
 }
 
 .delete-experience{
-    color: black;
-    background-color: darkgrey;
-    width: 20px; 
-    height: 20px;
+    background-color: rgba(0, 0, 0, 0);
+    width: 30px; 
+    height: 30px;
     border-radius: 50%; 
     display: inline-flex; 
     align-items: center; 
@@ -121,14 +122,8 @@
     font-size: 12px; 
     cursor: pointer; 
     border: none; 
-    transition: background-color 0.3s ease;
-    vertical-align: stretch;
-    margin-right: 12px;
-}
-
-.delete-experience:hover{
-    background-color: darkred;
-    color: white;
+    vertical-align: middle;
+    margin-right: 3px;
 }
 
 .editProf-error-message{

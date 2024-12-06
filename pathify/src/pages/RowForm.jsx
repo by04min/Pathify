@@ -47,8 +47,8 @@ const RowForm = () => {
           <input className='home-form-input' type="text"  name="company-name" placeholder="Company Name" 
             onChange={(e) => { setCompany(e.target.value); }} value={company}/>
 
-          <label className='home-form-label' htmlFor='position-title'> Position Title </label>
-          <input className='home-form-input' type="text" name="position-title" placeholder="Position Title" 
+          <label className='home-form-label' htmlFor='position-title'> Position </label>
+          <input className='home-form-input' type="text" name="position-title" placeholder="Position" 
             onChange={(e) => { setPosition(e.target.value); }} value={position}/>
 
           <label className='home-form-label' htmlFor='application-deadline'> Application Deadline </label>

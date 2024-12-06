@@ -71,13 +71,14 @@
 
 .back-to-connect {
     border-radius: 25px;
-    background: darkgrey;
+    background: grey;
+    color: white;
     transition: background-color 0.3s ease;
     border: none;
     margin-bottom: 30px;
 }
 
 .back-to-connect:hover{
-  background-color: green;
-  color: white;
+  background-color: lightgrey;
+  color: black;
 }

@@ -88,7 +88,7 @@ const EditProfile = () => {
         setInvisible(prevSet => new Set(prevSet.add(index)));
       }
     }
-    return(<button className="delete-experience" onClick={()=> handleClick()}>X</button>);
+    return(<button className="delete-experience" onClick={()=> handleClick()}>❌</button>);
   }
 
   return (
@@ -98,7 +98,7 @@ const EditProfile = () => {
       <h3 className="editProf-form-title"> Edit Profile Page </h3>
       <div className='editProf-form-container'>
         <form className='editProf-form' onSubmit={handleSubmit}>
-          <label className='editProf-form-label' htmlFor='company-name'> Username </label>
+          <label className='editProf-form-label' htmlFor='company-name'> Name </label>
           <input className='editProf-form-input' type="text"  name="company-name" 
             onChange={(e) => { setUsername(e.target.value); }} value={username}/>
 

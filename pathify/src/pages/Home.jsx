@@ -36,7 +36,7 @@ function Home() {
         deleteRow(tableid);
       }
     }
-    return(<button onClick={()=> handleClick()} className={className}>X</button>);
+    return(<button onClick={()=> handleClick()} className={className}>❌</button>);
   }
 
    const sortByDate = () => {
@@ -50,7 +50,6 @@ function Home() {
           <div className={"default-welcome"}>
               <h1 className={showDefStatic ? "static-default" : "typing-animation"}>Welcome to Pathify</h1>
               <h2>Your home for internship tracking and networking</h2>
-              
               <p>Sign in with your UCLA e-mail to begin your journey.</p>
               <button onClick={() => window.location.href = 'http://localhost:8080/auth/oauth'} className="login-button">
                 Sign In
@@ -71,9 +70,9 @@ function Home() {
                   {/* Main Header Row */}
                   <tr> 
                     <th> Company </th>
-                    <th> Position Title </th>
+                    <th> Position </th>
                     <th> Application Deadline </th>
-                    <th> Status </th>
+                    <th> Application Status </th>
                     <th> Interview </th>
                     <th> Decision </th>
                   </tr>
@@ -102,7 +101,5 @@ function Home() {
       </div>
     );
   }
-  
-        
+
 export default Home;
-   
