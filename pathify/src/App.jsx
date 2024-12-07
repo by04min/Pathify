@@ -1,14 +1,12 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import {AuthProvider} from './components/AuthContext.jsx'
-import React from 'react'
+import 'react'
 import './App.css'
 
 import Navbar from './components/Navbar.jsx'
 import Home from './pages/Home.jsx'
 import RowForm from './pages/RowForm.jsx';
-import Notification from './pages/Notifications.jsx'
-import Login from './pages/Login.jsx'
 import AuthCallback from './components/AuthCallback.jsx'
 import Profile from './pages/Profile.jsx'
 import EditProfile from './pages/EditProfile.jsx'
@@ -68,8 +66,6 @@ function App() {
           <Routes>
             <Route path="/" element={<Home/>}/>
             <Route path="/newform" element={<RowForm/>}/>
-            <Route path="/Notification" element={<Notification/>}/>
-            <Route path="/login" element={<Login/>}/>
             <Route path="/profile" element={<Profile />}/>
             <Route path="/edit-profile" element={<EditProfile/>}/>
             <Route path="/auth/callback" element={<AuthCallback/>}/>

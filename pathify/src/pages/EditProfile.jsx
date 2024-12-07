@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../components/AuthContext.jsx'
 import { editProfile } from '../services/profileServices.js';
@@ -6,7 +6,7 @@ import './EditProfile.css'
 
 const EditProfile = () => {
   const navigate = useNavigate();
-  const { user, profile, setProfile, loading } = useContext(AuthContext);
+  const { profile, setProfile, loading } = useContext(AuthContext);
 
   const [invisible, setInvisible] = useState(new Set());
   const [username, setUsername] = useState('');
@@ -19,7 +19,6 @@ const EditProfile = () => {
   const [dateError, setDateError] = useState(null);
 
   const populateData = async () => {
-    console.log('populating data: ', profile);
     if (profile) {
       setUsername(profile.username);
       setMajor(profile.major);
@@ -28,10 +27,8 @@ const EditProfile = () => {
     }
   }
   useEffect(() => {
-    console.log('edit profile is: ', profile);
-    if (!loading && profile) {
+    if (!loading && profile)
       populateData();
-    }
   }, [loading, profile]);
 
   const handleCancel = () => { navigate('/profile'); }
@@ -74,7 +71,6 @@ const EditProfile = () => {
         return;
       }
     }
-    console.log('Submitting data:', { username, major, industry, experiences });
     const updatedExperiences = (experiences && experiences.length !== 0) ? experiences.filter((_, index) => !invisible.has(index)) : [];
     const updatedProfile = { ...profile, username, major, industry, experiences: updatedExperiences };
     await editProfile(username, major, industry, updatedExperiences, profile.privacy); 

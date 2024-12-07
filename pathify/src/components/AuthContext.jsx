@@ -15,14 +15,16 @@ export const AuthProvider = ({ children })=> {
   const navigate = useNavigate();
 
   useEffect(() => {
-    console.log('calling')
+    console.log('authenticating')
     const token = localStorage.getItem('token');
+    //verifying jwt token
     if (token) {
       fetch('http://localhost:8080/auth/verify-token' , {
         credentials : 'include'
       })
       .then((data) => data.json())
       .then((data) => { if (data.success) setUser(data.user); })
+      //populate profile state if user is valid
       .then(() => getProfile())
       .then((data) => { setProfile(data[0]); })
       .catch((err) => { navigate('/'); console.log('Token verification failed: ', err); })

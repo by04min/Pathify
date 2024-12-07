@@ -4,6 +4,7 @@ dotenv.config();
 
 const { Pool } = pg;
 
+//connection to supabase postgres uri
 const pool = new Pool({connectionString: process.env.PG_URI});
 
 export default {

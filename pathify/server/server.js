@@ -1,5 +1,4 @@
 import express from 'express';
-// import path from 'path';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import cookieParser from 'cookie-parser';
@@ -26,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(express.urlencoded({extended: true}));
 
+//routes to middlewarre
 app.use('/auth', authRoutes);
 app.use('/sheets', sheetRoutes);
 app.use('/profile', profileRoutes);
@@ -34,7 +34,6 @@ app.use('/search', searchRoutes);
 app.use((req, res) =>
   res.status(404).send("This is not the page you're looking for...")
 );
-  
 
 app.use((err, req, res, next) => {
   const defaultErr = {
@@ -43,7 +42,7 @@ app.use((err, req, res, next) => {
     message: { err: 'An error occurred' },
   };
   const errorObj = Object.assign({}, defaultErr, err);
-  console.log(errorObj.log);
+  console.log(errorObj.message);
   return res.status(errorObj.status).json(errorObj.message);
 });
 

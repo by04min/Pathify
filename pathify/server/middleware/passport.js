@@ -20,12 +20,11 @@ passport.use( new GoogleStrategy(
       
       let user;
       if (userList.rows.length == 0) {
+        //if user is not found in the pool, create a new user and profile, populating baseline information using data provided by google oauth
         const newUser = await pool.query('INSERT INTO "userTable" ("googleId", email, username) VALUES ($1, $2, $3) RETURNING *', [`${googleId}`, email, username]);
-        const newProfile = await pool.query('INSERT INTO profiles (email, privacy, username) VALUES ($1, $2, $3) RETURNING *', [email, {email: false, list: false}, username])
-        console.log('new profile is: ', newProfile);
+        await pool.query('INSERT INTO profiles (email, privacy, username) VALUES ($1, $2, $3) RETURNING *', [email, {email: false, list: false}, username]);
         user = newUser.rows[0];
       } else { user = userList.rows[0]; }
-      console.log('user is : ', user);
       return done(null, user);
     } catch (err) { return done(err); }
   }

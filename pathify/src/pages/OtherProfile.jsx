@@ -1,4 +1,4 @@
-import React from 'react';
+import 'react';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
@@ -22,7 +22,6 @@ const OtherProfile = () => {
   const populateData = async () => {
     const data = await searchOther(username);
     const sheet = await getOtherSheet(data[0].email);
-    console.log('other profile is: ', data[0], 'spreadsheet is: ', sheet);
     await setOtherProfile(data[0]);
     await setSpreadsheet(sheet);
   }
@@ -102,7 +101,6 @@ const OtherProfile = () => {
                   </thead>
                   <tbody>
                     {(spreadsheet.map((row, index) => {
-                      console.log('row is: ', row);
                       return (
                         <tr key={index}>
                           <td>{row.company}</td>

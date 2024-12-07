@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { updateSheet } from '../services/sheetServices';
 
 const DateSelector = ({initialDate, tableid}) => {
@@ -6,7 +6,6 @@ const DateSelector = ({initialDate, tableid}) => {
 
   const handleChange = (event) => {
     const date = event.target.value;
-    console.log(event.target.value);
     updateSheet('deadline', date, tableid);
     setSelectedDate(date);
   };

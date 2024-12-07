@@ -7,28 +7,29 @@ const sheetQuery = async (qstring, values) => {
   return result;
 }
 
+//get all rows in spreadsheet that matches the user's id
 sheetController.getRows = async (req, res, next) => {
   const userId = res.locals.ret.user.id;
   const queryString = `SELECT * FROM spreadsheet WHERE userid = $1`;
   try {
-    const data = await sheetQuery(queryString, [userId]);    
-    console.log('get complete', data.rows);
+    const data = await sheetQuery(queryString, [userId]); 
     res.locals.sheetData = data.rows;
     return next();
   } catch (err) { return next(err); }
 }
 
+//get all rows from a specific user email
 sheetController.getOtherRows = async (req, res, next) => {
   const { email } = req.body;
   const queryString = `SELECT * FROM spreadsheet s JOIN "userTable" u ON s.userid = u.id WHERE u.email = $1`;
   try {
     const data = await sheetQuery(queryString, [email]);
-    console.log('get other complete', data.rows);
     res.locals.otherSheetData = data.rows;
     return next();
   } catch (err) { return next(err); }
 }
 
+//add a new spreadsheet row associated with user's id
 sheetController.addRow = async (req, res, next) => {
   const { company, position, deadline, } = req.body;
   const userId = res.locals.ret.user.id;
@@ -38,28 +39,26 @@ sheetController.addRow = async (req, res, next) => {
 
   try {
     const data = await sheetQuery(queryString, values);  
-    console.log('add complete', data);
     res.locals.sheetAdd = data;
     return next();
   } catch (err) { return next(err); }
 }
 
+//change an item in a specific spreadsheet row
 sheetController.updateItem = async (req, res, next) => {
   const { column, update, id } = req.body;
-  console.log('local user is: ', res.locals.ret.user.id);
   const userId = res.locals.ret.user.id;
-  console.log(column, update, id, userId);
   const queryString = `UPDATE spreadsheet SET ${column} = $1 WHERE (id = $2 AND userid = $3)`;
   const values = [update, id, userId];
   
   try {
-    const data = await sheetQuery(queryString, values);  
-    console.log('update complete', data);
+    const data = await sheetQuery(queryString, values); 
     res.locals.sheetUpdate = data;
     return next();
   } catch (err) { return next(err); }
 }
 
+//delete a row on the spreadsheet
 sheetController.deleteRow = async (req, res, next) => {
   const { id } = req.body;
   const userId = res.locals.ret.user.id;
@@ -68,7 +67,6 @@ sheetController.deleteRow = async (req, res, next) => {
 
   try {
     const data = await sheetQuery(queryString, [id, userId]);  
-    console.log('delete complete', data);
     res.locals.sheetDelete = data;
     return next();
   } catch (err) { return next(err); }

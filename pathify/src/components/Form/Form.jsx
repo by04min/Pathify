@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../../components/AuthContext'
@@ -99,7 +99,6 @@ function Form() {
 
   const handleSubmit = async () => {
     if (isFormComplete) {
-      console.log("Form submitted!", { roleInfo, roleDescription, reflection });
       const expObj = {
         company: roleInfo.companyName,
         job: roleInfo.jobTitle,
@@ -109,10 +108,9 @@ function Form() {
         reflection: reflection
       }
 
-      const exp = await addNewExp(expObj);
+      await addNewExp(expObj);
       const updatedProfile = { ...profile, experiences: [...profile.experiences, expObj] };
       await setProfile(updatedProfile);
-      console.log(exp);
       navigate('/profile');
     }
   };

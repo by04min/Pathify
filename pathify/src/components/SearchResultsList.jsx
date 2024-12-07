@@ -1,4 +1,4 @@
-import React from "react";
+import "react";
 import "./SearchResultsList.css";
 import { SearchResult } from "./SearchResult";
 

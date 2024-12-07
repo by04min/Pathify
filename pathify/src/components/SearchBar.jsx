@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import {FaSearch} from 'react-icons/fa';
 import { querySearch } from '../services/profileServices';
 import "./SearchBar.css";
@@ -41,13 +41,12 @@ export const SearchBar = ({setResults}) => {
         );
     }
 
-    const fetchData = async (value) =>{ //to test result display
+    const fetchData = async (value) =>{
         if (value.length == 0) {
             setResults([]);
             return;
         } 
         const data = await querySearch(selectedStatus, value);
-        console.log('search data is: ', data);
         setResults(data);
     }
     

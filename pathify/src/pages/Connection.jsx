@@ -1,13 +1,10 @@
-import React, { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import {AuthContext} from '../components/AuthContext.jsx';
 import './Connection.css';
-import pool from '../../server/db.js';
 import { SearchBar } from '../components/SearchBar.jsx';
 import { SearchResultsList } from '../components/SearchResultsList.jsx';
 
 const Connection = () => {
-    const {user} = useContext(AuthContext);
     const navigate = useNavigate();
     const [results, setResults] = useState([]);
     let optedIn = true; //change to based on user preferences

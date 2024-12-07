@@ -1,6 +1,5 @@
-import { useContext, useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../components/AuthContext.jsx';
 import { addRow } from '../services/sheetServices.js';
 
 const validDate = (deadline) => {
@@ -22,7 +21,6 @@ const RowForm = () => {
     setDateError(null);
 
     event.preventDefault();
-    console.log('event is: ', company, position, deadline);
     if (company == '' || position == '' || deadline == '') {
       setEmpty(true);
       return;

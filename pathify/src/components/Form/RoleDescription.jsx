@@ -1,4 +1,4 @@
-import React from "react"
+import "react";
 
 function RoleDescription({ roleDescription, onChange }) {
     return (

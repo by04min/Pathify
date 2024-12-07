@@ -3,9 +3,9 @@ import express from 'express';
 import authController from '../controllers/authController.js';
 import sheetController from '../controllers/sheetController.js';
 
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:5173';
 const router = express.Router();
 
+//get all spreadsheet rows for current user
 router.get('/getRows',
   authController.verify,
   sheetController.getRows,
@@ -14,6 +14,7 @@ router.get('/getRows',
   }
 );
 
+//get all spreadsheet rows for searched user
 router.post('/getOtherRows',
   authController.verify,
   sheetController.getOtherRows,
@@ -22,6 +23,7 @@ router.post('/getOtherRows',
   }
 );
 
+//add new row to the spreadsheet
 router.post('/addRow',
   authController.verify,
   sheetController.addRow,
@@ -30,6 +32,7 @@ router.post('/addRow',
   }
 );
 
+//updating/changing item on specified row
 router.post('/updateItem',
   authController.verify,
   sheetController.updateItem,
@@ -38,6 +41,7 @@ router.post('/updateItem',
   }
 );
 
+//delete a row in the spreadsheet
 router.post('/deleteRow',
   authController.verify,
   sheetController.deleteRow,
