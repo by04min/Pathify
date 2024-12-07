@@ -29,7 +29,7 @@ With most entry-level jobs now preferring or even requiring high-level technical
 ```
    npm install
 ```
-3) Add in all relevant keys to the .env file inside the pathify folder (currently, there are no values assigned)
+3) Add in all relevant keys to the .env file inside the pathify folder (currently, there are no values assigned).
    The PG_URI should be the URI given from the postgres database (we used supabase), and the CLIENT_ID, PROJECT_ID, AUTH_URI, TOKEN_URI, and CLIENT_SECRET should all come from your google oauth client:
 ```
    PG_URI=
